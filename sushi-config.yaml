@@ -1,0 +1,50 @@
+# Documentation à propos de cette page : https://fshschool.org/docs/sushi/configuration/
+
+id: ans.fhir.fr.[code]
+canonical: https://interop.esante.gouv.fr/ig/fhir/[code] # the last part of canonical and id must be the same
+name: ExampleIG # Should be an acronym
+title: ANS IG Example
+publisher:
+  name: Agence du Numérique en Santé (ANS) - 2-10 Rue d'Oradour-sur-Glane, 75015 Paris
+  url: https://esante.gouv.fr
+status: draft
+version: 0.1.0 # shall conforms to Semantic Versioning https://fr.wiktionary.org/wiki/SemVer
+fhirVersion: 4.0.1
+copyrightYear: 2020+
+releaseLabel: ci-build
+jurisdiction: urn:iso:std:iso:3166#FR "FRANCE"
+
+parameters:
+    shownav: 'true'
+
+
+
+pages:
+    index.md:
+        title: Accueil
+    specifications_techniques.md:
+        construction_des_flux.md:
+        st_flux1.md:
+            title: Flux 01
+        st_flux2.md:
+            title: Flux 02
+    autres_ressources.md:
+        title: Autres Ressources
+        securite.md:
+            title: Sécurité
+        downloads.md:
+            title: Téléchargements et usages
+
+menu:
+    Accueil: index.html
+    Description des flux:
+        Construction des flux: construction_des_flux.html
+        Flux 01: st_flux1.html
+        Flux 02: st_flux2.html
+    Ressources de conformité: artifacts.html
+    Autres ressources:
+        Sécurité: securite.html
+        Téléchargements et usage: downloads.html
+        "Spécifications FHIR ": new-tab {{site.data.fhir.path}}index.html
+        "Site de l'ANS ": new-tab https://esante.gouv.fr/
+    Documentation: new-tab https://interop.esante.gouv.fr/ig/documentation/
