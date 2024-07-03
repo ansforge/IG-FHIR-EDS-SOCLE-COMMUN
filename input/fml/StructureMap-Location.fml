@@ -1,0 +1,16 @@
+/// name = 'Location'
+/// title = 'Mapping Patient resource to Location OMOP Domain'
+/// status = 'draft'
+
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient" alias Patient as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location" alias LocationTable as target
+
+group Location(source src: Patient, target tgt : LocationTable) {
+	src.address as srcAddress then {
+		srcAddress.line first as srcLine1 -> tgt.address_1 = srcLine1;
+		srcAddress.line last as srcLine2 -> tgt.address_2 = srcLine2;
+		srcAddress.city as srcCity -> tgt.city = srcCity;
+		srcAddress.postalCode as srcZip -> tgt.zip = srcZip;
+		srcAddress.text as srcText -> tgt.location_source_value = truncate(srcText, 50);
+	};
+}

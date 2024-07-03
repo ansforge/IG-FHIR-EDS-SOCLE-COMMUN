@@ -4,4 +4,4 @@ feedback:
   - active: true
     dashboard:
       label: New Issue
-      url: https://github.com/ansforge/FIG_ans-ig-sample/issues/new
+      url: https://github.com/Admin-Inds/FIG-EDS/issues/new

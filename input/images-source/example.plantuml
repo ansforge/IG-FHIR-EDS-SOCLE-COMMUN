@@ -1,0 +1,14 @@
+@startuml
+skinparam defaultFontName Arial
+
+title Example
+hide footbox
+participant "AP-HP Example Data Receiver" as Receiver
+participant "AP-HP Example Data Sender" as Sender
+
+group Example
+    "Receiver" -> "Sender" : ""GET [base]/metadata""
+    "Sender" --> "Receiver" : réponse HTTP
+end
+
+@enduml

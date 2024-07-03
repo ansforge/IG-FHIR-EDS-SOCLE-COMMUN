@@ -1,0 +1,10 @@
+/// name = 'Death'
+/// title = 'Mapping Patient resource to Death OMOP Domain'
+/// status = 'draft'
+
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient" alias Patient as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death" alias DeathTable as target
+
+group Death(source src: Patient, target tgt: DeathTable) {
+	src.deceased as srcDeceased where deceased.ofType(Datetime) -> tgt.death_datetime = srcDeceased;
+}

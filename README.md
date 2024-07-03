@@ -1,43 +1,41 @@
-[A MODIFIER : remplacer avec votre logo s'il ne s'agit pas d'un projet CI-SIS]
+# Guide d'implémentation FHIR du GT Standards et Interopérabilité
 
-![Logo_LEF_CI-SIS](https://user-images.githubusercontent.com/48218773/227532484-eff82649-4e42-49c6-966a-dc3ea78cf59c.png)
+Ce guide peut être visible à l'adresse suivante : https://ansforge.github.io/IG-FHIR-EDS-SOCLE-COMMUN/ig/main/.
 
-[A MODIFIER : adapter au lien du projet]
+## Contexte
 
-[![Workflow Init](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/actions/workflows/fhir-workflows.yml/badge.svg)](https://github.com/ansforge/IG-fhir-partage-de-documents-de-sante/actions/workflows/fhir-workflows.yml)
+## Construction du guide
 
-Cet exemple d'Implementation Guide (IG) très simplifié sert de base pour le développement de nouveaux guides d'implémentation. La démarche d'élaboration d'un nouvel IG est expliquée dans le [wiki de ce repo](https://github.com/ansforge/IG-modele/wiki).
-Le README ci-dessous constitue un template à adapter et compléter pour chaque projet.
+### prérequis
 
-# Contexte
+#### Git
 
-## Contexte métier du projet
+Avoir un client Git installé sur son poste.
 
-[A COMPLETER : doit contenir la description fonctionnelle du projet destinée à un profil non technique]
+#### Java
 
-## Contexte technique du projet
+Avoir une Java machine virtuelle installée sur son poste (de préférence une version LTS).
 
-[A COMPLETER : doit expliquer brièvement quelles ressources / profils sont utilisés, exemple implémentation où IG est utilisé]
+#### Jekyll
 
-# CI/CD
+Les informations sur l'installation de jekyll se trouve : [https://jekyllrb.com/docs/installation](https://jekyllrb.com/docs/installation).
 
-Les workflows associés à ce repository (.github/workflows) permettent :
+### Tâches Gradle
 
-* D'executer Sushi pour vérifier la grammaire
-* De faire les tests avec le validator_cli
-* De publier les pages : https://ansforge.github.io/{nom du repo}/ig/{nom de la branche}
+Si vous utilisez un environnement de développement tel que VSCode, Eclipse ou IntellIJ, celui-ci aura identifié que ce projet est un projet géré à l'aide de gradle.
 
-# Notes
+Si vous n'utilisez pas un environnement de développement, alors je suis bien ennuyé...
 
-Ce repo "IG-modele" a été créé à partir du repo [sample-ig](https://github.com/FHIR/sample-ig) de l'organisation GitHub FHIR.
+Le fichier gradle.properties contient les numéros de version d'outils participant à la construction d'un guide d'implémentation.
 
-[A COMPLETER: notes supplémentaires pour le lecteur de la spec]
-Un commentaire ? Une remarque ? Utilisez les GitHub [issues](https://docs.github.com/fr/issues) pour indiquer vos propositions d'amélioration et de correction.
+Dans le script gradle se trouve de nombreuses tâches dont les plus importantes à connaître sont :
+
+* buildIG : permettant de constuire le guide d'implémentation. Le premier lancement est plus long car il y a une étape de récupération de l'outil IG Publisher dans la version spécifiée dans le fichier de configuration gradle (gradle.properties) et la création de fichiers de cache.
+* reBuildIG : supprime les répertoires créés lors d'une construction puis lance la construction. Il n'est pas nécessaire de faire appel à cette tâche systèmatiquement (cf. la description de la tâche buildIG). Cette tâche très utile lors d'un changement de version de l'IG Publisher.
+* sushiBuild : lance seuelement l'outil sushi (partique dans un contexte de cycle court de définition de fichiers FSH).
 
 ## Acronymes
 
 * IG : Implementation Guide
 * FHIR : Fast Healthcare Interoperability Resources
 * HL7 : Health Level Seven
-
-[A COMPLETER : acronymes utilisés dans le cadre de ce projet]
