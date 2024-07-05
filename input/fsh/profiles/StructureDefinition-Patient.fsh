@@ -1,7 +1,7 @@
 Profile: Patient
 Parent: FRCorePatientProfile
 Title: "EDS Patient"
-Description: "Profil Patient du socle des EDS"
+Description: "Profil Patient du socle commun des EDS"
 
 * identifier contains
     INS-NIR 0..*
