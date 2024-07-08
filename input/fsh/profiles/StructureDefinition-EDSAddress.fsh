@@ -1,4 +1,4 @@
-Profile: Address
+Profile: EDSAddress
 Parent: FRCoreAddressProfile
 Title: "EDS Address"
 Description: "Profil Address du socle commun des EDS"

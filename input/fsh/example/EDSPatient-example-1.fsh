@@ -1,4 +1,4 @@
 Instance: patient-example-1
-InstanceOf: Patient
+InstanceOf: EDSPatient
 Description: "Exemple de ressource patient"
 Usage: #example

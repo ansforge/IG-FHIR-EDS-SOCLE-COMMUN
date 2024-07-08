@@ -1,4 +1,4 @@
-Profile: Patient
+Profile: EDSPatient
 Parent: FRCorePatientProfile
 Title: "EDS Patient"
 Description: "Profil Patient du socle commun des EDS"
@@ -22,6 +22,6 @@ Description: "Profil Patient du socle commun des EDS"
 * deceased[x] MS
 
 * address MS 
-  * ^type.profile = https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Address
+  * ^type.profile = https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSAddress
 
 * multipleBirth[x] MS
