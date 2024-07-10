@@ -22,6 +22,6 @@ Description: "Profil Patient du socle commun des EDS"
 * deceased[x] MS
 
 * address MS 
-  * ^type.profile = https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSAddress
+* address only EDSAddress
 
 * multipleBirth[x] MS
