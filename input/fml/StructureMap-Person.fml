@@ -2,7 +2,7 @@
 /// title = 'Mapping Patient resource to Person OMOP Domain'
 /// status = 'draft'
 
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient" as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" as source
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person" alias PersonTable as target
 
 group Person(source src: Patient, target tgt : PersonTable) {

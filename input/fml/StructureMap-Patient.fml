@@ -2,7 +2,7 @@
 /// title = 'Mapping Patient resource to Person, Location and Death OMOP Domain'
 /// status = 'draft'
 
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient" alias Patient as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias Patient as source
 uses "http://hl7.org/fhir/StructureDefinition/Bundle" as target
 
 imports "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person"
