@@ -1,0 +1,17 @@
+/// name = 'Person'
+/// title = 'Mapping Patient resource to Person OMOP Domain'
+/// status = 'draft'
+
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person" alias PersonTable as target
+
+group Person(source src: Patient, target tgt : PersonTable) {
+	src.id as srcId -> tgt.person_source_value = cast(srcId, String);
+	src.gender as srcGender -> translate(srcGender, 'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender', 'Coding') as tgtGender,
+													tgt.gender_concept_id = tgtGender.code,
+		                      tgt.gender_source_value = srcGender.display "transformGender";
+	src.birthDate as srcBirthDate -> tgt.birth_datetime = srcBirthDate, 
+																	 tgt.year_of_birth = evaluate(srcBirthDate, substring(0, 4)), 
+		                               tgt.month_of_birth = evaluate(srcBirthDate, substring(5, 2)), 
+		                               tgt.day_of_birth = evaluate(srcBirthDate, substring(8, 2));
+}

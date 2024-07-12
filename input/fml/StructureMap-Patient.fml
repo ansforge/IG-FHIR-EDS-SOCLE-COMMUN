@@ -1,0 +1,64 @@
+/// name = 'Patient'
+/// title = 'Mapping Patient resource to Person, Location and Death OMOP Domain'
+/// status = 'draft'
+
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias Patient as source
+uses "http://hl7.org/fhir/StructureDefinition/Bundle" as target
+
+imports "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person"
+imports "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location"
+imports "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death"
+
+group Patient(source src: Patient, target tgtBundle : Bundle) {
+  src.id as srcId -> tgtBundle.id = uuid() "setId";
+  src -> tgtBundle.type = 'transaction' "setType";
+	src -> tgtBundle.entry as newEntry then {
+		src -> newEntry.resource = create("Provenance") as newProvenance then {
+			src -> newProvenance.agent as agent,
+			       agent.who = reference('?mapper?') "setProvenanceAgent";
+			src -> newProvenance.entity as entitySource,
+			       append('Patient/', srcId) as whatRef,
+						 entitySource.what = reference(whatRef),
+						 entitySource.role = 'source' "setProvenanceEntitySource";
+			src -> newProvenance.activity = cc('http://terminology.hl7.org/CodeSystem/v3-DataOperation', 'CREATE') "setProvenanceActivity";
+			src -> tgtBundle.entry as newEntry then {
+				src -> newEntry.resource = create("https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person") as newPerson then {
+					src -> newPerson.person_id = uuid() as newPersonId "setId";
+				  src -> append('Person/', newPersonId) as targetRef,
+					       newProvenance.target = reference(targetRef) "setProvenanceTarget";
+					src then Person(src, newPerson) "transformPerson";
+					src -> newEntry.fullUrl = append('https://interop.esante.gouv.fr/ig/fhir/eds/Person/', newPersonId) "setFullUrl";
+					src -> newEntry.request as newRequest then {
+						src -> newRequest.method = 'POST' "setMethod";
+						src -> newRequest.url = 'Person' "setUrl";
+					} "setEntryRequest";
+					src where address.empty().not() -> tgtBundle.entry as newEntry then {
+						src -> newEntry.resource = create("https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location") as newLocation then {
+							src -> newLocation.location_id = uuid() as newLocationId "setId";
+							src -> append('Location/', newLocationId) as targetRef, newProvenance.target = reference(targetRef) "setProvenanceTarget";
+							src -> newPerson.location_id = newLocationId "setPersonLocationId";
+							src then Location(src, newLocation) "transformLocation";
+							src -> newEntry.fullUrl = append('https://interop.esante.gouv.fr/ig/fhir/eds/Location/', newLocationId) "setFullUrl";
+							src -> newEntry.request as newRequest then {
+								src -> newRequest.method = 'POST' "setMethod";
+								src -> newRequest.url = 'Location' "setUrl";
+							} "setEntryRequest";
+						} "createLocation";
+					} "newEntryLocation";
+					src where deceased.ofType(Boolean) = true or deceased.ofType(Datetime).empty().not() -> tgtBundle.entry as newEntry then {
+						src -> newEntry.resource = create("https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death") as newDeath then {
+							src -> newDeath.person_id = newPersonId "setId";
+							src -> append('Death/', newPersonId) as targetRef, newProvenance.target = reference(targetRef) "setProvenanceTarget";
+							src then Death(src, newDeath) "transformDeath";
+							src -> newEntry.fullUrl = append('https://interop.esante.gouv.fr/ig/fhir/eds/Death/', newPersonId) "setFullUrl";
+							src -> newEntry.request as newRequest then {
+								src -> newRequest.method = 'POST' "setMethod";
+								src -> newRequest.url = 'Death' "setUrl";
+							} "setEntryRequest";
+						} "createDeath";
+					} "newEntryDeath";
+				} "createPerson";
+			} "newEntryPerson";
+		} "createProvenance";
+	} "newEntryProvenance";
+}

@@ -3,45 +3,35 @@
 [Add a brief description of this IG in English]
 </p>
 
-<!--  A décommenter lors de la publication -->
-
 <div style="width: 65%">
     <blockquote class="stu-note">
-    <p>
-    <b>Attention !</b> Cet Implementation Guide n'est pas en version courante. La version courante sera accessible via l'URL canonique suite à la première release : http://interop.esante.gouv.fr/ig/fhir/[code - ig]
-    </p>
+        <p>
+            <b>Attention !</b> Ce guide d'implémentation a été publié pour récolter les commentaires de l'écosystème et gagner en maturité à partir des travaux menés par le HDH. Si ces travaux vous intéressent et que vous souhaitez contribuer, faites en part en issue GitHub ou en faisant directement une Pull Request.
+        </p>
     </blockquote>
 </div>
 
-
-
-<!--  A décommenter si CI-SIS
-<div class="figure">
-    <img src="ci-sis-logo.png" alt="CI-SIS" title="Logo du CI-SIS" style="width:100%;">
-</div>
--->
-
 ### Introduction
 
-Définir ici de quoi parle l'IG (En termes non expert, compréhensible par un patient). Rajouter également les détails techniques sur le contexte et le besoin de cet IG
+Le groupe de travail “standards et interopérabilité” lancé en janvier 2024 s’inscrit dans la continuité du précédent groupe de travail ayant abouti à la constitution d’un socle commun de données de santé entre Entrepôts de Données de Santé Hospitaliers.
 
-Les principales sections de l'IG  sont :
+En effet, la seconde étape pour permettre l’interopérabilité entre les EDSH est de définir un standard commun pour ces données du socle.
 
-* Le contexte de l'IG, quelle problématique il résout
-* Ce que les Implémenteurs doivent mettre en place
-* Un onglet "Ressources de conformité" pour s'assurer d'un schéma global entre tous les IGs
+Pour proposer une standardisation des données du socle, les membres du GT ont fait le choix du modèle OMOP, avec la création d'un guide d'implémentation FHIR.
 
-### Périmètre du projet
+Cette proposition s’appuie dans un premier temps sur la réponse qu’apporte OMOP aux familles d’usage du GT (i.e., les typologies de données définies dans le socle telles que biologie, médicament, PMSI, etc.).
 
-Définir en quelques lignes en anglais quel est le périmètre du projet
+Dans un second temps, la ressource OMOP s’érige également comme étant le modèle le mieux connu et maîtrisé par les membres du GT, qui représentent également un large panel de professionnels de santé (médecins, médecins DIM, data ingénieurs, etc.). Ainsi, il a semblé judicieux de proposer des spécifications applicables à un grand nombre d'établissements de santé, ayant les ressources en interne pour mettre en place et maintenir cette standardisation.
 
-Toujours laisser l'onglet "Ressources de conformité" pour s'assurer d'une cohérence globales entre tous les IGs
+Néanmoins, ce standard présente une structure figée et spécifique et est peu évolutif, ce qui dresse ses limites face aux possibilités qu’offre le standard FHIR. Aussi, un sous-groupe dédié à des spécifications en FHIR a-t-il été lancé en parallèle des travaux en OMOP.
+
+L’objectif de ce sous-groupe est la création d'un guide d'implémentation FHIR pour quelques variables du socle, afin de proposer une méthode et une démarche à suivre.
 
 ### Auteurs et contributeurs
 
-| Role  | Nom | Organisation | Contact |
-| --- | --- | --- | --- |
-| **Primary Editor** | Prenom Nom | Agence du Numérique en Santé | prenom.nom@address.email |
+| Role               | Nom          | Organisation | Contact              |
+|--------------------|--------------|--------------|----------------------|
+| **Primary Editor** | David Ouagne | APHP         | david.ouagne@aphp.fr |
 
 ### Dépendances
 
