@@ -1,0 +1,39 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Person","Person","","","",0,*,"","","","null {[]} {[]}
+","Person OMOP Table","This table serves as the central identity management for all Persons in the database. It contains records that uniquely identify each person or patient, and some demographic information.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Person.person-id","Person.person_id","","","",1,1,"","","","integer {[]} {[]}
+","Person Identifier","It is assumed that every person with a different unique identifier is in fact a different person and should be treated independently.","","","","","","","","","",,,,,"",,,,"Person.person_id",1,1,"",""
+"Person.gender-concept-id","Person.gender_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Gender","This field is meant to capture the biological sex at birth of the Person. This field should not be used to study gender identity issues.","","","","","","","","","",,,,,"",,,,"Person.gender_concept_id",1,1,"",""
+"Person.year-of-birth","Person.year_of_birth","","","",1,1,"","","","integer {[]} {[]}
+","Year of Birth","Compute age using year_of_birth.","","","","","","","","","",,,,,"",,,,"Person.year_of_birth",1,1,"",""
+"Person.month-of-birth","Person.month_of_birth","","","",0,1,"","","","integer {[]} {[]}
+","Month of Birth","Month of Birth","","","","","","","","","",,,,,"",,,,"Person.month_of_birth",0,1,"",""
+"Person.day-of-birth","Person.day_of_birth","","","",0,1,"","","","integer {[]} {[]}
+","Day of Birth","Day of Birth","","","","","","","","","",,,,,"",,,,"Person.day_of_birth",0,1,"",""
+"Person.birth-datetime","Person.birth_datetime","","","",0,1,"","","","dateTime {[]} {[]}
+","Birth Datetime","Birth Datetime","","","","","","","","","",,,,,"",,,,"Person.birth_datetime",0,1,"",""
+"Person.race-concept-id","Person.race_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Race","This field captures race or ethnic background of the person.","","","","","","","","","",,,,,"",,,,"Person.race_concept_id",1,1,"",""
+"Person.ethnicity-concept-id","Person.ethnicity_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Ethnicity","This field captures Ethnicity as defined by the Office of Management and Budget (OMB) of the US Government: it distinguishes only between “Hispanic” and “Not Hispanic”. Races and ethnic backgrounds are not stored here.","","","","","","","","","",,,,,"",,,,"Person.ethnicity_concept_id",1,1,"",""
+"Person.location-id","Person.location_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location]]}
+","Location","The location refers to the physical address of the person. This field should capture the last known location of the person.","","","","","","","","","",,,,,"",,,,"Person.location_id",0,1,"",""
+"Person.provider-id","Person.provider_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Provider]]}
+","Provider","The Provider refers to the last known primary care provider (General Practitioner).","","","","","","","","","",,,,,"",,,,"Person.provider_id",0,1,"",""
+"Person.care-site-id","Person.care_site_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/CareSite]]}
+","Care Site","The Care Site refers to where the Provider typically provides the primary care.","","","","","","","","","",,,,,"",,,,"Person.care_site_id",0,1,"",""
+"Person.person-source-value","Person.person_source_value","","","",0,1,"","","","string {[]} {[]}
+","Person Identifier Source Value","Use this field to link back to persons in the source data. This is typically used for error checking of ETL logic.","","","","","","","","","",,,,,"",,,,"Person.person_source_value",0,1,"",""
+"Person.gender-source-value","Person.gender_source_value","","","",0,1,"","","","string {[]} {[]}
+","Gender Source Value","This field is used to store the biological sex of the person from the source data. It is not intended for use in standard analytics but for reference only.","","","","","","","","","",,,,,"",,,,"Person.gender_source_value",0,1,"",""
+"Person.gender-source-concept-id","Person.gender_source_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Gender Source Concept","If the source data codes biological sex in a non-standard vocabulary, store the concept_id here.","","","","","","","","","",,,,,"",,,,"Person.gender_source_concept_id",0,1,"",""
+"Person.race-source-value","Person.race_source_value","","","",0,1,"","","","string {[]} {[]}
+","Race Source Value","This field is used to store the race of the person from the source data. It is not intended for use in standard analytics but for reference only.","","","","","","","","","",,,,,"",,,,"Person.race_source_value",0,1,"",""
+"Person.race-source-concept-id","Person.race_source_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Race Source Concept","If the source data codes race in an OMOP supported vocabulary store the concept_id here.","","","","","","","","","",,,,,"",,,,"Person.race_source_concept_id",0,1,"",""
+"Person.ethnicity-source-value","Person.ethnicity_source_value","","","",0,1,"","","","string {[]} {[]}
+","Ethnicity Source Value","This field is used to store the ethnicity of the person from the source data. It is not intended for use in standard analytics but for reference only.","","","","","","","","","",,,,,"",,,,"Person.ethnicity_source_value",0,1,"",""
+"Person.ethnicity-source-concept-id","Person.ethnicity_source_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Ethnicity Source Concept","If the source data codes ethnicity in an OMOP supported vocabulary, store the concept_id here.","","","","","","","","","",,,,,"",,,,"Person.ethnicity_source_concept_id",0,1,"",""

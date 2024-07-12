@@ -1,0 +1,152 @@
+{
+  "resourceType" : "StructureMap",
+  "id" : "Location",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Location</b></p><a name=\"Location\"> </a><a name=\"hcLocation\"> </a><a name=\"hcLocation-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location<span style=\"color: navy\">&quot; = &quot;</span>Location<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Location OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient<span style=\"color: navy\">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-Location.html\" title=\"Location OMOP Table\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location</a><span style=\"color: navy\">&quot; </span><b>alias </b>LocationTable <b>as </b><b>target</b>\r\n\r\n<b>group </b>Location<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgt</span><span style=\"color: navy\"> : </span>LocationTable<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.address<b> as </b><span style=\"color: maroon\">srcAddress</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    srcAddress.line first<b> as </b><span style=\"color: maroon\">srcLine1</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.address_1 = <span style=\"color: maroon\">srcLine1</span><span style=\"color: navy\">;</span>\r\n    srcAddress.line last<b> as </b><span style=\"color: maroon\">srcLine2</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.address_2 = <span style=\"color: maroon\">srcLine2</span><span style=\"color: navy\">;</span>\r\n    srcAddress.city<b> as </b><span style=\"color: maroon\">srcCity</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.city = <span style=\"color: maroon\">srcCity</span><span style=\"color: navy\">;</span>\r\n    srcAddress.postalCode<b> as </b><span style=\"color: maroon\">srcZip</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.zip = <span style=\"color: maroon\">srcZip</span><span style=\"color: navy\">;</span>\r\n    srcAddress.text<b> as </b><span style=\"color: maroon\">srcText</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.location_source_value = <b>truncate</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcText</span><span style=\"color: navy\">, </span><span style=\"color: blue\">50</span><span style=\"color: navy\">)</span><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  },
+  "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location",
+  "version" : "0.1.0",
+  "name" : "Location",
+  "title" : "Mapping Patient resource to Location OMOP Domain",
+  "status" : "draft",
+  "date" : "2024-07-12T05:56:19+00:00",
+  "publisher" : "ANS",
+  "contact" : [{
+    "name" : "ANS",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://esante.gouv.fr"
+    }]
+  }],
+  "description" : "Mapping Patient resource to Location OMOP Domain",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "FR",
+      "display" : "France"
+    }]
+  }],
+  "structure" : [{
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient",
+    "mode" : "source",
+    "alias" : "Patient"
+  },
+  {
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location",
+    "mode" : "target",
+    "alias" : "LocationTable"
+  }],
+  "group" : [{
+    "name" : "Location",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "src",
+      "type" : "Patient",
+      "mode" : "source"
+    },
+    {
+      "name" : "tgt",
+      "type" : "LocationTable",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "address",
+      "source" : [{
+        "context" : "src",
+        "element" : "address",
+        "variable" : "srcAddress"
+      }],
+      "rule" : [{
+        "name" : "line",
+        "source" : [{
+          "context" : "srcAddress",
+          "element" : "line",
+          "listMode" : "first",
+          "variable" : "srcLine1"
+        }],
+        "target" : [{
+          "context" : "tgt",
+          "contextType" : "variable",
+          "element" : "address_1",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "srcLine1"
+          }]
+        }]
+      },
+      {
+        "name" : "line",
+        "source" : [{
+          "context" : "srcAddress",
+          "element" : "line",
+          "listMode" : "last",
+          "variable" : "srcLine2"
+        }],
+        "target" : [{
+          "context" : "tgt",
+          "contextType" : "variable",
+          "element" : "address_2",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "srcLine2"
+          }]
+        }]
+      },
+      {
+        "name" : "city",
+        "source" : [{
+          "context" : "srcAddress",
+          "element" : "city",
+          "variable" : "srcCity"
+        }],
+        "target" : [{
+          "context" : "tgt",
+          "contextType" : "variable",
+          "element" : "city",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "srcCity"
+          }]
+        }]
+      },
+      {
+        "name" : "postalCode",
+        "source" : [{
+          "context" : "srcAddress",
+          "element" : "postalCode",
+          "variable" : "srcZip"
+        }],
+        "target" : [{
+          "context" : "tgt",
+          "contextType" : "variable",
+          "element" : "zip",
+          "transform" : "copy",
+          "parameter" : [{
+            "valueId" : "srcZip"
+          }]
+        }]
+      },
+      {
+        "name" : "text",
+        "source" : [{
+          "context" : "srcAddress",
+          "element" : "text",
+          "variable" : "srcText"
+        }],
+        "target" : [{
+          "context" : "tgt",
+          "contextType" : "variable",
+          "element" : "location_source_value",
+          "transform" : "truncate",
+          "parameter" : [{
+            "valueId" : "srcText"
+          },
+          {
+            "valueInteger" : 50
+          }]
+        }]
+      }]
+    }]
+  }]
+}

@@ -1,0 +1,17 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Death","Death","","","",0,*,"","","","null {[]} {[]}
+","Death OMOP Table","The death domain contains the clinical event for how and when a Person dies. A person can have up to one record if the source system contains evidence about the Death, such as: Condition in an administrative claim, status of enrollment into a health plan, or explicit record in EHR data.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Death.person-id","Death.person_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person]]}
+","Person","Person","","","","","","","","","",,,,,"",,,,"Death.person_id",1,1,"",""
+"Death.death-date","Death.death_date","","","",1,1,"","","","date {[]} {[]}
+","Death Date","The date the person was deceased.","","","","","","","","","",,,,,"",,,,"Death.death_date",1,1,"",""
+"Death.death-datetime","Death.death_datetime","","","",0,1,"","","","dateTime {[]} {[]}
+","Death Datetime","Death Datetime","","","","","","","","","",,,,,"",,,,"Death.death_datetime",0,1,"",""
+"Death.death-type-concept-id","Death.death_type_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Death Type","This is the provenance of the death record, i.e., where it came from. It is possible that an administrative claims database would source death information from a government file so do not assume the Death Type is the same as the Visit Type, etc.","","","","","","","","","",,,,,"",,,,"Death.death_type_concept_id",0,1,"",""
+"Death.cause-concept-id","Death.cause_concept_id","","","",0,1,"","","","code {[]} {[]}
+","Cause","This is the Standard Concept representing the Person's cause of death, if available.","","","","","","","","","",,,,,"",,,,"Death.cause_concept_id",0,1,"",""
+"Death.cause-source-value","Death.cause_source_value","","","",0,1,"","","","string {[]} {[]}
+","Cause Source Value","Cause Source Value","","","","","","","","","",,,,,"",,,,"Death.cause_source_value",0,1,"",""
+"Death.cause-source-concept-id","Death.cause_source_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Cause Source","Cause Source","","","","","","","","","",,,,,"",,,,"Death.cause_source_concept_id",0,1,"",""

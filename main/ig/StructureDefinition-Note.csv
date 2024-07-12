@@ -1,0 +1,36 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Note","Note","","","",0,*,"","","","null {[]} {[]}
+","Note OMOP Table","The NOTE table captures unstructured information that was recorded by a provider about a patient in free text (in ASCII, or preferably in UTF8 format) notes on a given date. The type of note_text is CLOB or varchar(MAX) depending on RDBMS.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Note.note-id","Note.note_id","","","",1,1,"","","","integer {[]} {[]}
+","Note Identifier","Note Identifier","","","","","","","","","",,,,,"",,,,"Note.note_id",1,1,"",""
+"Note.person-id","Note.person_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person]]}
+","Person","Person","","","","","","","","","",,,,,"",,,,"Note.person_id",1,1,"",""
+"Note.note-date","Note.note_date","","","",1,1,"","","","date {[]} {[]}
+","Note Date","The date the note was recorded.","","","","","","","","","",,,,,"",,,,"Note.note_date",1,1,"",""
+"Note.note-datetime","Note.note_datetime","","","",0,1,"","","","dateTime {[]} {[]}
+","Note Datetime","Note Datetime","","","","","","","","","",,,,,"",,,,"Note.note_datetime",0,1,"",""
+"Note.note-type-concept-id","Note.note_type_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Note Type","The provenance of the note. Most likely this will be EHR.","","","","","","","","","",,,,,"",,,,"Note.note_type_concept_id",1,1,"",""
+"Note.note-class-concept-id","Note.note_class_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Note Class","A Standard Concept Id representing the HL7 LOINC
+Document Type Vocabulary classification of the note.","","","","","","","","","",,,,,"",,,,"Note.note_class_concept_id",1,1,"",""
+"Note.note-title","Note.note_title","","","",0,1,"","","","string {[]} {[]}
+","Title","The title of the note.","","","","","","","","","",,,,,"",,,,"Note.note_title",0,1,"",""
+"Note.note-text","Note.note_text","","","",1,1,"","","","string {[]} {[]}
+","Text","The content of the note.","","","","","","","","","",,,,,"",,,,"Note.note_text",1,1,"",""
+"Note.encoding-concept-id","Note.encoding_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Encoding","This is the Concept representing the character encoding type.","","","","","","","","","",,,,,"",,,,"Note.encoding_concept_id",1,1,"",""
+"Note.language-concept-id","Note.language_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Language","The language of the note.","","","","","","","","","",,,,,"",,,,"Note.language_concept_id",1,1,"",""
+"Note.provider-id","Note.provider_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Provider]]}
+","Provider","The Provider who wrote the note.","","","","","","","","","",,,,,"",,,,"Note.provider_id",0,1,"",""
+"Note.visit-occurrence-id","Note.visit_occurrence_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/VisitOccurrence]]}
+","Visit Occurence","The Visit during which the note was written.","","","","","","","","","",,,,,"",,,,"Note.visit_occurrence_id",0,1,"",""
+"Note.visit-detail-id","Note.visit_detail_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/VisitDetail]]}
+","Visit Detail","The Visit Detail during which the note was written.","","","","","","","","","",,,,,"",,,,"Note.visit_detail_id",0,1,"",""
+"Note.note-source-value","Note.note_source_value","","","",0,1,"","","","string {[]} {[]}
+","Note Source Value","Note Source Value","","","","","","","","","",,,,,"",,,,"Note.note_source_value",0,1,"",""
+"Note.note-event-id","Note.note_event_id","","","",0,1,"","","","integer {[]} {[]}
+","Note Event","If the Note record is related to another record in the database, this field is the primary key of the linked record.","","","","","","","","","",,,,,"",,,,"Note.note_event_id",0,1,"",""
+"Note.note-event-field-concept-id","Note.note_event_field_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Note Event Field","If the Note record is related to another record in the database, this field is the CONCEPT_ID that identifies which table the primary key of the linked record came from.","","","","","","","","","",,,,,"",,,,"Note.note_event_field_concept_id",0,1,"",""

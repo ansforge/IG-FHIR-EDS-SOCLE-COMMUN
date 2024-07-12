@@ -1,0 +1,2 @@
+URL,Version,Status,OIDs,Name,Title,Descriptino,Uses,Used,Sources
+https://hl7.fr/ig/fhir/core/ValueSet/fr-core-vs-patient-gender-INS,2.0.1,active,,FRCoreValueSetPatientGenderINS,FR Core ValueSet Patient gender INS ValueSet,"Patient Gender for INS : male | female | unknown","StructureDefinition/EDSPatient","hl7.fhir.r4.core"

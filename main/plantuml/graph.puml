@@ -1,0 +1,648 @@
+@startuml
+set namespaceSeparator ?
+hide circle
+hide class fields
+
+package IG #DDDDDD{
+
+     package Profiles #DDDDDD{
+
+        class CareSite{
+
+             CareSite => [None..None]
+             CareSite.care-site-id => [1..1]
+             CareSite.care-site-name => [0..1]
+             CareSite.place-of-service-concept-id => [0..1]
+             CareSite.location-id => [0..1]
+             CareSite.care-site-source-value => [0..1]
+             CareSite.place-of-service-source-value => [0..1]
+        } 
+
+        class Concept{
+
+             Concept => [None..None]
+             Concept.concept-id => [1..1]
+             Concept.concept-name => [1..1]
+             Concept.domain-id => [1..1]
+             Concept.vocabulary-id => [1..1]
+             Concept.concept-class-id => [1..1]
+             Concept.standard-concept => [0..1]
+             Concept.concept-code => [1..1]
+             Concept.valid-start-date => [1..1]
+             Concept.valid-end-date => [1..1]
+             Concept.invalid-reason => [0..1]
+        } 
+
+        class ConditionEra{
+
+             ConditionEra => [None..None]
+             ConditionEra.condition-era-id => [1..1]
+             ConditionEra.person-id => [1..1]
+             ConditionEra.condition-concept-id => [1..1]
+             ConditionEra.condition-era-start-date => [1..1]
+             ConditionEra.condition-era-end-date => [1..1]
+             ConditionEra.condition-occurrence-count => [0..1]
+        } 
+
+        class ConditionOccurrence{
+
+             ConditionOccurrence => [None..None]
+             ConditionOccurrence.condition-occurrence-id => [1..1]
+             ConditionOccurrence.person-id => [1..1]
+             ConditionOccurrence.condition-concept-id => [1..1]
+             ConditionOccurrence.condition-start-date => [1..1]
+             ConditionOccurrence.condition-start-datetime => [0..1]
+             ConditionOccurrence.condition-end-date => [0..1]
+             ConditionOccurrence.condition-end-datetime => [0..1]
+             ConditionOccurrence.condition-type-concept-id => [1..1]
+             ConditionOccurrence.condition-status-concept-id => [0..1]
+             ConditionOccurrence.stop-reason => [0..1]
+             ConditionOccurrence.provider-id => [0..1]
+             ConditionOccurrence.visit-occurrence-id => [0..1]
+             ConditionOccurrence.visit-detail-id => [0..1]
+             ConditionOccurrence.condition-source-value => [0..1]
+             ConditionOccurrence.condition-source-concept-id => [0..1]
+             ConditionOccurrence.condition-status-source-value => [0..1]
+        } 
+
+        class Cost{
+
+             Cost => [None..None]
+             Cost.cost-id => [1..1]
+             Cost.cost-event-id => [1..1]
+             Cost.cost-domain-id => [1..1]
+             Cost.cost-type-concept-id => [1..1]
+             Cost.currency-concept-id => [0..1]
+             Cost.total-charge => [0..1]
+             Cost.total-cost => [0..1]
+             Cost.total-paid => [0..1]
+             Cost.paid-by-payer => [0..1]
+             Cost.paid-by-patient => [0..1]
+             Cost.paid-patient-copay => [0..1]
+             Cost.paid-patient-coinsurance => [0..1]
+             Cost.paid-patient-deductible => [0..1]
+             Cost.paid-by-primary => [0..1]
+             Cost.paid-ingredient-cost => [0..1]
+             Cost.paid-dispensing-fee => [0..1]
+             Cost.payer-plan-period-id => [0..1]
+             Cost.amount-allowed => [0..1]
+             Cost.revenue-code-concept-id => [0..1]
+             Cost.revenue-code-source-value => [0..1]
+             Cost.drg-concept-id => [0..1]
+             Cost.drg-source-value => [0..1]
+        } 
+
+        class Death{
+
+             Death => [None..None]
+             Death.person-id => [1..1]
+             Death.death-date => [1..1]
+             Death.death-datetime => [0..1]
+             Death.death-type-concept-id => [0..1]
+             Death.cause-concept-id => [0..1]
+             Death.cause-source-value => [0..1]
+             Death.cause-source-concept-id => [0..1]
+        } 
+
+        class DeviceExposure{
+
+             DeviceExposure => [None..None]
+             DeviceExposure.device-exposure-id => [1..1]
+             DeviceExposure.person-id => [1..1]
+             DeviceExposure.device-concept-id => [1..1]
+             DeviceExposure.device-exposure-start-date => [1..1]
+             DeviceExposure.device-exposure-start-datetime => [0..1]
+             DeviceExposure.device-exposure-end-date => [0..1]
+             DeviceExposure.device-exposure-end-datetime => [0..1]
+             DeviceExposure.device-type-concept-id => [1..1]
+             DeviceExposure.unique-device-id => [0..1]
+             DeviceExposure.production-id => [0..1]
+             DeviceExposure.quantity => [0..1]
+             DeviceExposure.provider-id => [0..1]
+             DeviceExposure.visit-occurrence-id => [0..1]
+             DeviceExposure.visit-detail-id => [0..1]
+             DeviceExposure.device-source-value => [0..1]
+             DeviceExposure.device-source-concept-id => [0..1]
+             DeviceExposure.unit-concept-id => [0..1]
+             DeviceExposure.unit-source-value => [0..1]
+             DeviceExposure.unit-source-concept-id => [0..1]
+        } 
+
+        class DoseEra{
+
+             DoseEra => [None..None]
+             DoseEra.dose-era-id => [1..1]
+             DoseEra.person-id => [1..1]
+             DoseEra.drug-concept-id => [1..1]
+             DoseEra.unit-concept-id => [1..1]
+             DoseEra.dose-value => [1..1]
+             DoseEra.dose-era-start-date => [1..1]
+             DoseEra.dose-era-end-date => [1..1]
+        } 
+
+        class DrugEra{
+
+             DrugEra => [None..None]
+             DrugEra.drug-era-id => [1..1]
+             DrugEra.person-id => [1..1]
+             DrugEra.drug-concept-id => [1..1]
+             DrugEra.drug-era-start-date => [1..1]
+             DrugEra.drug-era-end-date => [1..1]
+             DrugEra.drug-exposure-count => [0..1]
+             DrugEra.gap-days => [0..1]
+        } 
+
+        class DrugE{
+
+             DrugOccurrence => [None..None]
+             DrugOccurrence.drug-exposure-id => [1..1]
+             DrugOccurrence.person-id => [1..1]
+             DrugOccurrence.drug-concept-id => [1..1]
+             DrugOccurrence.drug-exposure-start-date => [1..1]
+             DrugOccurrence.drug-exposure-start-datetime => [0..1]
+             DrugOccurrence.drug-exposure-end-date => [1..1]
+             DrugOccurrence.drug-exposure-end-datetime => [0..1]
+             DrugOccurrence.verbatim-end-date => [0..1]
+             DrugOccurrence.drug-type-concept-id => [1..1]
+             DrugOccurrence.stop-reason => [0..1]
+             DrugOccurrence.refills => [0..1]
+             DrugOccurrence.quantity => [0..1]
+             DrugOccurrence.days-supply => [0..1]
+             DrugOccurrence.sig => [0..1]
+             DrugOccurrence.route-concept-id => [0..1]
+             DrugOccurrence.lot-number => [0..1]
+             DrugOccurrence.provider-id => [0..1]
+             DrugOccurrence.visit-occurrence-id => [0..1]
+             DrugOccurrence.visit-detail-id => [0..1]
+             DrugOccurrence.drug-source-value => [0..1]
+             DrugOccurrence.drug-source-concept-id => [0..1]
+             DrugOccurrence.route-source-value => [0..1]
+             DrugOccurrence.dose-unit-source-value => [0..1]
+        } 
+
+        class EDSAddress{
+
+             Address => [None..None]
+             Address.extension:inseeCode => <&plus>[None..None]
+             Address.extension:geolocation => <&plus>[0..1]
+             Address.text => [None..None]
+             Address.line => [None..None]
+             Address.city => [None..None]
+             Address.postalCode => [None..None]
+        } 
+
+        class EDSObservationBodyHeight{
+
+             Observation => [None..None]
+        } 
+
+        class EDSPatient{
+
+             Patient => [None..None]
+             Patient.identifier:INS-NIR => [0..*]
+             Patient.identifier:INS-NIR.use => [None..None]
+             Patient.identifier:INS-NIR.type => [1..None]
+             Patient.identifier:INS-NIR.system => [None..None]
+             Patient.identifier:INS-NIR.value => [1..None]
+             Patient.gender => [None..None]
+             Patient.birthDate => [None..None]
+             Patient.deceased[x] => [None..None]
+             Patient.address => [None..None]
+             Patient.multipleBirth[x] => [None..None]
+        } 
+
+        class Episode{
+
+             Episode => [None..None]
+             Episode.episode-id => [1..1]
+             Episode.person-id => [1..1]
+             Episode.episode-concept-id => [1..1]
+             Episode.episode-start-date => [1..1]
+             Episode.episode-start-datetime => [0..1]
+             Episode.episode-end-date => [0..1]
+             Episode.episode-end-datetime => [0..1]
+             Episode.episode-parent-id => [0..1]
+             Episode.episode-number => [0..1]
+             Episode.episode-object-concept-id => [1..1]
+             Episode.episode-type-concept-id => [1..1]
+             Episode.episode-source-value => [0..1]
+             Episode.episode-source-concept-id => [0..1]
+        } 
+
+        class EpisodeEvent{
+
+             EpisodeEvent => [None..None]
+             EpisodeEvent.episode-id => [1..1]
+             EpisodeEvent.event-id => [1..1]
+             EpisodeEvent.episode-event-field-concept-id => [1..1]
+        } 
+
+        class FactRelationship{
+
+             FactRelationship => [None..None]
+             FactRelationship.domain-concept-id-1 => [1..1]
+             FactRelationship.fact-id-1 => [1..1]
+             FactRelationship.domain-concept-id-2 => [1..1]
+             FactRelationship.fact-id-2 => [1..1]
+             FactRelationship.relationship-concept-id => [1..1]
+        } 
+
+        class Location{
+
+             Location => [None..None]
+             Location.location-id => [1..1]
+             Location.address-1 => [0..1]
+             Location.address-2 => [0..1]
+             Location.city => [0..1]
+             Location.state => [0..1]
+             Location.zip => [0..1]
+             Location.county => [0..1]
+             Location.location-source-value => [0..1]
+             Location.country-concept-id => [0..1]
+             Location.country-source-value => [0..1]
+             Location.latitude => [0..1]
+             Location.longitude => [0..1]
+        } 
+
+        class Measurement{
+
+             Measurement => [None..None]
+             Measurement.measurement-id => [1..1]
+             Measurement.person-id => [1..1]
+             Measurement.measurement-concept-id => [1..1]
+             Measurement.measurement-date => [1..1]
+             Measurement.measurement-datetime => [0..1]
+             Measurement.measurement-time => [0..1]
+             Measurement.measurement-type-concept-id => [1..1]
+             Measurement.operator-concept-id => [0..1]
+             Measurement.value-as-number => [0..1]
+             Measurement.value-as-concept-id => [0..1]
+             Measurement.unit-concept-id => [0..1]
+             Measurement.range-low => [0..1]
+             Measurement.range-high => [0..1]
+             Measurement.provider-id => [0..1]
+             Measurement.visit-occurrence-id => [0..1]
+             Measurement.visit-detail-id => [0..1]
+             Measurement.measurement-source-value => [0..1]
+             Measurement.measurement-source-concept-id => [0..1]
+             Measurement.unit-source-value => [0..1]
+             Measurement.unit-source-concept-id => [0..1]
+             Measurement.value-source-value => [0..1]
+             Measurement.measurement-event-id => [0..1]
+             Measurement.meas-event-field-concept-id => [0..1]
+        } 
+
+        class Note{
+
+             Note => [None..None]
+             Note.note-id => [1..1]
+             Note.person-id => [1..1]
+             Note.note-date => [1..1]
+             Note.note-datetime => [0..1]
+             Note.note-type-concept-id => [1..1]
+             Note.note-class-concept-id => [1..1]
+             Note.note-title => [0..1]
+             Note.note-text => [1..1]
+             Note.encoding-concept-id => [1..1]
+             Note.language-concept-id => [1..1]
+             Note.provider-id => [0..1]
+             Note.visit-occurrence-id => [0..1]
+             Note.visit-detail-id => [0..1]
+             Note.note-source-value => [0..1]
+             Note.note-event-id => [0..1]
+             Note.note-event-field-concept-id => [0..1]
+        } 
+
+        class NoteNLP{
+
+             NoteNLP => [None..None]
+             NoteNLP.note-nlp-id => [1..1]
+             NoteNLP.note-id => [1..1]
+             NoteNLP.section-concept-id => [0..1]
+             NoteNLP.snippet => [0..1]
+             NoteNLP.offset => [0..1]
+             NoteNLP.lexical-variant => [1..1]
+             NoteNLP.note-nlp-concept-id => [0..1]
+             NoteNLP.note-nlp-source-concept-id => [0..1]
+             NoteNLP.nlp-system => [0..1]
+             NoteNLP.nlp-date => [1..1]
+             NoteNLP.nlp-datetime => [0..1]
+             NoteNLP.term-exists => [0..1]
+             NoteNLP.term-temporal => [0..1]
+             NoteNLP.term-modifiers => [0..1]
+        } 
+
+        class Observation{
+
+             Observation => [None..None]
+             Observation.observation-id => [1..1]
+             Observation.person-id => [1..1]
+             Observation.observation-concept-id => [1..1]
+             Observation.observation-date => [1..1]
+             Observation.observation-datetime => [0..1]
+             Observation.observation-type-concept-id => [1..1]
+             Observation.value-as-number => [0..1]
+             Observation.value-as-string => [0..1]
+             Observation.value-as-concept-id => [0..1]
+             Observation.qualifier-concept-id => [0..1]
+             Observation.unit-concept-id => [0..1]
+             Observation.provider-id => [0..1]
+             Observation.visit-occurrence-id => [0..1]
+             Observation.visit-detail-id => [0..1]
+             Observation.observation-source-value => [0..1]
+             Observation.observation-source-concept-id => [0..1]
+             Observation.unit-source-value => [0..1]
+             Observation.qualifier-source-value => [0..1]
+             Observation.value-source-value => [0..1]
+             Observation.observation-event-id => [0..1]
+             Observation.obs-event-field-concept-id => [0..1]
+        } 
+
+        class ObservationPeriod{
+
+             ObservationPeriod => [None..None]
+             ObservationPeriod.observation-period-id => [1..1]
+             ObservationPeriod.person-id => [1..1]
+             ObservationPeriod.observation-period-start-date => [1..1]
+             ObservationPeriod.observation-period-end-date => [1..1]
+             ObservationPeriod.period-type-concept-id => [1..1]
+        } 
+
+        class PayerPlanPeriod{
+
+             PayerPlanPeriod => [None..None]
+             PayerPlanPeriod.payer-plan-period-id => [1..1]
+             PayerPlanPeriod.person-id => [1..1]
+             PayerPlanPeriod.payer-plan-period-start-date => [1..1]
+             PayerPlanPeriod.payer-plan-period-end-date => [1..1]
+             PayerPlanPeriod.payer-concept-id => [0..1]
+             PayerPlanPeriod.payer-source-value => [0..1]
+             PayerPlanPeriod.payer-source-concept-id => [0..1]
+             PayerPlanPeriod.plan-concept-id => [0..1]
+             PayerPlanPeriod.plan-source-value => [0..1]
+             PayerPlanPeriod.plan-source-concept-id => [0..1]
+             PayerPlanPeriod.sponsor-concept-id => [0..1]
+             PayerPlanPeriod.sponsor-source-value => [0..1]
+             PayerPlanPeriod.sponsor-source-concept-id => [0..1]
+             PayerPlanPeriod.family-source-value => [0..1]
+             PayerPlanPeriod.stop-reason-concept-id => [0..1]
+             PayerPlanPeriod.stop-reason-source-value => [0..1]
+             PayerPlanPeriod.stop-reason-source-concept-id => [0..1]
+        } 
+
+        class Person{
+
+             Person => [None..None]
+             Person.person-id => [1..1]
+             Person.gender-concept-id => [1..1]
+             Person.year-of-birth => [1..1]
+             Person.month-of-birth => [0..1]
+             Person.day-of-birth => [0..1]
+             Person.birth-datetime => [0..1]
+             Person.race-concept-id => [1..1]
+             Person.ethnicity-concept-id => [1..1]
+             Person.location-id => [0..1]
+             Person.provider-id => [0..1]
+             Person.care-site-id => [0..1]
+             Person.person-source-value => [0..1]
+             Person.gender-source-value => [0..1]
+             Person.gender-source-concept-id => [0..1]
+             Person.race-source-value => [0..1]
+             Person.race-source-concept-id => [0..1]
+             Person.ethnicity-source-value => [0..1]
+             Person.ethnicity-source-concept-id => [0..1]
+        } 
+
+        class ProcedureOccurrence{
+
+             ProcedureOccurrence => [None..None]
+             ProcedureOccurrence.procedure-occurrence-id => [1..1]
+             ProcedureOccurrence.person-id => [1..1]
+             ProcedureOccurrence.procedure-concept-id => [1..1]
+             ProcedureOccurrence.procedure-date => [1..1]
+             ProcedureOccurrence.procedure-datetime => [0..1]
+             ProcedureOccurrence.procedure-end-date => [0..1]
+             ProcedureOccurrence.procedure-end-datetime => [0..1]
+             ProcedureOccurrence.procedure-type-concept-id => [1..1]
+             ProcedureOccurrence.modifier-concept-id => [0..1]
+             ProcedureOccurrence.quantity => [0..1]
+             ProcedureOccurrence.provider-id => [0..1]
+             ProcedureOccurrence.visit-occurrence-id => [0..1]
+             ProcedureOccurrence.visit-detail-id => [0..1]
+             ProcedureOccurrence.procedure-source-value => [0..1]
+             ProcedureOccurrence.procedure-source-concept-id => [0..1]
+             ProcedureOccurrence.modifier-source-value => [0..1]
+        } 
+
+        class Provider{
+
+             Provider => [None..None]
+             Provider.provider-id => [1..1]
+             Provider.provider-name => [0..1]
+             Provider.npi => [0..1]
+             Provider.dea => [0..1]
+             Provider.specialty-concept-id => [0..1]
+             Provider.care-site-id => [0..1]
+             Provider.year-of-birth => [0..1]
+             Provider.gender-concept-id => [0..1]
+             Provider.provider-source-value => [0..1]
+             Provider.specialty-source-value => [0..1]
+             Provider.specialty-source-concept-id => [0..1]
+             Provider.gender-source-value => [0..1]
+             Provider.gender-source-concept-id => [0..1]
+        } 
+
+        class Specimen{
+
+             Specimen => [None..None]
+             Specimen.specimen-id => [1..1]
+             Specimen.person-id => [1..1]
+             Specimen.specimen-concept-id => [1..1]
+             Specimen.specimen-type-concept-id => [1..1]
+             Specimen.specimen-date => [1..1]
+             Specimen.specimen-datetime => [0..1]
+             Specimen.quantity => [0..1]
+             Specimen.unit-concept-id => [0..1]
+             Specimen.anatomic-site-concept-id => [0..1]
+             Specimen.disease-status-concept-id => [0..1]
+             Specimen.specimen-source-id => [0..1]
+             Specimen.specimen-source-value => [0..1]
+             Specimen.unit-source-value => [0..1]
+             Specimen.anatomic-site-source-value => [0..1]
+             Specimen.disease-status-source-value => [0..1]
+        } 
+
+        class VisitDetail{
+
+             VisitDetail => [None..None]
+             VisitDetail.visit-detail-id => [1..1]
+             VisitDetail.person-id => [1..1]
+             VisitDetail.visit-detail-concept-id => [1..1]
+             VisitDetail.visit-detail-start-date => [1..1]
+             VisitDetail.visit-detail-start-datetime => [0..1]
+             VisitDetail.visit-detail-end-date => [1..1]
+             VisitDetail.visit-detail-end-datetime => [0..1]
+             VisitDetail.visit-detail-type-concept-id => [1..1]
+             VisitDetail.provider-id => [0..1]
+             VisitDetail.care-site-id => [0..1]
+             VisitDetail.visit-detail-source-value => [0..1]
+             VisitDetail.visit-detail-source-concept-id => [0..1]
+             VisitDetail.admitted-from-concept-id => [0..1]
+             VisitDetail.admitted-from-source-value => [0..1]
+             VisitDetail.discharged-to-source-value => [0..1]
+             VisitDetail.discharged-to-concept-id => [0..1]
+             VisitDetail.preceding-visit-detail-id => [0..1]
+             VisitDetail.parent-visit-detail-id => [0..1]
+             VisitDetail.visit-occurrence-id => [1..1]
+        } 
+
+        class VisitOccurrence{
+
+             VisitOccurrence => [None..None]
+             VisitOccurrence.visit-occurrence-id => [1..1]
+             VisitOccurrence.person-id => [1..1]
+             VisitOccurrence.visit-concept-id => [1..1]
+             VisitOccurrence.visit-start-date => [1..1]
+             VisitOccurrence.visit-start-datetime => [0..1]
+             VisitOccurrence.visit-end-date => [1..1]
+             VisitOccurrence.visit-end-datetime => [0..1]
+             VisitOccurrence.visit-type-concept-id => [1..1]
+             VisitOccurrence.provider-id => [0..1]
+             VisitOccurrence.care-site-id => [0..1]
+             VisitOccurrence.visit-source-value => [0..1]
+             VisitOccurrence.visit-source-concept-id => [0..1]
+             VisitOccurrence.admitted-from-concept-id => [0..1]
+             VisitOccurrence.admitted-from-source-value => [0..1]
+             VisitOccurrence.discharged-to-concept-id => [0..1]
+             VisitOccurrence.discharged-to-source-value => [0..1]
+             VisitOccurrence.preceding-visit-occurrence-id => [0..1]
+         }
+
+     }
+     package extension #paleturquoise {
+
+
+         }
+     }
+     package valueset #PaleVioletRed{
+       }
+
+package "Ressources de base" #palegreen {
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> CareSite
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Concept
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> ConditionEra
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> ConditionOccurrence
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Cost
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Death
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> DeviceExposure
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> DoseEra
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> DrugEra
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> DrugE
+
+ class "https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-address" as  class02bd19ba761f85d7bc96fe05a09e62dc 
+
+    class02bd19ba761f85d7bc96fe05a09e62dc --> EDSAddress
+
+ class "https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-observation-body-height" as  classa7b24c74714e989353d398afa73cd810 
+
+    classa7b24c74714e989353d398afa73cd810 --> EDSObservationBodyHeight
+
+ class "https://hl7.fr/ig/fhir/core/StructureDefinition/fr-core-patient" as  classcb72a5551de902d7716887df67489a97 
+
+    classcb72a5551de902d7716887df67489a97 --> EDSPatient
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Episode
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> EpisodeEvent
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> FactRelationship
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Location
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Measurement
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Note
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> NoteNLP
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Observation
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> ObservationPeriod
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> PayerPlanPeriod
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Person
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> ProcedureOccurrence
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Provider
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> Specimen
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> VisitDetail
+
+ class "Base" as  class095a1b43effec73955e31e790438de49 
+
+    class095a1b43effec73955e31e790438de49 --> VisitOccurrence
+}
+@enduml

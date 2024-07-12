@@ -1,0 +1,17 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"DrugEra","DrugEra","","","",0,*,"","","","null {[]} {[]}
+","Drug Era OMOP Table","A Drug Era is defined as a span of time when the Person is assumed to be exposed to a particular active ingredient. A Drug Era is not the same as a Drug Exposure: Exposures are individual records corresponding to the source when Drug was delivered to the Person, while successive periods of Drug Exposures are combined under certain rules to produce continuous Drug Eras.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"DrugEra.drug-era-id","DrugEra.drug_era_id","","","",1,1,"","","","integer {[]} {[]}
+","Drug Era Identifier","Drug Era Identifier","","","","","","","","","",,,,,"",,,,"DrugEra.drug_era_id",1,1,"",""
+"DrugEra.person-id","DrugEra.person_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person]]}
+","Person","Person","","","","","","","","","",,,,,"",,,,"DrugEra.person_id",1,1,"",""
+"DrugEra.drug-concept-id","DrugEra.drug_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Drug","The Concept Id representing the specific drug ingredient.","","","","","","","","","",,,,,"",,,,"DrugEra.drug_concept_id",1,1,"",""
+"DrugEra.drug-era-start-date","DrugEra.drug_era_start_date","","","",1,1,"","","","date {[]} {[]}
+","Drug Era Start Date","Drug Era Start Date","","","","","","","","","",,,,,"",,,,"DrugEra.drug_era_start_date",1,1,"",""
+"DrugEra.drug-era-end-date","DrugEra.drug_era_end_date","","","",1,1,"","","","date {[]} {[]}
+","Drug Era End Date","Drug Era End Date","","","","","","","","","",,,,,"",,,,"DrugEra.drug_era_end_date",1,1,"",""
+"DrugEra.drug-exposure-count","DrugEra.drug_exposure_count","","","",0,1,"","","","integer {[]} {[]}
+","Drug Exposure Count","Drug Exposure Count","","","","","","","","","",,,,,"",,,,"DrugEra.drug_exposure_count",0,1,"",""
+"DrugEra.gap-days","DrugEra.gap_days","","","",0,1,"","","","integer {[]} {[]}
+","Gap Days","Gap Days","","","","","","","","","",,,,,"",,,,"DrugEra.gap_days",0,1,"",""

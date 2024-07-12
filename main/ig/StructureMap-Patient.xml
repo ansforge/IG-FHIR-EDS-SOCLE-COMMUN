@@ -1,0 +1,687 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureMap xmlns="http://hl7.org/fhir">
+  <id value="Patient"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Patient</b></p><a name="Patient"> </a><a name="hcPatient"> </a><a name="hcPatient-fr-FR"> </a><pre class="fml">
+<b>map</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient<span style="color: navy">&quot; = &quot;</span>Patient<span style="color: navy">&quot;
+
+</span><span style="color: navy">// </span><span style="color: green">Mapping Patient resource to Person, Location and Death OMOP Domain</span>
+
+<b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-EDSPatient.html" title="EDS Patient">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style="color: navy">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>
+<b>uses</b><span style="color: navy"> &quot;</span><a href="http://hl7.org/fhir/R4/bundle.html" title="Bundle">http://hl7.org/fhir/StructureDefinition/Bundle</a><span style="color: navy">&quot; </span><b>as </b><b>target</b>
+
+<b>imports</b><span style="color: navy"> &quot;</span><a href="StructureMap-Person.html" title="Mapping Patient resource to Person OMOP Domain">https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person</a><span style="color: navy">&quot;
+</span><b>imports</b><span style="color: navy"> &quot;</span><a href="StructureMap-Location.html" title="Mapping Patient resource to Location OMOP Domain">https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location</a><span style="color: navy">&quot;
+</span><b>imports</b><span style="color: navy"> &quot;</span><a href="StructureMap-Death.html" title="Mapping Patient resource to Death OMOP Domain">https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death</a><span style="color: navy">&quot;
+</span>
+<b>group </b>Patient<span style="color: navy">(</span><b>source</b> <span style="color: maroon">src</span><span style="color: navy"> : </span>Patient, <b>target</b> <span style="color: maroon">tgtBundle</span><span style="color: navy"> : </span>Bundle<span style="color: navy">)</span><span style="color: navy"> {
+</span>  src.id<b> as </b><span style="color: maroon">srcId</span><span style="color: navy"><b> -&gt; </b></span>tgtBundle.id = <b>uuid</b><span style="color: navy">(</span><span style="color: navy">)</span> <i>&quot;setId&quot;</i><span style="color: navy">;</span>
+  src<span style="color: navy"><b> -&gt; </b></span>tgtBundle.type = <span style="color: blue">'transaction'</span> <i>&quot;setType&quot;</i><span style="color: navy">;</span>
+  src<span style="color: navy"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style="color: maroon">newEntry</span><b> then</b><span style="color: navy"> {
+</span>    src<span style="color: navy"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style="color: navy">(</span><span style="color: blue">'Provenance'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">newProvenance</span><b> then</b><span style="color: navy"> {
+</span>      src<span style="color: navy"><b> -&gt; </b></span> newProvenance.agent<b> as </b><span style="color: maroon">agent</span><span style="color: navy">, </span> agent.who = <b>reference</b><span style="color: navy">(</span><span style="color: blue">'?mapper?'</span><span style="color: navy">)</span> <i>&quot;setProvenanceAgent&quot;</i><span style="color: navy">;</span>
+      src<span style="color: navy"><b> -&gt; </b></span> newProvenance.entity<b> as </b><span style="color: maroon">entitySource</span><span style="color: navy">, </span> <b>append</b><span style="color: navy">(</span><span style="color: blue">'Patient/'</span><span style="color: navy">, </span><span style="color: maroon">srcId</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">whatRef</span><span style="color: navy">, </span> entitySource.what = <b>reference</b><span style="color: navy">(</span><span style="color: maroon">whatRef</span><span style="color: navy">)</span><span style="color: navy">, </span> entitySource.role = <span style="color: blue">'source'</span> <i>&quot;setProvenanceEntitySource&quot;</i><span style="color: navy">;</span>
+      src<span style="color: navy"><b> -&gt; </b></span>newProvenance.activity = <b>cc</b><span style="color: navy">(</span><span style="color: blue">'http://terminology.hl7.org/CodeSystem/v3-DataOperation'</span><span style="color: navy">, </span><span style="color: blue">'CREATE'</span><span style="color: navy">)</span> <i>&quot;setProvenanceActivity&quot;</i><span style="color: navy">;</span>
+      src<span style="color: navy"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style="color: maroon">newEntry</span><b> then</b><span style="color: navy"> {
+</span>        src<span style="color: navy"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style="color: navy">(</span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">newPerson</span><b> then</b><span style="color: navy"> {
+</span>          src<span style="color: navy"><b> -&gt; </b></span>newPerson.person_id = <b>uuid</b><span style="color: navy">(</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">newPersonId</span> <i>&quot;setId&quot;</i><span style="color: navy">;</span>
+          src<span style="color: navy"><b> -&gt; </b></span> <b>append</b><span style="color: navy">(</span><span style="color: blue">'Person/'</span><span style="color: navy">, </span><span style="color: maroon">newPersonId</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">targetRef</span><span style="color: navy">, </span> newProvenance.target = <b>reference</b><span style="color: navy">(</span><span style="color: maroon">targetRef</span><span style="color: navy">)</span> <i>&quot;setProvenanceTarget&quot;</i><span style="color: navy">;</span>
+          src<b> then </b>Person<span style="color: navy">(</span><span style="color: maroon">src</span><span style="color: navy">, </span><span style="color: maroon">newPerson</span><span style="color: navy">)</span> <i>&quot;transformPerson&quot;</i><span style="color: navy">;</span>
+          src<span style="color: navy"><b> -&gt; </b></span>newEntry.fullUrl = <b>append</b><span style="color: navy">(</span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/Person/'</span><span style="color: navy">, </span><span style="color: maroon">newPersonId</span><span style="color: navy">)</span> <i>&quot;setFullUrl&quot;</i><span style="color: navy">;</span>
+          src<span style="color: navy"><b> -&gt; </b></span>newEntry.request<b> as </b><span style="color: maroon">newRequest</span><b> then</b><span style="color: navy"> {
+</span>            src<span style="color: navy"><b> -&gt; </b></span>newRequest.method = <span style="color: blue">'POST'</span> <i>&quot;setMethod&quot;</i><span style="color: navy">;</span>
+            src<span style="color: navy"><b> -&gt; </b></span>newRequest.url = <span style="color: blue">'Person'</span> <i>&quot;setUrl&quot;</i><span style="color: navy">;</span>
+          <span style="color: navy">}</span> <i>&quot;setEntryRequest&quot;</i><span style="color: navy">;</span>
+          src<b> where </b>address.empty().not()<span style="color: navy"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style="color: maroon">newEntry</span><b> then</b><span style="color: navy"> {
+</span>            src<span style="color: navy"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style="color: navy">(</span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">newLocation</span><b> then</b><span style="color: navy"> {
+</span>              src<span style="color: navy"><b> -&gt; </b></span>newLocation.location_id = <b>uuid</b><span style="color: navy">(</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">newLocationId</span> <i>&quot;setId&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span> <b>append</b><span style="color: navy">(</span><span style="color: blue">'Location/'</span><span style="color: navy">, </span><span style="color: maroon">newLocationId</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">targetRef</span><span style="color: navy">, </span> newProvenance.target = <b>reference</b><span style="color: navy">(</span><span style="color: maroon">targetRef</span><span style="color: navy">)</span> <i>&quot;setProvenanceTarget&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span>newPerson.location_id = <span style="color: maroon">newLocationId</span> <i>&quot;setPersonLocationId&quot;</i><span style="color: navy">;</span>
+              src<b> then </b>Location<span style="color: navy">(</span><span style="color: maroon">src</span><span style="color: navy">, </span><span style="color: maroon">newLocation</span><span style="color: navy">)</span> <i>&quot;transformLocation&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span>newEntry.fullUrl = <b>append</b><span style="color: navy">(</span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/Location/'</span><span style="color: navy">, </span><span style="color: maroon">newLocationId</span><span style="color: navy">)</span> <i>&quot;setFullUrl&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span>newEntry.request<b> as </b><span style="color: maroon">newRequest</span><b> then</b><span style="color: navy"> {
+</span>                src<span style="color: navy"><b> -&gt; </b></span>newRequest.method = <span style="color: blue">'POST'</span> <i>&quot;setMethod&quot;</i><span style="color: navy">;</span>
+                src<span style="color: navy"><b> -&gt; </b></span>newRequest.url = <span style="color: blue">'Location'</span> <i>&quot;setUrl&quot;</i><span style="color: navy">;</span>
+              <span style="color: navy">}</span> <i>&quot;setEntryRequest&quot;</i><span style="color: navy">;</span>
+            <span style="color: navy">}</span> <i>&quot;createLocation&quot;</i><span style="color: navy">;</span>
+          <span style="color: navy">}</span> <i>&quot;newEntryLocation&quot;</i><span style="color: navy">;</span>
+          src<b> where </b>(deceased.ofType(Boolean) = true) or deceased.ofType(Datetime).empty().not()<span style="color: navy"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style="color: maroon">newEntry</span><b> then</b><span style="color: navy"> {
+</span>            src<span style="color: navy"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style="color: navy">(</span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">newDeath</span><b> then</b><span style="color: navy"> {
+</span>              src<span style="color: navy"><b> -&gt; </b></span>newDeath.person_id = <span style="color: maroon">newPersonId</span> <i>&quot;setId&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span> <b>append</b><span style="color: navy">(</span><span style="color: blue">'Death/'</span><span style="color: navy">, </span><span style="color: maroon">newPersonId</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">targetRef</span><span style="color: navy">, </span> newProvenance.target = <b>reference</b><span style="color: navy">(</span><span style="color: maroon">targetRef</span><span style="color: navy">)</span> <i>&quot;setProvenanceTarget&quot;</i><span style="color: navy">;</span>
+              src<b> then </b>Death<span style="color: navy">(</span><span style="color: maroon">src</span><span style="color: navy">, </span><span style="color: maroon">newDeath</span><span style="color: navy">)</span> <i>&quot;transformDeath&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span>newEntry.fullUrl = <b>append</b><span style="color: navy">(</span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/Death/'</span><span style="color: navy">, </span><span style="color: maroon">newPersonId</span><span style="color: navy">)</span> <i>&quot;setFullUrl&quot;</i><span style="color: navy">;</span>
+              src<span style="color: navy"><b> -&gt; </b></span>newEntry.request<b> as </b><span style="color: maroon">newRequest</span><b> then</b><span style="color: navy"> {
+</span>                src<span style="color: navy"><b> -&gt; </b></span>newRequest.method = <span style="color: blue">'POST'</span> <i>&quot;setMethod&quot;</i><span style="color: navy">;</span>
+                src<span style="color: navy"><b> -&gt; </b></span>newRequest.url = <span style="color: blue">'Death'</span> <i>&quot;setUrl&quot;</i><span style="color: navy">;</span>
+              <span style="color: navy">}</span> <i>&quot;setEntryRequest&quot;</i><span style="color: navy">;</span>
+            <span style="color: navy">}</span> <i>&quot;createDeath&quot;</i><span style="color: navy">;</span>
+          <span style="color: navy">}</span> <i>&quot;newEntryDeath&quot;</i><span style="color: navy">;</span>
+        <span style="color: navy">}</span> <i>&quot;createPerson&quot;</i><span style="color: navy">;</span>
+      <span style="color: navy">}</span> <i>&quot;newEntryPerson&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;createProvenance&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span> <i>&quot;newEntryProvenance&quot;</i><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span></pre></div>
+  </text>
+  <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient"/>
+  <version value="0.1.0"/>
+  <name value="Patient"/>
+  <title value="Mapping Patient resource to Person, Location and Death OMOP Domain"/>
+  <status value="draft"/>
+  <date value="2024-07-12T05:56:19+00:00"/>
+  <publisher value="ANS"/>
+  <contact>
+    <name value="ANS"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://esante.gouv.fr"/>
+    </telecom>
+  </contact>
+  <description value="Mapping Patient resource to Person, Location and Death OMOP Domain"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="FR"/>
+      <display value="France"/>
+    </coding>
+  </jurisdiction>
+  <structure>
+    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"/>
+    <mode value="source"/>
+    <alias value="Patient"/>
+  </structure>
+  <structure>
+    <url value="http://hl7.org/fhir/StructureDefinition/Bundle"/>
+    <mode value="target"/>
+  </structure>
+  <import value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person"/>
+  <import value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location"/>
+  <import value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death"/>
+  <group>
+    <name value="Patient"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="src"/>
+      <type value="Patient"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="tgtBundle"/>
+      <type value="Bundle"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="setId"/>
+      <source>
+        <context value="src"/>
+        <element value="id"/>
+        <variable value="srcId"/>
+      </source>
+      <target>
+        <context value="tgtBundle"/>
+        <contextType value="variable"/>
+        <element value="id"/>
+        <transform value="uuid"/>
+      </target>
+    </rule>
+    <rule>
+      <name value="setType"/>
+      <source>
+        <context value="src"/>
+      </source>
+      <target>
+        <context value="tgtBundle"/>
+        <contextType value="variable"/>
+        <element value="type"/>
+        <transform value="copy"/>
+        <parameter>
+          <valueString value="transaction"/>
+        </parameter>
+      </target>
+    </rule>
+    <rule>
+      <name value="newEntryProvenance"/>
+      <source>
+        <context value="src"/>
+      </source>
+      <target>
+        <context value="tgtBundle"/>
+        <contextType value="variable"/>
+        <element value="entry"/>
+        <variable value="newEntry"/>
+      </target>
+      <rule>
+        <name value="createProvenance"/>
+        <source>
+          <context value="src"/>
+        </source>
+        <target>
+          <context value="newEntry"/>
+          <contextType value="variable"/>
+          <element value="resource"/>
+          <variable value="newProvenance"/>
+          <transform value="create"/>
+          <parameter>
+            <valueString value="Provenance"/>
+          </parameter>
+        </target>
+        <rule>
+          <name value="setProvenanceAgent"/>
+          <source>
+            <context value="src"/>
+          </source>
+          <target>
+            <context value="newProvenance"/>
+            <contextType value="variable"/>
+            <element value="agent"/>
+            <variable value="agent"/>
+          </target>
+          <target>
+            <context value="agent"/>
+            <contextType value="variable"/>
+            <element value="who"/>
+            <transform value="reference"/>
+            <parameter>
+              <valueString value="?mapper?"/>
+            </parameter>
+          </target>
+        </rule>
+        <rule>
+          <name value="setProvenanceEntitySource"/>
+          <source>
+            <context value="src"/>
+          </source>
+          <target>
+            <context value="newProvenance"/>
+            <contextType value="variable"/>
+            <element value="entity"/>
+            <variable value="entitySource"/>
+          </target>
+          <target>
+            <contextType value="variable"/>
+            <variable value="whatRef"/>
+            <transform value="append"/>
+            <parameter>
+              <valueString value="Patient/"/>
+            </parameter>
+            <parameter>
+              <valueId value="srcId"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="entitySource"/>
+            <contextType value="variable"/>
+            <element value="what"/>
+            <transform value="reference"/>
+            <parameter>
+              <valueId value="whatRef"/>
+            </parameter>
+          </target>
+          <target>
+            <context value="entitySource"/>
+            <contextType value="variable"/>
+            <element value="role"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueString value="source"/>
+            </parameter>
+          </target>
+        </rule>
+        <rule>
+          <name value="setProvenanceActivity"/>
+          <source>
+            <context value="src"/>
+          </source>
+          <target>
+            <context value="newProvenance"/>
+            <contextType value="variable"/>
+            <element value="activity"/>
+            <transform value="cc"/>
+            <parameter>
+              <valueString value="http://terminology.hl7.org/CodeSystem/v3-DataOperation"/>
+            </parameter>
+            <parameter>
+              <valueString value="CREATE"/>
+            </parameter>
+          </target>
+        </rule>
+        <rule>
+          <name value="newEntryPerson"/>
+          <source>
+            <context value="src"/>
+          </source>
+          <target>
+            <context value="tgtBundle"/>
+            <contextType value="variable"/>
+            <element value="entry"/>
+            <variable value="newEntry"/>
+          </target>
+          <rule>
+            <name value="createPerson"/>
+            <source>
+              <context value="src"/>
+            </source>
+            <target>
+              <context value="newEntry"/>
+              <contextType value="variable"/>
+              <element value="resource"/>
+              <variable value="newPerson"/>
+              <transform value="create"/>
+              <parameter>
+                <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person"/>
+              </parameter>
+            </target>
+            <rule>
+              <name value="setId"/>
+              <source>
+                <context value="src"/>
+              </source>
+              <target>
+                <context value="newPerson"/>
+                <contextType value="variable"/>
+                <element value="person_id"/>
+                <variable value="newPersonId"/>
+                <transform value="uuid"/>
+              </target>
+            </rule>
+            <rule>
+              <name value="setProvenanceTarget"/>
+              <source>
+                <context value="src"/>
+              </source>
+              <target>
+                <contextType value="variable"/>
+                <variable value="targetRef"/>
+                <transform value="append"/>
+                <parameter>
+                  <valueString value="Person/"/>
+                </parameter>
+                <parameter>
+                  <valueId value="newPersonId"/>
+                </parameter>
+              </target>
+              <target>
+                <context value="newProvenance"/>
+                <contextType value="variable"/>
+                <element value="target"/>
+                <transform value="reference"/>
+                <parameter>
+                  <valueId value="targetRef"/>
+                </parameter>
+              </target>
+            </rule>
+            <rule>
+              <name value="transformPerson"/>
+              <source>
+                <context value="src"/>
+              </source>
+              <dependent>
+                <name value="Person"/>
+                <variable value="src"/>
+                <variable value="newPerson"/>
+              </dependent>
+            </rule>
+            <rule>
+              <name value="setFullUrl"/>
+              <source>
+                <context value="src"/>
+              </source>
+              <target>
+                <context value="newEntry"/>
+                <contextType value="variable"/>
+                <element value="fullUrl"/>
+                <transform value="append"/>
+                <parameter>
+                  <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/Person/"/>
+                </parameter>
+                <parameter>
+                  <valueId value="newPersonId"/>
+                </parameter>
+              </target>
+            </rule>
+            <rule>
+              <name value="setEntryRequest"/>
+              <source>
+                <context value="src"/>
+              </source>
+              <target>
+                <context value="newEntry"/>
+                <contextType value="variable"/>
+                <element value="request"/>
+                <variable value="newRequest"/>
+              </target>
+              <rule>
+                <name value="setMethod"/>
+                <source>
+                  <context value="src"/>
+                </source>
+                <target>
+                  <context value="newRequest"/>
+                  <contextType value="variable"/>
+                  <element value="method"/>
+                  <transform value="copy"/>
+                  <parameter>
+                    <valueString value="POST"/>
+                  </parameter>
+                </target>
+              </rule>
+              <rule>
+                <name value="setUrl"/>
+                <source>
+                  <context value="src"/>
+                </source>
+                <target>
+                  <context value="newRequest"/>
+                  <contextType value="variable"/>
+                  <element value="url"/>
+                  <transform value="copy"/>
+                  <parameter>
+                    <valueString value="Person"/>
+                  </parameter>
+                </target>
+              </rule>
+            </rule>
+            <rule>
+              <name value="newEntryLocation"/>
+              <source>
+                <context value="src"/>
+                <condition value="address.empty().not()"/>
+              </source>
+              <target>
+                <context value="tgtBundle"/>
+                <contextType value="variable"/>
+                <element value="entry"/>
+                <variable value="newEntry"/>
+              </target>
+              <rule>
+                <name value="createLocation"/>
+                <source>
+                  <context value="src"/>
+                </source>
+                <target>
+                  <context value="newEntry"/>
+                  <contextType value="variable"/>
+                  <element value="resource"/>
+                  <variable value="newLocation"/>
+                  <transform value="create"/>
+                  <parameter>
+                    <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location"/>
+                  </parameter>
+                </target>
+                <rule>
+                  <name value="setId"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newLocation"/>
+                    <contextType value="variable"/>
+                    <element value="location_id"/>
+                    <variable value="newLocationId"/>
+                    <transform value="uuid"/>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="setProvenanceTarget"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <contextType value="variable"/>
+                    <variable value="targetRef"/>
+                    <transform value="append"/>
+                    <parameter>
+                      <valueString value="Location/"/>
+                    </parameter>
+                    <parameter>
+                      <valueId value="newLocationId"/>
+                    </parameter>
+                  </target>
+                  <target>
+                    <context value="newProvenance"/>
+                    <contextType value="variable"/>
+                    <element value="target"/>
+                    <transform value="reference"/>
+                    <parameter>
+                      <valueId value="targetRef"/>
+                    </parameter>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="setPersonLocationId"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newPerson"/>
+                    <contextType value="variable"/>
+                    <element value="location_id"/>
+                    <transform value="copy"/>
+                    <parameter>
+                      <valueId value="newLocationId"/>
+                    </parameter>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="transformLocation"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <dependent>
+                    <name value="Location"/>
+                    <variable value="src"/>
+                    <variable value="newLocation"/>
+                  </dependent>
+                </rule>
+                <rule>
+                  <name value="setFullUrl"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newEntry"/>
+                    <contextType value="variable"/>
+                    <element value="fullUrl"/>
+                    <transform value="append"/>
+                    <parameter>
+                      <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/Location/"/>
+                    </parameter>
+                    <parameter>
+                      <valueId value="newLocationId"/>
+                    </parameter>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="setEntryRequest"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newEntry"/>
+                    <contextType value="variable"/>
+                    <element value="request"/>
+                    <variable value="newRequest"/>
+                  </target>
+                  <rule>
+                    <name value="setMethod"/>
+                    <source>
+                      <context value="src"/>
+                    </source>
+                    <target>
+                      <context value="newRequest"/>
+                      <contextType value="variable"/>
+                      <element value="method"/>
+                      <transform value="copy"/>
+                      <parameter>
+                        <valueString value="POST"/>
+                      </parameter>
+                    </target>
+                  </rule>
+                  <rule>
+                    <name value="setUrl"/>
+                    <source>
+                      <context value="src"/>
+                    </source>
+                    <target>
+                      <context value="newRequest"/>
+                      <contextType value="variable"/>
+                      <element value="url"/>
+                      <transform value="copy"/>
+                      <parameter>
+                        <valueString value="Location"/>
+                      </parameter>
+                    </target>
+                  </rule>
+                </rule>
+              </rule>
+            </rule>
+            <rule>
+              <name value="newEntryDeath"/>
+              <source>
+                <context value="src"/>
+                <condition value="(deceased.ofType(Boolean) = true) or deceased.ofType(Datetime).empty().not()"/>
+              </source>
+              <target>
+                <context value="tgtBundle"/>
+                <contextType value="variable"/>
+                <element value="entry"/>
+                <variable value="newEntry"/>
+              </target>
+              <rule>
+                <name value="createDeath"/>
+                <source>
+                  <context value="src"/>
+                </source>
+                <target>
+                  <context value="newEntry"/>
+                  <contextType value="variable"/>
+                  <element value="resource"/>
+                  <variable value="newDeath"/>
+                  <transform value="create"/>
+                  <parameter>
+                    <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death"/>
+                  </parameter>
+                </target>
+                <rule>
+                  <name value="setId"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newDeath"/>
+                    <contextType value="variable"/>
+                    <element value="person_id"/>
+                    <transform value="copy"/>
+                    <parameter>
+                      <valueId value="newPersonId"/>
+                    </parameter>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="setProvenanceTarget"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <contextType value="variable"/>
+                    <variable value="targetRef"/>
+                    <transform value="append"/>
+                    <parameter>
+                      <valueString value="Death/"/>
+                    </parameter>
+                    <parameter>
+                      <valueId value="newPersonId"/>
+                    </parameter>
+                  </target>
+                  <target>
+                    <context value="newProvenance"/>
+                    <contextType value="variable"/>
+                    <element value="target"/>
+                    <transform value="reference"/>
+                    <parameter>
+                      <valueId value="targetRef"/>
+                    </parameter>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="transformDeath"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <dependent>
+                    <name value="Death"/>
+                    <variable value="src"/>
+                    <variable value="newDeath"/>
+                  </dependent>
+                </rule>
+                <rule>
+                  <name value="setFullUrl"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newEntry"/>
+                    <contextType value="variable"/>
+                    <element value="fullUrl"/>
+                    <transform value="append"/>
+                    <parameter>
+                      <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/Death/"/>
+                    </parameter>
+                    <parameter>
+                      <valueId value="newPersonId"/>
+                    </parameter>
+                  </target>
+                </rule>
+                <rule>
+                  <name value="setEntryRequest"/>
+                  <source>
+                    <context value="src"/>
+                  </source>
+                  <target>
+                    <context value="newEntry"/>
+                    <contextType value="variable"/>
+                    <element value="request"/>
+                    <variable value="newRequest"/>
+                  </target>
+                  <rule>
+                    <name value="setMethod"/>
+                    <source>
+                      <context value="src"/>
+                    </source>
+                    <target>
+                      <context value="newRequest"/>
+                      <contextType value="variable"/>
+                      <element value="method"/>
+                      <transform value="copy"/>
+                      <parameter>
+                        <valueString value="POST"/>
+                      </parameter>
+                    </target>
+                  </rule>
+                  <rule>
+                    <name value="setUrl"/>
+                    <source>
+                      <context value="src"/>
+                    </source>
+                    <target>
+                      <context value="newRequest"/>
+                      <contextType value="variable"/>
+                      <element value="url"/>
+                      <transform value="copy"/>
+                      <parameter>
+                        <valueString value="Death"/>
+                      </parameter>
+                    </target>
+                  </rule>
+                </rule>
+              </rule>
+            </rule>
+          </rule>
+        </rule>
+      </rule>
+    </rule>
+  </group>
+</StructureMap>

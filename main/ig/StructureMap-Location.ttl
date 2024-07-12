@@ -1,0 +1,160 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location> a fhir:StructureMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "Location"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Location</b></p><a name=\"Location\"> </a><a name=\"hcLocation\"> </a><a name=\"hcLocation-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location<span style=\"color: navy\">&quot; = &quot;</span>Location<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Location OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient<span style=\"color: navy\">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-Location.html\" title=\"Location OMOP Table\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location</a><span style=\"color: navy\">&quot; </span><b>alias </b>LocationTable <b>as </b><b>target</b>\r\n\r\n<b>group </b>Location<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgt</span><span style=\"color: navy\"> : </span>LocationTable<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.address<b> as </b><span style=\"color: maroon\">srcAddress</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    srcAddress.line first<b> as </b><span style=\"color: maroon\">srcLine1</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.address_1 = <span style=\"color: maroon\">srcLine1</span><span style=\"color: navy\">;</span>\r\n    srcAddress.line last<b> as </b><span style=\"color: maroon\">srcLine2</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.address_2 = <span style=\"color: maroon\">srcLine2</span><span style=\"color: navy\">;</span>\r\n    srcAddress.city<b> as </b><span style=\"color: maroon\">srcCity</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.city = <span style=\"color: maroon\">srcCity</span><span style=\"color: navy\">;</span>\r\n    srcAddress.postalCode<b> as </b><span style=\"color: maroon\">srcZip</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.zip = <span style=\"color: maroon\">srcZip</span><span style=\"color: navy\">;</span>\r\n    srcAddress.text<b> as </b><span style=\"color: maroon\">srcText</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.location_source_value = <b>truncate</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcText</span><span style=\"color: navy\">, </span><span style=\"color: blue\">50</span><span style=\"color: navy\">)</span><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  ] ; # 
+  fhir:url [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "Location"] ; # 
+  fhir:title [ fhir:v "Mapping Patient resource to Location OMOP Domain"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2024-07-12T05:56:19+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "ANS"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "ANS" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://esante.gouv.fr" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Mapping Patient resource to Location OMOP Domain"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "FR" ] ;
+       fhir:display [ fhir:v "France" ]
+     ] )
+  ] ) ; # 
+  fhir:structure ( [
+     fhir:url [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient>
+     ] ;
+     fhir:mode [ fhir:v "source" ] ;
+     fhir:alias [ fhir:v "Patient" ]
+  ] [
+     fhir:url [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location>
+     ] ;
+     fhir:mode [ fhir:v "target" ] ;
+     fhir:alias [ fhir:v "LocationTable" ]
+  ] ) ; # 
+  fhir:group ( [
+     fhir:name [ fhir:v "Location" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "src" ] ;
+       fhir:type [ fhir:v "Patient" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "tgt" ] ;
+       fhir:type [ fhir:v "LocationTable" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "address" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "src" ] ;
+         fhir:element [ fhir:v "address" ] ;
+         fhir:variable [ fhir:v "srcAddress" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "line" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcAddress" ] ;
+           fhir:element [ fhir:v "line" ] ;
+           fhir:listMode [ fhir:v "first" ] ;
+           fhir:variable [ fhir:v "srcLine1" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "address_1" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcLine1" ]
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "line" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcAddress" ] ;
+           fhir:element [ fhir:v "line" ] ;
+           fhir:listMode [ fhir:v "last" ] ;
+           fhir:variable [ fhir:v "srcLine2" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "address_2" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcLine2" ]
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "city" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcAddress" ] ;
+           fhir:element [ fhir:v "city" ] ;
+           fhir:variable [ fhir:v "srcCity" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "city" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcCity" ]
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "postalCode" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcAddress" ] ;
+           fhir:element [ fhir:v "postalCode" ] ;
+           fhir:variable [ fhir:v "srcZip" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "zip" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcZip" ]
+           ] )
+         ] )
+       ] [
+         fhir:name [ fhir:v "text" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcAddress" ] ;
+           fhir:element [ fhir:v "text" ] ;
+           fhir:variable [ fhir:v "srcText" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "location_source_value" ] ;
+           fhir:transform [ fhir:v "truncate" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcText" ]
+           ] [
+             fhir:value [ fhir:v "50"^^xsd:integer ]
+           ] )
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

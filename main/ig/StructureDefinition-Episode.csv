@@ -1,0 +1,29 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Episode","Episode","","","",0,*,"","","","null {[]} {[]}
+","Episode OMOP Table","The EPISODE table aggregates lower-level clinical events (VISIT_OCCURRENCE, DRUG_EXPOSURE, PROCEDURE_OCCURRENCE, DEVICE_EXPOSURE) into a higher-level abstraction representing clinically and analytically relevant disease phases,outcomes and treatments. The EPISODE_EVENT table connects qualifying clinical events (VISIT_OCCURRENCE, DRUG_EXPOSURE, PROCEDURE_OCCURRENCE, DEVICE_EXPOSURE) to the appropriate EPISODE entry. For example cancers including their development over time, their treatment, and final resolution.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Episode.episode-id","Episode.episode_id","","","",1,1,"","","","integer {[]} {[]}
+","Episode Identifier","Episode Identifier","","","","","","","","","",,,,,"",,,,"Episode.episode_id",1,1,"",""
+"Episode.person-id","Episode.person_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person]]}
+","Person","The PERSON_ID of the PERSON for whom the episode is recorded.","","","","","","","","","",,,,,"",,,,"Episode.person_id",1,1,"",""
+"Episode.episode-concept-id","Episode.episode_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Episode","The EPISODE_CONCEPT_ID represents the kind abstraction related to the disease phase, outcome or treatment.","","","","","","","","","",,,,,"",,,,"Episode.episode_concept_id",1,1,"",""
+"Episode.episode-start-date","Episode.episode_start_date","","","",1,1,"","","","date {[]} {[]}
+","Episode Start Date","The date when the Episode beings.","","","","","","","","","",,,,,"",,,,"Episode.episode_start_date",1,1,"",""
+"Episode.episode-start-datetime","Episode.episode_start_datetime","","","",0,1,"","","","dateTime {[]} {[]}
+","Episode Start Datetime","The date and time when the Episode beings.","","","","","","","","","",,,,,"",,,,"Episode.episode_start_datetime",0,1,"",""
+"Episode.episode-end-date","Episode.episode_end_date","","","",0,1,"","","","date {[]} {[]}
+","Episode End Date","The date when the instance of the Episode is considered to have ended.","","","","","","","","","",,,,,"",,,,"Episode.episode_end_date",0,1,"",""
+"Episode.episode-end-datetime","Episode.episode_end_datetime","","","",0,1,"","","","dateTime {[]} {[]}
+","Epsisode End Datetime","The date when the instance of the Episode is considered to have ended.","","","","","","","","","",,,,,"",,,,"Episode.episode_end_datetime",0,1,"",""
+"Episode.episode-parent-id","Episode.episode_parent_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Episode]]}
+","Episode Parent","Use this field to find the Episode that subsumes the given Episode record. This is used in the case that an Episode are nested into each other.","","","","","","","","","",,,,,"",,,,"Episode.episode_parent_id",0,1,"",""
+"Episode.episode-number","Episode.episode_number","","","",0,1,"","","","integer {[]} {[]}
+","Episode Number","For sequences of episodes, this is used to indicate the order the episodes occurred. For example, lines of treatment could be indicated here.","","","","","","","","","",,,,,"",,,,"Episode.episode_number",0,1,"",""
+"Episode.episode-object-concept-id","Episode.episode_object_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Episode Object","A Standard Concept representing the disease phase, outcome, or other abstraction of which the episode consists.  For example, if the EPISODE_CONCEPT_ID is [treatment regimen](https://athena.ohdsi.org/search-terms/terms/32531) then the EPISODE_OBJECT_CONCEPT_ID should contain the chemotherapy regimen concept, like [Afatinib monotherapy](https://athena.ohdsi.org/search-terms/terms/35804392).","","","","","","","","","",,,,,"",,,,"Episode.episode_object_concept_id",1,1,"",""
+"Episode.episode-type-concept-id","Episode.episode_type_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Episode Type","This field can be used to determine the provenance of the Episode record, as in whether the episode was from an EHR system, insurance claim, registry, or other sources.","","","","","","","","","",,,,,"",,,,"Episode.episode_type_concept_id",1,1,"",""
+"Episode.episode-source-value","Episode.episode_source_value","","","",0,1,"","","","string {[]} {[]}
+","Episode Source Value","The source code for the Episdoe as it appears in the source data. This code is mapped to a Standard Condition Concept in the Standardized Vocabularies and the original code is stored here for reference.","","","","","","","","","",,,,,"",,,,"Episode.episode_source_value",0,1,"",""
+"Episode.episode-source-concept-id","Episode.episode_source_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Episode Source","A foreign key to a Episode Concept that refers to the code used in the source.","","","","","","","","","",,,,,"",,,,"Episode.episode_source_concept_id",0,1,"",""

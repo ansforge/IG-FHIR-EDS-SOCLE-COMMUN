@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureMap xmlns="http://hl7.org/fhir">
+  <id value="Location"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Location</b></p><a name="Location"> </a><a name="hcLocation"> </a><a name="hcLocation-fr-FR"> </a><pre class="fml">
+<b>map</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location<span style="color: navy">&quot; = &quot;</span>Location<span style="color: navy">&quot;
+
+</span><span style="color: navy">// </span><span style="color: green">Mapping Patient resource to Location OMOP Domain</span>
+
+<b>uses</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient<span style="color: navy">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>
+<b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-Location.html" title="Location OMOP Table">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location</a><span style="color: navy">&quot; </span><b>alias </b>LocationTable <b>as </b><b>target</b>
+
+<b>group </b>Location<span style="color: navy">(</span><b>source</b> <span style="color: maroon">src</span><span style="color: navy"> : </span>Patient, <b>target</b> <span style="color: maroon">tgt</span><span style="color: navy"> : </span>LocationTable<span style="color: navy">)</span><span style="color: navy"> {
+</span>  src.address<b> as </b><span style="color: maroon">srcAddress</span><b> then</b><span style="color: navy"> {
+</span>    srcAddress.line first<b> as </b><span style="color: maroon">srcLine1</span><span style="color: navy"><b> -&gt; </b></span>tgt.address_1 = <span style="color: maroon">srcLine1</span><span style="color: navy">;</span>
+    srcAddress.line last<b> as </b><span style="color: maroon">srcLine2</span><span style="color: navy"><b> -&gt; </b></span>tgt.address_2 = <span style="color: maroon">srcLine2</span><span style="color: navy">;</span>
+    srcAddress.city<b> as </b><span style="color: maroon">srcCity</span><span style="color: navy"><b> -&gt; </b></span>tgt.city = <span style="color: maroon">srcCity</span><span style="color: navy">;</span>
+    srcAddress.postalCode<b> as </b><span style="color: maroon">srcZip</span><span style="color: navy"><b> -&gt; </b></span>tgt.zip = <span style="color: maroon">srcZip</span><span style="color: navy">;</span>
+    srcAddress.text<b> as </b><span style="color: maroon">srcText</span><span style="color: navy"><b> -&gt; </b></span>tgt.location_source_value = <b>truncate</b><span style="color: navy">(</span><span style="color: maroon">srcText</span><span style="color: navy">, </span><span style="color: blue">50</span><span style="color: navy">)</span><span style="color: navy">;</span>
+  <span style="color: navy">}</span><span style="color: navy">;</span>
+<span style="color: navy">}
+
+</span></pre></div>
+  </text>
+  <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location"/>
+  <version value="0.1.0"/>
+  <name value="Location"/>
+  <title value="Mapping Patient resource to Location OMOP Domain"/>
+  <status value="draft"/>
+  <date value="2024-07-12T05:56:19+00:00"/>
+  <publisher value="ANS"/>
+  <contact>
+    <name value="ANS"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://esante.gouv.fr"/>
+    </telecom>
+  </contact>
+  <description value="Mapping Patient resource to Location OMOP Domain"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="FR"/>
+      <display value="France"/>
+    </coding>
+  </jurisdiction>
+  <structure>
+    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient"/>
+    <mode value="source"/>
+    <alias value="Patient"/>
+  </structure>
+  <structure>
+    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location"/>
+    <mode value="target"/>
+    <alias value="LocationTable"/>
+  </structure>
+  <group>
+    <name value="Location"/>
+    <typeMode value="none"/>
+    <input>
+      <name value="src"/>
+      <type value="Patient"/>
+      <mode value="source"/>
+    </input>
+    <input>
+      <name value="tgt"/>
+      <type value="LocationTable"/>
+      <mode value="target"/>
+    </input>
+    <rule>
+      <name value="address"/>
+      <source>
+        <context value="src"/>
+        <element value="address"/>
+        <variable value="srcAddress"/>
+      </source>
+      <rule>
+        <name value="line"/>
+        <source>
+          <context value="srcAddress"/>
+          <element value="line"/>
+          <listMode value="first"/>
+          <variable value="srcLine1"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="address_1"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="srcLine1"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="line"/>
+        <source>
+          <context value="srcAddress"/>
+          <element value="line"/>
+          <listMode value="last"/>
+          <variable value="srcLine2"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="address_2"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="srcLine2"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="city"/>
+        <source>
+          <context value="srcAddress"/>
+          <element value="city"/>
+          <variable value="srcCity"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="city"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="srcCity"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="postalCode"/>
+        <source>
+          <context value="srcAddress"/>
+          <element value="postalCode"/>
+          <variable value="srcZip"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="zip"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="srcZip"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="text"/>
+        <source>
+          <context value="srcAddress"/>
+          <element value="text"/>
+          <variable value="srcText"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="location_source_value"/>
+          <transform value="truncate"/>
+          <parameter>
+            <valueId value="srcText"/>
+          </parameter>
+          <parameter>
+            <valueInteger value="50"/>
+          </parameter>
+        </target>
+      </rule>
+    </rule>
+  </group>
+</StructureMap>

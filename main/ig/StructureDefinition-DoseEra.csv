@@ -1,0 +1,17 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"DoseEra","DoseEra","","","",0,*,"","","","null {[]} {[]}
+","Dose Era OMOP Table","A Dose Era is defined as a span of time when the Person is assumed to be exposed to a constant dose of a specific active ingredient.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"DoseEra.dose-era-id","DoseEra.dose_era_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Dose Era Identifier","Dose Era Identifier","","","","","","","","","",,,,,"",,,,"DoseEra.dose_era_id",1,1,"",""
+"DoseEra.person-id","DoseEra.person_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person]]}
+","Person","Person","","","","","","","","","",,,,,"",,,,"DoseEra.person_id",1,1,"",""
+"DoseEra.drug-concept-id","DoseEra.drug_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Drug","The Concept Id representing the specific drug ingredient.","","","","","","","","","",,,,,"",,,,"DoseEra.drug_concept_id",1,1,"",""
+"DoseEra.unit-concept-id","DoseEra.unit_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Unit","The Concept Id representing the unit of the specific drug ingredient.","","","","","","","","","",,,,,"",,,,"DoseEra.unit_concept_id",1,1,"",""
+"DoseEra.dose-value","DoseEra.dose_value","","","",1,1,"","","","integer {[]} {[]}
+","Dose Value","The numeric value of the dosage of the drug_ingredient.","","","","","","","","","",,,,,"",,,,"DoseEra.dose_value",1,1,"",""
+"DoseEra.dose-era-start-date","DoseEra.dose_era_start_date","","","",1,1,"","","","date {[]} {[]}
+","Dose Era Start Date","The date the Person started on the specific dosage, with at least 31 days since any prior exposure.","","","","","","","","","",,,,,"",,,,"DoseEra.dose_era_start_date",1,1,"",""
+"DoseEra.dose-era-end-date","DoseEra.dose_era_end_date","","","",1,1,"","","","date {[]} {[]}
+","Dose Era End Date","Dose Era End Date","","","","","","","","","",,,,,"",,,,"DoseEra.dose_era_end_date",1,1,"",""

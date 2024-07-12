@@ -1,0 +1,166 @@
+{
+  "resourceType" : "StructureMap",
+  "id" : "Person",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Person</b></p><a name=\"Person\"> </a><a name=\"hcPerson\"> </a><a name=\"hcPerson-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person<span style=\"color: navy\">&quot; = &quot;</span>Person<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Person OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-EDSPatient.html\" title=\"EDS Patient\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style=\"color: navy\">&quot; </span><b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-Person.html\" title=\"Person OMOP Table\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person</a><span style=\"color: navy\">&quot; </span><b>alias </b>PersonTable <b>as </b><b>target</b>\r\n\r\n<b>group </b>Person<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgt</span><span style=\"color: navy\"> : </span>PersonTable<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.id<b> as </b><span style=\"color: maroon\">srcId</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.person_source_value = <b>cast</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcId</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">String</span><span style=\"color: navy\">)</span><span style=\"color: navy\">;</span>\r\n  src.gender<b> as </b><span style=\"color: maroon\">srcGender</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>translate</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcGender</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender'</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'Coding'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">tgtGender</span><span style=\"color: navy\">, </span> tgt.gender_concept_id = <span style=\"color: maroon\">tgtGender.code</span><span style=\"color: navy\">, </span> tgt.gender_source_value = <span style=\"color: maroon\">srcGender.display</span> <i>&quot;transformGender&quot;</i><span style=\"color: navy\">;</span>\r\n  src.birthDate<b> as </b><span style=\"color: maroon\">srcBirthDate</span><span style=\"color: navy\"><b> -&gt; </b></span> tgt.birth_datetime = <span style=\"color: maroon\">srcBirthDate</span><span style=\"color: navy\">, </span> tgt.year_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(0, 4)<span style=\"color: navy\">)</span><span style=\"color: navy\">, </span> tgt.month_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(5, 2)<span style=\"color: navy\">)</span><span style=\"color: navy\">, </span> tgt.day_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(8, 2)<span style=\"color: navy\">)</span><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  },
+  "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person",
+  "version" : "0.1.0",
+  "name" : "Person",
+  "title" : "Mapping Patient resource to Person OMOP Domain",
+  "status" : "draft",
+  "date" : "2024-07-12T05:56:19+00:00",
+  "publisher" : "ANS",
+  "contact" : [{
+    "name" : "ANS",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://esante.gouv.fr"
+    }]
+  }],
+  "description" : "Mapping Patient resource to Person OMOP Domain",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "FR",
+      "display" : "France"
+    }]
+  }],
+  "structure" : [{
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient",
+    "mode" : "source"
+  },
+  {
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person",
+    "mode" : "target",
+    "alias" : "PersonTable"
+  }],
+  "group" : [{
+    "name" : "Person",
+    "typeMode" : "none",
+    "input" : [{
+      "name" : "src",
+      "type" : "Patient",
+      "mode" : "source"
+    },
+    {
+      "name" : "tgt",
+      "type" : "PersonTable",
+      "mode" : "target"
+    }],
+    "rule" : [{
+      "name" : "id",
+      "source" : [{
+        "context" : "src",
+        "element" : "id",
+        "variable" : "srcId"
+      }],
+      "target" : [{
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "person_source_value",
+        "transform" : "cast",
+        "parameter" : [{
+          "valueId" : "srcId"
+        },
+        {
+          "valueId" : "String"
+        }]
+      }]
+    },
+    {
+      "name" : "transformGender",
+      "source" : [{
+        "context" : "src",
+        "element" : "gender",
+        "variable" : "srcGender"
+      }],
+      "target" : [{
+        "contextType" : "variable",
+        "variable" : "tgtGender",
+        "transform" : "translate",
+        "parameter" : [{
+          "valueId" : "srcGender"
+        },
+        {
+          "valueString" : "https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender"
+        },
+        {
+          "valueString" : "Coding"
+        }]
+      },
+      {
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "gender_concept_id",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "tgtGender.code"
+        }]
+      },
+      {
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "gender_source_value",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "srcGender.display"
+        }]
+      }]
+    },
+    {
+      "name" : "birthDate",
+      "source" : [{
+        "context" : "src",
+        "element" : "birthDate",
+        "variable" : "srcBirthDate"
+      }],
+      "target" : [{
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "birth_datetime",
+        "transform" : "copy",
+        "parameter" : [{
+          "valueId" : "srcBirthDate"
+        }]
+      },
+      {
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "year_of_birth",
+        "transform" : "evaluate",
+        "parameter" : [{
+          "valueId" : "srcBirthDate"
+        },
+        {
+          "valueString" : "substring(0, 4)"
+        }]
+      },
+      {
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "month_of_birth",
+        "transform" : "evaluate",
+        "parameter" : [{
+          "valueId" : "srcBirthDate"
+        },
+        {
+          "valueString" : "substring(5, 2)"
+        }]
+      },
+      {
+        "context" : "tgt",
+        "contextType" : "variable",
+        "element" : "day_of_birth",
+        "transform" : "evaluate",
+        "parameter" : [{
+          "valueId" : "srcBirthDate"
+        },
+        {
+          "valueString" : "substring(8, 2)"
+        }]
+      }]
+    }]
+  }]
+}

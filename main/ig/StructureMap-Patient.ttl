@@ -1,0 +1,605 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient> a fhir:StructureMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "Patient"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Patient</b></p><a name=\"Patient\"> </a><a name=\"hcPatient\"> </a><a name=\"hcPatient-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient<span style=\"color: navy\">&quot; = &quot;</span>Patient<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Person, Location and Death OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-EDSPatient.html\" title=\"EDS Patient\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style=\"color: navy\">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"http://hl7.org/fhir/R4/bundle.html\" title=\"Bundle\">http://hl7.org/fhir/StructureDefinition/Bundle</a><span style=\"color: navy\">&quot; </span><b>as </b><b>target</b>\r\n\r\n<b>imports</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureMap-Person.html\" title=\"Mapping Patient resource to Person OMOP Domain\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person</a><span style=\"color: navy\">&quot;\r\n</span><b>imports</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureMap-Location.html\" title=\"Mapping Patient resource to Location OMOP Domain\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location</a><span style=\"color: navy\">&quot;\r\n</span><b>imports</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureMap-Death.html\" title=\"Mapping Patient resource to Death OMOP Domain\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death</a><span style=\"color: navy\">&quot;\r\n</span>\r\n<b>group </b>Patient<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgtBundle</span><span style=\"color: navy\"> : </span>Bundle<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.id<b> as </b><span style=\"color: maroon\">srcId</span><span style=\"color: navy\"><b> -&gt; </b></span>tgtBundle.id = <b>uuid</b><span style=\"color: navy\">(</span><span style=\"color: navy\">)</span> <i>&quot;setId&quot;</i><span style=\"color: navy\">;</span>\r\n  src<span style=\"color: navy\"><b> -&gt; </b></span>tgtBundle.type = <span style=\"color: blue\">'transaction'</span> <i>&quot;setType&quot;</i><span style=\"color: navy\">;</span>\r\n  src<span style=\"color: navy\"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style=\"color: maroon\">newEntry</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Provenance'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">newProvenance</span><b> then</b><span style=\"color: navy\"> {\r\n</span>      src<span style=\"color: navy\"><b> -&gt; </b></span> newProvenance.agent<b> as </b><span style=\"color: maroon\">agent</span><span style=\"color: navy\">, </span> agent.who = <b>reference</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'?mapper?'</span><span style=\"color: navy\">)</span> <i>&quot;setProvenanceAgent&quot;</i><span style=\"color: navy\">;</span>\r\n      src<span style=\"color: navy\"><b> -&gt; </b></span> newProvenance.entity<b> as </b><span style=\"color: maroon\">entitySource</span><span style=\"color: navy\">, </span> <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Patient/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">srcId</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">whatRef</span><span style=\"color: navy\">, </span> entitySource.what = <b>reference</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">whatRef</span><span style=\"color: navy\">)</span><span style=\"color: navy\">, </span> entitySource.role = <span style=\"color: blue\">'source'</span> <i>&quot;setProvenanceEntitySource&quot;</i><span style=\"color: navy\">;</span>\r\n      src<span style=\"color: navy\"><b> -&gt; </b></span>newProvenance.activity = <b>cc</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'http://terminology.hl7.org/CodeSystem/v3-DataOperation'</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'CREATE'</span><span style=\"color: navy\">)</span> <i>&quot;setProvenanceActivity&quot;</i><span style=\"color: navy\">;</span>\r\n      src<span style=\"color: navy\"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style=\"color: maroon\">newEntry</span><b> then</b><span style=\"color: navy\"> {\r\n</span>        src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">newPerson</span><b> then</b><span style=\"color: navy\"> {\r\n</span>          src<span style=\"color: navy\"><b> -&gt; </b></span>newPerson.person_id = <b>uuid</b><span style=\"color: navy\">(</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">newPersonId</span> <i>&quot;setId&quot;</i><span style=\"color: navy\">;</span>\r\n          src<span style=\"color: navy\"><b> -&gt; </b></span> <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Person/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newPersonId</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">targetRef</span><span style=\"color: navy\">, </span> newProvenance.target = <b>reference</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">targetRef</span><span style=\"color: navy\">)</span> <i>&quot;setProvenanceTarget&quot;</i><span style=\"color: navy\">;</span>\r\n          src<b> then </b>Person<span style=\"color: navy\">(</span><span style=\"color: maroon\">src</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newPerson</span><span style=\"color: navy\">)</span> <i>&quot;transformPerson&quot;</i><span style=\"color: navy\">;</span>\r\n          src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.fullUrl = <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/Person/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newPersonId</span><span style=\"color: navy\">)</span> <i>&quot;setFullUrl&quot;</i><span style=\"color: navy\">;</span>\r\n          src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.request<b> as </b><span style=\"color: maroon\">newRequest</span><b> then</b><span style=\"color: navy\"> {\r\n</span>            src<span style=\"color: navy\"><b> -&gt; </b></span>newRequest.method = <span style=\"color: blue\">'POST'</span> <i>&quot;setMethod&quot;</i><span style=\"color: navy\">;</span>\r\n            src<span style=\"color: navy\"><b> -&gt; </b></span>newRequest.url = <span style=\"color: blue\">'Person'</span> <i>&quot;setUrl&quot;</i><span style=\"color: navy\">;</span>\r\n          <span style=\"color: navy\">}</span> <i>&quot;setEntryRequest&quot;</i><span style=\"color: navy\">;</span>\r\n          src<b> where </b>address.empty().not()<span style=\"color: navy\"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style=\"color: maroon\">newEntry</span><b> then</b><span style=\"color: navy\"> {\r\n</span>            src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">newLocation</span><b> then</b><span style=\"color: navy\"> {\r\n</span>              src<span style=\"color: navy\"><b> -&gt; </b></span>newLocation.location_id = <b>uuid</b><span style=\"color: navy\">(</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">newLocationId</span> <i>&quot;setId&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span> <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Location/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newLocationId</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">targetRef</span><span style=\"color: navy\">, </span> newProvenance.target = <b>reference</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">targetRef</span><span style=\"color: navy\">)</span> <i>&quot;setProvenanceTarget&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span>newPerson.location_id = <span style=\"color: maroon\">newLocationId</span> <i>&quot;setPersonLocationId&quot;</i><span style=\"color: navy\">;</span>\r\n              src<b> then </b>Location<span style=\"color: navy\">(</span><span style=\"color: maroon\">src</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newLocation</span><span style=\"color: navy\">)</span> <i>&quot;transformLocation&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.fullUrl = <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/Location/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newLocationId</span><span style=\"color: navy\">)</span> <i>&quot;setFullUrl&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.request<b> as </b><span style=\"color: maroon\">newRequest</span><b> then</b><span style=\"color: navy\"> {\r\n</span>                src<span style=\"color: navy\"><b> -&gt; </b></span>newRequest.method = <span style=\"color: blue\">'POST'</span> <i>&quot;setMethod&quot;</i><span style=\"color: navy\">;</span>\r\n                src<span style=\"color: navy\"><b> -&gt; </b></span>newRequest.url = <span style=\"color: blue\">'Location'</span> <i>&quot;setUrl&quot;</i><span style=\"color: navy\">;</span>\r\n              <span style=\"color: navy\">}</span> <i>&quot;setEntryRequest&quot;</i><span style=\"color: navy\">;</span>\r\n            <span style=\"color: navy\">}</span> <i>&quot;createLocation&quot;</i><span style=\"color: navy\">;</span>\r\n          <span style=\"color: navy\">}</span> <i>&quot;newEntryLocation&quot;</i><span style=\"color: navy\">;</span>\r\n          src<b> where </b>(deceased.ofType(Boolean) = true) or deceased.ofType(Datetime).empty().not()<span style=\"color: navy\"><b> -&gt; </b></span>tgtBundle.entry<b> as </b><span style=\"color: maroon\">newEntry</span><b> then</b><span style=\"color: navy\"> {\r\n</span>            src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.resource = <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">newDeath</span><b> then</b><span style=\"color: navy\"> {\r\n</span>              src<span style=\"color: navy\"><b> -&gt; </b></span>newDeath.person_id = <span style=\"color: maroon\">newPersonId</span> <i>&quot;setId&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span> <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Death/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newPersonId</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">targetRef</span><span style=\"color: navy\">, </span> newProvenance.target = <b>reference</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">targetRef</span><span style=\"color: navy\">)</span> <i>&quot;setProvenanceTarget&quot;</i><span style=\"color: navy\">;</span>\r\n              src<b> then </b>Death<span style=\"color: navy\">(</span><span style=\"color: maroon\">src</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newDeath</span><span style=\"color: navy\">)</span> <i>&quot;transformDeath&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.fullUrl = <b>append</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/Death/'</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">newPersonId</span><span style=\"color: navy\">)</span> <i>&quot;setFullUrl&quot;</i><span style=\"color: navy\">;</span>\r\n              src<span style=\"color: navy\"><b> -&gt; </b></span>newEntry.request<b> as </b><span style=\"color: maroon\">newRequest</span><b> then</b><span style=\"color: navy\"> {\r\n</span>                src<span style=\"color: navy\"><b> -&gt; </b></span>newRequest.method = <span style=\"color: blue\">'POST'</span> <i>&quot;setMethod&quot;</i><span style=\"color: navy\">;</span>\r\n                src<span style=\"color: navy\"><b> -&gt; </b></span>newRequest.url = <span style=\"color: blue\">'Death'</span> <i>&quot;setUrl&quot;</i><span style=\"color: navy\">;</span>\r\n              <span style=\"color: navy\">}</span> <i>&quot;setEntryRequest&quot;</i><span style=\"color: navy\">;</span>\r\n            <span style=\"color: navy\">}</span> <i>&quot;createDeath&quot;</i><span style=\"color: navy\">;</span>\r\n          <span style=\"color: navy\">}</span> <i>&quot;newEntryDeath&quot;</i><span style=\"color: navy\">;</span>\r\n        <span style=\"color: navy\">}</span> <i>&quot;createPerson&quot;</i><span style=\"color: navy\">;</span>\r\n      <span style=\"color: navy\">}</span> <i>&quot;newEntryPerson&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;createProvenance&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span> <i>&quot;newEntryProvenance&quot;</i><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  ] ; # 
+  fhir:url [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "Patient"] ; # 
+  fhir:title [ fhir:v "Mapping Patient resource to Person, Location and Death OMOP Domain"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2024-07-12T05:56:19+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "ANS"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "ANS" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://esante.gouv.fr" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Mapping Patient resource to Person, Location and Death OMOP Domain"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "FR" ] ;
+       fhir:display [ fhir:v "France" ]
+     ] )
+  ] ) ; # 
+  fhir:structure ( [
+     fhir:url [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient>
+     ] ;
+     fhir:mode [ fhir:v "source" ] ;
+     fhir:alias [ fhir:v "Patient" ]
+  ] [
+     fhir:url [
+       fhir:v "http://hl7.org/fhir/StructureDefinition/Bundle"^^xsd:anyURI ;
+       fhir:link <http://hl7.org/fhir/StructureDefinition/Bundle>
+     ] ;
+     fhir:mode [ fhir:v "target" ]
+  ] ) ; # 
+  fhir:import ( [
+     fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person"^^xsd:anyURI ;
+     fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person>
+  ] [
+     fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location"^^xsd:anyURI ;
+     fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location>
+  ] [
+     fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death"^^xsd:anyURI ;
+     fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death>
+  ] ) ; # 
+  fhir:group ( [
+     fhir:name [ fhir:v "Patient" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "src" ] ;
+       fhir:type [ fhir:v "Patient" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "tgtBundle" ] ;
+       fhir:type [ fhir:v "Bundle" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "setId" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "src" ] ;
+         fhir:element [ fhir:v "id" ] ;
+         fhir:variable [ fhir:v "srcId" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "tgtBundle" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "id" ] ;
+         fhir:transform [ fhir:v "uuid" ]
+       ] )
+     ] [
+       fhir:name [ fhir:v "setType" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "src" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "tgtBundle" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "type" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "transaction" ]
+         ] )
+       ] )
+     ] [
+       fhir:name [ fhir:v "newEntryProvenance" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "src" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "tgtBundle" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "entry" ] ;
+         fhir:variable [ fhir:v "newEntry" ]
+       ] ) ;
+       fhir:rule ( [
+         fhir:name [ fhir:v "createProvenance" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "src" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "newEntry" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "resource" ] ;
+           fhir:variable [ fhir:v "newProvenance" ] ;
+           fhir:transform [ fhir:v "create" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "Provenance" ]
+           ] )
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "setProvenanceAgent" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "src" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "newProvenance" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "agent" ] ;
+             fhir:variable [ fhir:v "agent" ]
+           ] [
+             fhir:context [ fhir:v "agent" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "who" ] ;
+             fhir:transform [ fhir:v "reference" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "?mapper?" ]
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "setProvenanceEntitySource" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "src" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "newProvenance" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "entity" ] ;
+             fhir:variable [ fhir:v "entitySource" ]
+           ] [
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:variable [ fhir:v "whatRef" ] ;
+             fhir:transform [ fhir:v "append" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "Patient/" ]
+             ] [
+               fhir:value [ fhir:v "srcId" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "entitySource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "what" ] ;
+             fhir:transform [ fhir:v "reference" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "whatRef" ]
+             ] )
+           ] [
+             fhir:context [ fhir:v "entitySource" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "role" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "source" ]
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "setProvenanceActivity" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "src" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "newProvenance" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "activity" ] ;
+             fhir:transform [ fhir:v "cc" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "http://terminology.hl7.org/CodeSystem/v3-DataOperation" ]
+             ] [
+               fhir:value [ fhir:v "CREATE" ]
+             ] )
+           ] )
+         ] [
+           fhir:name [ fhir:v "newEntryPerson" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "src" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "tgtBundle" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "entry" ] ;
+             fhir:variable [ fhir:v "newEntry" ]
+           ] ) ;
+           fhir:rule ( [
+             fhir:name [ fhir:v "createPerson" ] ;
+             fhir:source ( [
+               fhir:context [ fhir:v "src" ]
+             ] ) ;
+             fhir:target ( [
+               fhir:context [ fhir:v "newEntry" ] ;
+               fhir:contextType [ fhir:v "variable" ] ;
+               fhir:element [ fhir:v "resource" ] ;
+               fhir:variable [ fhir:v "newPerson" ] ;
+               fhir:transform [ fhir:v "create" ] ;
+               fhir:parameter ( [
+                 fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person" ]
+               ] )
+             ] ) ;
+             fhir:rule ( [
+               fhir:name [ fhir:v "setId" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ]
+               ] ) ;
+               fhir:target ( [
+                 fhir:context [ fhir:v "newPerson" ] ;
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:element [ fhir:v "person_id" ] ;
+                 fhir:variable [ fhir:v "newPersonId" ] ;
+                 fhir:transform [ fhir:v "uuid" ]
+               ] )
+             ] [
+               fhir:name [ fhir:v "setProvenanceTarget" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ]
+               ] ) ;
+               fhir:target ( [
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:variable [ fhir:v "targetRef" ] ;
+                 fhir:transform [ fhir:v "append" ] ;
+                 fhir:parameter ( [
+                   fhir:value [ fhir:v "Person/" ]
+                 ] [
+                   fhir:value [ fhir:v "newPersonId" ]
+                 ] )
+               ] [
+                 fhir:context [ fhir:v "newProvenance" ] ;
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:element [ fhir:v "target" ] ;
+                 fhir:transform [ fhir:v "reference" ] ;
+                 fhir:parameter ( [
+                   fhir:value [ fhir:v "targetRef" ]
+                 ] )
+               ] )
+             ] [
+               fhir:name [ fhir:v "transformPerson" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ]
+               ] ) ;
+               fhir:dependent ( [
+                 fhir:name [ fhir:v "Person" ] ;
+                 fhir:variable ( [ fhir:v "src" ] [ fhir:v "newPerson" ] )
+               ] )
+             ] [
+               fhir:name [ fhir:v "setFullUrl" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ]
+               ] ) ;
+               fhir:target ( [
+                 fhir:context [ fhir:v "newEntry" ] ;
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:element [ fhir:v "fullUrl" ] ;
+                 fhir:transform [ fhir:v "append" ] ;
+                 fhir:parameter ( [
+                   fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/Person/" ]
+                 ] [
+                   fhir:value [ fhir:v "newPersonId" ]
+                 ] )
+               ] )
+             ] [
+               fhir:name [ fhir:v "setEntryRequest" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ]
+               ] ) ;
+               fhir:target ( [
+                 fhir:context [ fhir:v "newEntry" ] ;
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:element [ fhir:v "request" ] ;
+                 fhir:variable [ fhir:v "newRequest" ]
+               ] ) ;
+               fhir:rule ( [
+                 fhir:name [ fhir:v "setMethod" ] ;
+                 fhir:source ( [
+                   fhir:context [ fhir:v "src" ]
+                 ] ) ;
+                 fhir:target ( [
+                   fhir:context [ fhir:v "newRequest" ] ;
+                   fhir:contextType [ fhir:v "variable" ] ;
+                   fhir:element [ fhir:v "method" ] ;
+                   fhir:transform [ fhir:v "copy" ] ;
+                   fhir:parameter ( [
+                     fhir:value [ fhir:v "POST" ]
+                   ] )
+                 ] )
+               ] [
+                 fhir:name [ fhir:v "setUrl" ] ;
+                 fhir:source ( [
+                   fhir:context [ fhir:v "src" ]
+                 ] ) ;
+                 fhir:target ( [
+                   fhir:context [ fhir:v "newRequest" ] ;
+                   fhir:contextType [ fhir:v "variable" ] ;
+                   fhir:element [ fhir:v "url" ] ;
+                   fhir:transform [ fhir:v "copy" ] ;
+                   fhir:parameter ( [
+                     fhir:value [ fhir:v "Person" ]
+                   ] )
+                 ] )
+               ] )
+             ] [
+               fhir:name [ fhir:v "newEntryLocation" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ] ;
+                 fhir:condition [ fhir:v "address.empty().not()" ]
+               ] ) ;
+               fhir:target ( [
+                 fhir:context [ fhir:v "tgtBundle" ] ;
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:element [ fhir:v "entry" ] ;
+                 fhir:variable [ fhir:v "newEntry" ]
+               ] ) ;
+               fhir:rule ( [
+                 fhir:name [ fhir:v "createLocation" ] ;
+                 fhir:source ( [
+                   fhir:context [ fhir:v "src" ]
+                 ] ) ;
+                 fhir:target ( [
+                   fhir:context [ fhir:v "newEntry" ] ;
+                   fhir:contextType [ fhir:v "variable" ] ;
+                   fhir:element [ fhir:v "resource" ] ;
+                   fhir:variable [ fhir:v "newLocation" ] ;
+                   fhir:transform [ fhir:v "create" ] ;
+                   fhir:parameter ( [
+                     fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location" ]
+                   ] )
+                 ] ) ;
+                 fhir:rule ( [
+                   fhir:name [ fhir:v "setId" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newLocation" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "location_id" ] ;
+                     fhir:variable [ fhir:v "newLocationId" ] ;
+                     fhir:transform [ fhir:v "uuid" ]
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setProvenanceTarget" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:variable [ fhir:v "targetRef" ] ;
+                     fhir:transform [ fhir:v "append" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "Location/" ]
+                     ] [
+                       fhir:value [ fhir:v "newLocationId" ]
+                     ] )
+                   ] [
+                     fhir:context [ fhir:v "newProvenance" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "target" ] ;
+                     fhir:transform [ fhir:v "reference" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "targetRef" ]
+                     ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setPersonLocationId" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newPerson" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "location_id" ] ;
+                     fhir:transform [ fhir:v "copy" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "newLocationId" ]
+                     ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "transformLocation" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:dependent ( [
+                     fhir:name [ fhir:v "Location" ] ;
+                     fhir:variable ( [ fhir:v "src" ] [ fhir:v "newLocation" ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setFullUrl" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newEntry" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "fullUrl" ] ;
+                     fhir:transform [ fhir:v "append" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/Location/" ]
+                     ] [
+                       fhir:value [ fhir:v "newLocationId" ]
+                     ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setEntryRequest" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newEntry" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "request" ] ;
+                     fhir:variable [ fhir:v "newRequest" ]
+                   ] ) ;
+                   fhir:rule ( [
+                     fhir:name [ fhir:v "setMethod" ] ;
+                     fhir:source ( [
+                       fhir:context [ fhir:v "src" ]
+                     ] ) ;
+                     fhir:target ( [
+                       fhir:context [ fhir:v "newRequest" ] ;
+                       fhir:contextType [ fhir:v "variable" ] ;
+                       fhir:element [ fhir:v "method" ] ;
+                       fhir:transform [ fhir:v "copy" ] ;
+                       fhir:parameter ( [
+                         fhir:value [ fhir:v "POST" ]
+                       ] )
+                     ] )
+                   ] [
+                     fhir:name [ fhir:v "setUrl" ] ;
+                     fhir:source ( [
+                       fhir:context [ fhir:v "src" ]
+                     ] ) ;
+                     fhir:target ( [
+                       fhir:context [ fhir:v "newRequest" ] ;
+                       fhir:contextType [ fhir:v "variable" ] ;
+                       fhir:element [ fhir:v "url" ] ;
+                       fhir:transform [ fhir:v "copy" ] ;
+                       fhir:parameter ( [
+                         fhir:value [ fhir:v "Location" ]
+                       ] )
+                     ] )
+                   ] )
+                 ] )
+               ] )
+             ] [
+               fhir:name [ fhir:v "newEntryDeath" ] ;
+               fhir:source ( [
+                 fhir:context [ fhir:v "src" ] ;
+                 fhir:condition [ fhir:v "(deceased.ofType(Boolean) = true) or deceased.ofType(Datetime).empty().not()" ]
+               ] ) ;
+               fhir:target ( [
+                 fhir:context [ fhir:v "tgtBundle" ] ;
+                 fhir:contextType [ fhir:v "variable" ] ;
+                 fhir:element [ fhir:v "entry" ] ;
+                 fhir:variable [ fhir:v "newEntry" ]
+               ] ) ;
+               fhir:rule ( [
+                 fhir:name [ fhir:v "createDeath" ] ;
+                 fhir:source ( [
+                   fhir:context [ fhir:v "src" ]
+                 ] ) ;
+                 fhir:target ( [
+                   fhir:context [ fhir:v "newEntry" ] ;
+                   fhir:contextType [ fhir:v "variable" ] ;
+                   fhir:element [ fhir:v "resource" ] ;
+                   fhir:variable [ fhir:v "newDeath" ] ;
+                   fhir:transform [ fhir:v "create" ] ;
+                   fhir:parameter ( [
+                     fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death" ]
+                   ] )
+                 ] ) ;
+                 fhir:rule ( [
+                   fhir:name [ fhir:v "setId" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newDeath" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "person_id" ] ;
+                     fhir:transform [ fhir:v "copy" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "newPersonId" ]
+                     ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setProvenanceTarget" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:variable [ fhir:v "targetRef" ] ;
+                     fhir:transform [ fhir:v "append" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "Death/" ]
+                     ] [
+                       fhir:value [ fhir:v "newPersonId" ]
+                     ] )
+                   ] [
+                     fhir:context [ fhir:v "newProvenance" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "target" ] ;
+                     fhir:transform [ fhir:v "reference" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "targetRef" ]
+                     ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "transformDeath" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:dependent ( [
+                     fhir:name [ fhir:v "Death" ] ;
+                     fhir:variable ( [ fhir:v "src" ] [ fhir:v "newDeath" ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setFullUrl" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newEntry" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "fullUrl" ] ;
+                     fhir:transform [ fhir:v "append" ] ;
+                     fhir:parameter ( [
+                       fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/Death/" ]
+                     ] [
+                       fhir:value [ fhir:v "newPersonId" ]
+                     ] )
+                   ] )
+                 ] [
+                   fhir:name [ fhir:v "setEntryRequest" ] ;
+                   fhir:source ( [
+                     fhir:context [ fhir:v "src" ]
+                   ] ) ;
+                   fhir:target ( [
+                     fhir:context [ fhir:v "newEntry" ] ;
+                     fhir:contextType [ fhir:v "variable" ] ;
+                     fhir:element [ fhir:v "request" ] ;
+                     fhir:variable [ fhir:v "newRequest" ]
+                   ] ) ;
+                   fhir:rule ( [
+                     fhir:name [ fhir:v "setMethod" ] ;
+                     fhir:source ( [
+                       fhir:context [ fhir:v "src" ]
+                     ] ) ;
+                     fhir:target ( [
+                       fhir:context [ fhir:v "newRequest" ] ;
+                       fhir:contextType [ fhir:v "variable" ] ;
+                       fhir:element [ fhir:v "method" ] ;
+                       fhir:transform [ fhir:v "copy" ] ;
+                       fhir:parameter ( [
+                         fhir:value [ fhir:v "POST" ]
+                       ] )
+                     ] )
+                   ] [
+                     fhir:name [ fhir:v "setUrl" ] ;
+                     fhir:source ( [
+                       fhir:context [ fhir:v "src" ]
+                     ] ) ;
+                     fhir:target ( [
+                       fhir:context [ fhir:v "newRequest" ] ;
+                       fhir:contextType [ fhir:v "variable" ] ;
+                       fhir:element [ fhir:v "url" ] ;
+                       fhir:transform [ fhir:v "copy" ] ;
+                       fhir:parameter ( [
+                         fhir:value [ fhir:v "Death" ]
+                       ] )
+                     ] )
+                   ] )
+                 ] )
+               ] )
+             ] )
+           ] )
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

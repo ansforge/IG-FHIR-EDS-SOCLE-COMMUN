@@ -1,0 +1,31 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"NoteNLP","NoteNLP","","","",0,*,"","","","null {[]} {[]}
+","Note NLP OMOP Table","The NOTE_NLP table encodes all output of NLP on clinical notes. Each row represents a single extracted term from a note.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"NoteNLP.note-nlp-id","NoteNLP.note_nlp_id","","","",1,1,"","","","integer {[]} {[]}
+","Note NLP Identifier","Note NLP Identifier","","","","","","","","","",,,,,"",,,,"NoteNLP.note_nlp_id",1,1,"",""
+"NoteNLP.note-id","NoteNLP.note_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Note]]}
+","Note","This is the NOTE_ID for the NOTE record the NLP record is associated to.","","","","","","","","","",,,,,"",,,,"NoteNLP.note_id",1,1,"",""
+"NoteNLP.section-concept-id","NoteNLP.section_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Section","Section","","","","","","","","","",,,,,"",,,,"NoteNLP.section_concept_id",0,1,"",""
+"NoteNLP.snippet","NoteNLP.snippet","","","",0,1,"","","","string {[]} {[]}
+","Snippet","A small window of text surrounding the term","","","","","","","","","",,,,,"",,,,"NoteNLP.snippet",0,1,"",""
+"NoteNLP.offset","NoteNLP.offset","","","",0,1,"","","","string {[]} {[]}
+","Offset","Character offset of the extracted term in the input note","","","","","","","","","",,,,,"",,,,"NoteNLP.offset",0,1,"",""
+"NoteNLP.lexical-variant","NoteNLP.lexical_variant","","","",1,1,"","","","string {[]} {[]}
+","Lexical Variant","Raw text extracted from the NLP tool.","","","","","","","","","",,,,,"",,,,"NoteNLP.lexical_variant",1,1,"",""
+"NoteNLP.note-nlp-concept-id","NoteNLP.note_nlp_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Note NLP","Note NLP","","","","","","","","","",,,,,"",,,,"NoteNLP.note_nlp_concept_id",0,1,"",""
+"NoteNLP.note-nlp-source-concept-id","NoteNLP.note_nlp_source_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Note NLP Source","Note NLP Source","","","","","","","","","",,,,,"",,,,"NoteNLP.note_nlp_source_concept_id",0,1,"",""
+"NoteNLP.nlp-system","NoteNLP.nlp_system","","","",0,1,"","","","string {[]} {[]}
+","NLP System","NLP System","","","","","","","","","",,,,,"",,,,"NoteNLP.nlp_system",0,1,"",""
+"NoteNLP.nlp-date","NoteNLP.nlp_date","","","",1,1,"","","","date {[]} {[]}
+","NLP Date","The date of the note processing.","","","","","","","","","",,,,,"",,,,"NoteNLP.nlp_date",1,1,"",""
+"NoteNLP.nlp-datetime","NoteNLP.nlp_datetime","","","",0,1,"","","","dateTime {[]} {[]}
+","NLP Datetime","The date and time of the note processing.","","","","","","","","","",,,,,"",,,,"NoteNLP.nlp_datetime",0,1,"",""
+"NoteNLP.term-exists","NoteNLP.term_exists","","","",0,1,"","","","string {[]} {[]}
+","Term Exists","Term Exists","","","","","","","","","",,,,,"",,,,"NoteNLP.term_exists",0,1,"",""
+"NoteNLP.term-temporal","NoteNLP.term_temporal","","","",0,1,"","","","string {[]} {[]}
+","Term Temporal","Term Temporal","","","","","","","","","",,,,,"",,,,"NoteNLP.term_temporal",0,1,"",""
+"NoteNLP.term-modifiers","NoteNLP.term_modifiers","","","",0,1,"","","","string {[]} {[]}
+","Term Modifiers","Term Modifiers","","","","","","","","","",,,,,"",,,,"NoteNLP.term_modifiers",0,1,"",""

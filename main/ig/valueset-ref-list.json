@@ -1,0 +1,16 @@
+{
+  "codeSystems" : [
+    {
+      "url" : "https://hl7.fr/ig/fhir/core/ValueSet/fr-core-vs-patient-gender-INS",
+      "version" : "2.0.1",
+      "status" : "active",
+      "name" : "FRCoreValueSetPatientGenderINS",
+      "title" : "FR Core ValueSet Patient gender INS ValueSet",
+      "description" : "Patient Gender for INS : male | female | unknown",
+      "systems" : ["http://hl7.org/fhir/administrative-gender"],
+      "uses" : {
+      },
+      "StructureDefinition-EDSPatient.html" : "EDS Patient"
+    }
+  ]
+}

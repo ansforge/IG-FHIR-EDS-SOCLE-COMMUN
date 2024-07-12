@@ -1,0 +1,85 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death> a fhir:StructureMap ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "Death"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Death</b></p><a name=\"Death\"> </a><a name=\"hcDeath\"> </a><a name=\"hcDeath-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death<span style=\"color: navy\">&quot; = &quot;</span>Death<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Death OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient<span style=\"color: navy\">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-Death.html\" title=\"Death OMOP Table\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death</a><span style=\"color: navy\">&quot; </span><b>alias </b>DeathTable <b>as </b><b>target</b>\r\n\r\n<b>group </b>Death<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgt</span><span style=\"color: navy\"> : </span>DeathTable<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.deceased<b> as </b><span style=\"color: maroon\">srcDeceased</span><b> where </b>deceased.ofType(Datetime)<span style=\"color: navy\"><b> -&gt; </b></span>tgt.death_datetime = <span style=\"color: maroon\">srcDeceased</span><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+  ] ; # 
+  fhir:url [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "Death"] ; # 
+  fhir:title [ fhir:v "Mapping Patient resource to Death OMOP Domain"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:date [ fhir:v "2024-07-12T05:56:19+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "ANS"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "ANS" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://esante.gouv.fr" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Mapping Patient resource to Death OMOP Domain"] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "FR" ] ;
+       fhir:display [ fhir:v "France" ]
+     ] )
+  ] ) ; # 
+  fhir:structure ( [
+     fhir:url [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient>
+     ] ;
+     fhir:mode [ fhir:v "source" ] ;
+     fhir:alias [ fhir:v "Patient" ]
+  ] [
+     fhir:url [
+       fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death"^^xsd:anyURI ;
+       fhir:link <https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death>
+     ] ;
+     fhir:mode [ fhir:v "target" ] ;
+     fhir:alias [ fhir:v "DeathTable" ]
+  ] ) ; # 
+  fhir:group ( [
+     fhir:name [ fhir:v "Death" ] ;
+     fhir:typeMode [ fhir:v "none" ] ;
+     fhir:input ( [
+       fhir:name [ fhir:v "src" ] ;
+       fhir:type [ fhir:v "Patient" ] ;
+       fhir:mode [ fhir:v "source" ]
+     ] [
+       fhir:name [ fhir:v "tgt" ] ;
+       fhir:type [ fhir:v "DeathTable" ] ;
+       fhir:mode [ fhir:v "target" ]
+     ] ) ;
+     fhir:rule ( [
+       fhir:name [ fhir:v "deceased" ] ;
+       fhir:source ( [
+         fhir:context [ fhir:v "src" ] ;
+         fhir:element [ fhir:v "deceased" ] ;
+         fhir:variable [ fhir:v "srcDeceased" ] ;
+         fhir:condition [ fhir:v "deceased.ofType(Datetime)" ]
+       ] ) ;
+       fhir:target ( [
+         fhir:context [ fhir:v "tgt" ] ;
+         fhir:contextType [ fhir:v "variable" ] ;
+         fhir:element [ fhir:v "death_datetime" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
+         fhir:parameter ( [
+           fhir:value [ fhir:v "srcDeceased" ]
+         ] )
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

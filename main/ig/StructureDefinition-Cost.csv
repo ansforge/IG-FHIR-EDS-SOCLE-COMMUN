@@ -1,0 +1,49 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"Cost","Cost","","","",0,*,"","","","null {[]} {[]}
+","Cost OMOP Table","The COST table captures records containing the cost of any medical event recorded in one of the OMOP clinical event tables such as DRUG_EXPOSURE, PROCEDURE_OCCURRENCE, VISIT_OCCURRENCE, VISIT_DETAIL, DEVICE_OCCURRENCE, OBSERVATION or MEASUREMENT.
+
+Each record in the cost table account for the amount of money transacted for the clinical event. So, the COST table may be used to represent both receivables (charges) and payments (paid), each transaction type represented by its COST_CONCEPT_ID. The COST_TYPE_CONCEPT_ID field will use concepts in the Standardized Vocabularies to designate the source (provenance) of the cost data. A reference to the health plan information in the PAYER_PLAN_PERIOD table is stored in the record for information used for the adjudication system to determine the persons benefit for the clinical event.","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"Cost.cost-id","Cost.cost_id","","","",1,1,"","","","integer {[]} {[]}
+","Cost Identifier","Cost Identifier","","","","","","","","","",,,,,"",,,,"Cost.cost_id",1,1,"",""
+"Cost.cost-event-id","Cost.cost_event_id","","","",1,1,"","","","integer {[]} {[]}
+","Cost Event Identifier","Cost Event Identifier","","","","","","","","","",,,,,"",,,,"Cost.cost_event_id",1,1,"",""
+"Cost.cost-domain-id","Cost.cost_domain_id","","","",1,1,"","","","string {[]} {[]}
+","Cost Domain Identifier","Cost Domain Identifier","","","","","","","","","",,,,,"",,,,"Cost.cost_domain_id",1,1,"",""
+"Cost.cost-type-concept-id","Cost.cost_type_concept_id","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Cost Type","Cost Type","","","","","","","","","",,,,,"",,,,"Cost.cost_type_concept_id",1,1,"",""
+"Cost.currency-concept-id","Cost.currency_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Currency","Currency","","","","","","","","","",,,,,"",,,,"Cost.currency_concept_id",0,1,"",""
+"Cost.total-charge","Cost.total_charge","","","",0,1,"","","","integer {[]} {[]}
+","Total Charge","Total Charge","","","","","","","","","",,,,,"",,,,"Cost.total_charge",0,1,"",""
+"Cost.total-cost","Cost.total_cost","","","",0,1,"","","","integer {[]} {[]}
+","Total Cost","Total Cost","","","","","","","","","",,,,,"",,,,"Cost.total_cost",0,1,"",""
+"Cost.total-paid","Cost.total_paid","","","",0,1,"","","","integer {[]} {[]}
+","Total Paid","Total Paid","","","","","","","","","",,,,,"",,,,"Cost.total_paid",0,1,"",""
+"Cost.paid-by-payer","Cost.paid_by_payer","","","",0,1,"","","","integer {[]} {[]}
+","Paid by Payer","Paid by Payer","","","","","","","","","",,,,,"",,,,"Cost.paid_by_payer",0,1,"",""
+"Cost.paid-by-patient","Cost.paid_by_patient","","","",0,1,"","","","integer {[]} {[]}
+","Paid by Patient","Paid by Patient","","","","","","","","","",,,,,"",,,,"Cost.paid_by_patient",0,1,"",""
+"Cost.paid-patient-copay","Cost.paid_patient_copay","","","",0,1,"","","","integer {[]} {[]}
+","Paid Patient Copay","Paid Patient Copay","","","","","","","","","",,,,,"",,,,"Cost.paid_patient_copay",0,1,"",""
+"Cost.paid-patient-coinsurance","Cost.paid_patient_coinsurance","","","",0,1,"","","","integer {[]} {[]}
+","Paid Patient Coinsurance","Paid Patient Coinsurance","","","","","","","","","",,,,,"",,,,"Cost.paid_patient_coinsurance",0,1,"",""
+"Cost.paid-patient-deductible","Cost.paid_patient_deductible","","","",0,1,"","","","integer {[]} {[]}
+","Paid Patient Deductible","Paid Patient Deductible","","","","","","","","","",,,,,"",,,,"Cost.paid_patient_deductible",0,1,"",""
+"Cost.paid-by-primary","Cost.paid_by_primary","","","",0,1,"","","","integer {[]} {[]}
+","Paid by Primary","Paid by Primary","","","","","","","","","",,,,,"",,,,"Cost.paid_by_primary",0,1,"",""
+"Cost.paid-ingredient-cost","Cost.paid_ingredient_cost","","","",0,1,"","","","integer {[]} {[]}
+","Paid Ingredent Cost","Paid Ingredent Cost","","","","","","","","","",,,,,"",,,,"Cost.paid_ingredient_cost",0,1,"",""
+"Cost.paid-dispensing-fee","Cost.paid_dispensing_fee","","","",0,1,"","","","integer {[]} {[]}
+","Paid Dispensing Fee","Paid Dispensing Fee","","","","","","","","","",,,,,"",,,,"Cost.paid_dispensing_fee",0,1,"",""
+"Cost.payer-plan-period-id","Cost.payer_plan_period_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/PayerPlanPeriod]]}
+","Payer Plan Period","Payer Plan Period","","","","","","","","","",,,,,"",,,,"Cost.payer_plan_period_id",0,1,"",""
+"Cost.amount-allowed","Cost.amount_allowed","","","",0,1,"","","","integer {[]} {[]}
+","Amount Allowed","Amount Allowed","","","","","","","","","",,,,,"",,,,"Cost.amount_allowed",0,1,"",""
+"Cost.revenue-code-concept-id","Cost.revenue_code_concept_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept]]}
+","Revenue Code","Revenue Code","","","","","","","","","",,,,,"",,,,"Cost.revenue_code_concept_id",0,1,"",""
+"Cost.revenue-code-source-value","Cost.revenue_code_source_value","","","",0,1,"","","","string {[]} {[]}
+","Revenue Code Source Value","Revenue codes are a method to charge for a class of procedures and conditions in the U.S. hospital system.","","","","","","","","","",,,,,"",,,,"Cost.revenue_code_source_value",0,1,"",""
+"Cost.drg-concept-id","Cost.drg_concept_id","","","",0,1,"","","","integer {[]} {[]}
+","Diagnosis Related Groups","Diagnosis Related Groups","","","","","","","","","",,,,,"",,,,"Cost.drg_concept_id",0,1,"",""
+"Cost.drg-source-value","Cost.drg_source_value","","","",0,1,"","","","string {[]} {[]}
+","Diagnosis Related Groups Source Value","Diagnosis Related Groups are US codes used to classify hospital cases into one of approximately 500 groups.","","","","","","","","","",,,,,"",,,,"Cost.drg_source_value",0,1,"",""

@@ -1,0 +1,11 @@
+{
+  "resourceType" : "Patient",
+  "id" : "patient-example-1",
+  "meta" : {
+    "profile" : ["https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: Patient patient-example-1</b></p><a name=\"patient-example-1\"> </a><a name=\"hcpatient-example-1\"> </a><a name=\"hcpatient-example-1-fr-FR\"> </a><p style=\"border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\">Anonymous Patient (no stated gender), DoB Unknown</p><hr/></div>"
+  }
+}

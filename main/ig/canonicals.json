@@ -1,0 +1,246 @@
+[
+  {
+    "id" : "Gender",
+    "type" : "ConceptMap",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender",
+    "version" : "0.1.0"
+  },
+  {
+    "id" : "ans.fhir.fr.eds",
+    "type" : "ImplementationGuide",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/ImplementationGuide/ans.fhir.fr.eds",
+    "version" : "0.1.0",
+    "name" : "EDS"
+  },
+  {
+    "id" : "CareSite",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/CareSite",
+    "version" : "0.1.0",
+    "name" : "CareSite"
+  },
+  {
+    "id" : "Concept",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept",
+    "version" : "0.1.0",
+    "name" : "Concept"
+  },
+  {
+    "id" : "ConditionEra",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/ConditionEra",
+    "version" : "0.1.0",
+    "name" : "ConditionEra"
+  },
+  {
+    "id" : "ConditionOccurrence",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/ConditionOccurrence",
+    "version" : "0.1.0",
+    "name" : "ConditionOccurrence"
+  },
+  {
+    "id" : "Cost",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Cost",
+    "version" : "0.1.0",
+    "name" : "Cost"
+  },
+  {
+    "id" : "Death",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death",
+    "version" : "0.1.0",
+    "name" : "Death"
+  },
+  {
+    "id" : "DeviceExposure",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/DeviceExposure",
+    "version" : "0.1.0",
+    "name" : "DeviceExposure"
+  },
+  {
+    "id" : "DoseEra",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/DoseEra",
+    "version" : "0.1.0",
+    "name" : "DoseEra"
+  },
+  {
+    "id" : "DrugEra",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/DrugEra",
+    "version" : "0.1.0",
+    "name" : "DrugEra"
+  },
+  {
+    "id" : "DrugOccurrence",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/DrugOccurrence",
+    "version" : "0.1.0",
+    "name" : "DrugE"
+  },
+  {
+    "id" : "EDSAddress",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSAddress",
+    "version" : "0.1.0",
+    "name" : "EDSAddress"
+  },
+  {
+    "id" : "EDSObservationBodyHeight",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSObservationBodyHeight",
+    "version" : "0.1.0",
+    "name" : "EDSObservationBodyHeight"
+  },
+  {
+    "id" : "EDSPatient",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient",
+    "version" : "0.1.0",
+    "name" : "EDSPatient"
+  },
+  {
+    "id" : "Episode",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Episode",
+    "version" : "0.1.0",
+    "name" : "Episode"
+  },
+  {
+    "id" : "EpisodeEvent",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EpisodeEvent",
+    "version" : "0.1.0",
+    "name" : "EpisodeEvent"
+  },
+  {
+    "id" : "FactRelationship",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/FactRelationship",
+    "version" : "0.1.0",
+    "name" : "FactRelationship"
+  },
+  {
+    "id" : "Location",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location",
+    "version" : "0.1.0",
+    "name" : "Location"
+  },
+  {
+    "id" : "Measurement",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Measurement",
+    "version" : "0.1.0",
+    "name" : "Measurement"
+  },
+  {
+    "id" : "Note",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Note",
+    "version" : "0.1.0",
+    "name" : "Note"
+  },
+  {
+    "id" : "NoteNLP",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/NoteNLP",
+    "version" : "0.1.0",
+    "name" : "NoteNLP"
+  },
+  {
+    "id" : "Observation",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Observation",
+    "version" : "0.1.0",
+    "name" : "Observation"
+  },
+  {
+    "id" : "ObservationPeriod",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/ObservationPeriod",
+    "version" : "0.1.0",
+    "name" : "ObservationPeriod"
+  },
+  {
+    "id" : "PayerPlanPeriod",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/PayerPlanPeriod",
+    "version" : "0.1.0",
+    "name" : "PayerPlanPeriod"
+  },
+  {
+    "id" : "Person",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person",
+    "version" : "0.1.0",
+    "name" : "Person"
+  },
+  {
+    "id" : "ProcedureOccurrence",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/ProcedureOccurrence",
+    "version" : "0.1.0",
+    "name" : "ProcedureOccurrence"
+  },
+  {
+    "id" : "Provider",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Provider",
+    "version" : "0.1.0",
+    "name" : "Provider"
+  },
+  {
+    "id" : "Specimen",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Specimen",
+    "version" : "0.1.0",
+    "name" : "Specimen"
+  },
+  {
+    "id" : "VisitDetail",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/VisitDetail",
+    "version" : "0.1.0",
+    "name" : "VisitDetail"
+  },
+  {
+    "id" : "VisitOccurrence",
+    "type" : "StructureDefinition",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/VisitOccurrence",
+    "version" : "0.1.0",
+    "name" : "VisitOccurrence"
+  },
+  {
+    "id" : "Death",
+    "type" : "StructureMap",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death",
+    "version" : "0.1.0",
+    "name" : "Death"
+  },
+  {
+    "id" : "Location",
+    "type" : "StructureMap",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location",
+    "version" : "0.1.0",
+    "name" : "Location"
+  },
+  {
+    "id" : "Patient",
+    "type" : "StructureMap",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient",
+    "version" : "0.1.0",
+    "name" : "Patient"
+  },
+  {
+    "id" : "Person",
+    "type" : "StructureMap",
+    "url" : "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person",
+    "version" : "0.1.0",
+    "name" : "Person"
+  }
+]

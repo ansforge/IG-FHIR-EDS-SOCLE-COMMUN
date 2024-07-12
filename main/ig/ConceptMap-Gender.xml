@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ConceptMap xmlns="http://hl7.org/fhir">
+  <id value="Gender"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: ConceptMap Gender</b></p><a name="Gender"> </a><a name="hcGender"> </a><a name="hcGender-fr-FR"> </a><p>Mapping from (not specified) to (not specified)</p><p>ACTIVE. Published on 2024-07-12 05:56:19+0000 by ANS  (ANS: <a href="https://esante.gouv.fr">https://esante.gouv.fr</a>). </p><br/><p><b>Group 1 </b>Mapping from <a href="https://hl7.fr/ig/fhir/core/2.0.1/ValueSet-fr-core-vs-patient-gender-INS.html">FR Core ValueSet Patient gender INS ValueSet</a> to <a href="http://terminology.hl7.org/5.5.0/CodeSystem-OMOP.html">OHDSI Standardized Vocabularies</a></p><table class="grid"><tr><td><b>Source Code</b></td><td><b>Relationship</b></td><td><b>Target Code</b></td></tr><tr><td>male</td><td><a href="http://hl7.org/fhir/extensions/5.1.0/CodeSystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td>8507 (MALE)</td></tr><tr><td>female</td><td><a href="http://hl7.org/fhir/extensions/5.1.0/CodeSystem-concept-map-equivalence.html#equivalent" title="equivalent">is equivalent to</a></td><td>8532 (FEMALE)</td></tr></table></div>
+  </text>
+  <url value="https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender"/>
+  <version value="0.1.0"/>
+  <status value="active"/>
+  <date value="2024-07-12T05:56:19+00:00"/>
+  <publisher value="ANS"/>
+  <contact>
+    <name value="ANS"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://esante.gouv.fr"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="FR"/>
+      <display value="France"/>
+    </coding>
+  </jurisdiction>
+  <group>
+    <source value="https://hl7.fr/ig/fhir/core/ValueSet/fr-core-vs-patient-gender-INS"/>
+    <target value="https://fhir-terminology.ohdsi.org"/>
+    <element>
+      <code value="male"/>
+      <display value="Male"/>
+      <target>
+        <modifierExtension url="http://hl7.org/fhir/1.0/StructureDefinition/extension-ConceptMap.element.target.equivalence">
+          <valueCode value="equivalent"/>
+        </modifierExtension>
+        <code value="8507"/>
+        <display value="MALE"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+    <element>
+      <code value="female"/>
+      <display value="Female"/>
+      <target>
+        <modifierExtension url="http://hl7.org/fhir/1.0/StructureDefinition/extension-ConceptMap.element.target.equivalence">
+          <valueCode value="equivalent"/>
+        </modifierExtension>
+        <code value="8532"/>
+        <display value="FEMALE"/>
+        <equivalence value="equivalent"/>
+      </target>
+    </element>
+  </group>
+</ConceptMap>

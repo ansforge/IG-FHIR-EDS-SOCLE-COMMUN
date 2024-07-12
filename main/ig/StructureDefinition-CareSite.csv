@@ -1,0 +1,15 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)"
+"CareSite","CareSite","","","",0,*,"","","","null {[]} {[]}
+","CareSite OMOP Table","The CARE_SITE table contains a list of uniquely identified institutional (physical or organizational) units where healthcare delivery is practiced (offices, wards, hospitals, clinics, etc.).","","","","","","","","","",,,,,"",,,,"Base",0,*,"",""
+"CareSite.care-site-id","CareSite.care_site_id","","","",1,1,"","","","integer {[]} {[]}
+","Care Site Identifier","Care Site Identifier","","","","","","","","","",,,,,"",,,,"CareSite.care_site_id",1,1,"",""
+"CareSite.care-site-name","CareSite.care_site_name","","","",0,1,"","","","string {[]} {[]}
+","Care Site Name","The name of the care_site as it appears in the source data","","","","","","","","","",,,,,"",,,,"CareSite.care_site_name",0,1,"",""
+"CareSite.place-of-service-concept-id","CareSite.place_of_service_concept_id","","","",0,1,"","","","code {[]} {[]}
+","Place of Service","This is a high-level way of characterizing a Care Site. Typically, however, Care Sites can provide care in multiple settings (inpatient, outpatient, etc.) and this granularity should be reflected in the visit.","","","","","","","","","",,,,,"",,,,"CareSite.place_of_service_concept_id",0,1,"",""
+"CareSite.location-id","CareSite.location_id","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location]]}
+","Location","The location_id from the LOCATION table representing the physical location of the care_site.","","","","","","","","","",,,,,"",,,,"CareSite.location_id",0,1,"",""
+"CareSite.care-site-source-value","CareSite.care_site_source_value","","","",0,1,"","","","string {[]} {[]}
+","Care Site Identifier Source Value","The identifier of the care_site as it appears in the source data. This could be an identifier separate from the name of the care_site.","","","","","","","","","",,,,,"",,,,"CareSite.care_site_source_value",0,1,"",""
+"CareSite.place-of-service-source-value","CareSite.place_of_service_source_value","","","",0,1,"","","","string {[]} {[]}
+","Place of Service Source Value","Place of Service Source Value","","","","","","","","","",,,,,"",,,,"CareSite.place_of_service_source_value",0,1,"",""
