@@ -3,7 +3,7 @@
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="Person"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Person</b></p><a name="Person"> </a><a name="hcPerson"> </a><a name="hcPerson-fr-FR"> </a><pre class="fml">
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Person</b></p><a name="Person"> </a><a name="hcPerson"> </a><a name="Person-fr-FR"> </a><pre class="fml">
 <b>map</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person<span style="color: navy">&quot; = &quot;</span>Person<span style="color: navy">&quot;
 
 </span><span style="color: navy">// </span><span style="color: green">Mapping Patient resource to Person OMOP Domain</span>
@@ -12,9 +12,20 @@
 <b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-Person.html" title="Person OMOP Table">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person</a><span style="color: navy">&quot; </span><b>alias </b>PersonTable <b>as </b><b>target</b>
 
 <b>group </b>Person<span style="color: navy">(</span><b>source</b> <span style="color: maroon">src</span><span style="color: navy"> : </span>Patient, <b>target</b> <span style="color: maroon">tgt</span><span style="color: navy"> : </span>PersonTable<span style="color: navy">)</span><span style="color: navy"> {
-</span>  src.id<b> as </b><span style="color: maroon">srcId</span><span style="color: navy"><b> -&gt; </b></span>tgt.person_source_value = <b>cast</b><span style="color: navy">(</span><span style="color: maroon">srcId</span><span style="color: navy">, </span><span style="color: maroon">String</span><span style="color: navy">)</span><span style="color: navy">;</span>
-  src.gender<b> as </b><span style="color: maroon">srcGender</span><span style="color: navy"><b> -&gt; </b></span> <b>translate</b><span style="color: navy">(</span><span style="color: maroon">srcGender</span><span style="color: navy">, </span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender'</span><span style="color: navy">, </span><span style="color: blue">'Coding'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">tgtGender</span><span style="color: navy">, </span> tgt.gender_concept_id = <span style="color: maroon">tgtGender.code</span><span style="color: navy">, </span> tgt.gender_source_value = <span style="color: maroon">srcGender.display</span> <i>&quot;transformGender&quot;</i><span style="color: navy">;</span>
-  src.birthDate<b> as </b><span style="color: maroon">srcBirthDate</span><span style="color: navy"><b> -&gt; </b></span> tgt.birth_datetime = <span style="color: maroon">srcBirthDate</span><span style="color: navy">, </span> tgt.year_of_birth = evaluate<span style="color: navy">(</span>srcBirthDate<span style="color: navy">, </span>substring(0, 4)<span style="color: navy">)</span><span style="color: navy">, </span> tgt.month_of_birth = evaluate<span style="color: navy">(</span>srcBirthDate<span style="color: navy">, </span>substring(5, 2)<span style="color: navy">)</span><span style="color: navy">, </span> tgt.day_of_birth = evaluate<span style="color: navy">(</span>srcBirthDate<span style="color: navy">, </span>substring(8, 2)<span style="color: navy">)</span><span style="color: navy">;</span>
+</span>  src.id<b> as </b><span style="color: maroon">srcId</span><span style="color: navy"><b> -&gt; </b></span>tgt.person_source_value = <span style="color: maroon">srcId</span><span style="color: navy">;</span>
+  src.gender<b> as </b><span style="color: maroon">srcGender</span><b> then</b><span style="color: navy"> {
+</span>    srcGender<span style="color: navy"><b> -&gt; </b></span>tgt.gender_concept_id = <b>create</b><span style="color: navy">(</span><span style="color: blue">'Reference'</span><span style="color: navy">)</span><b> as </b><span style="color: maroon">tgtReference</span><b> then</b><span style="color: navy"> {
+</span>      srcGender<span style="color: navy"><b> -&gt; </b></span>tgtReference.reference = <b>translate</b><span style="color: navy">(</span><span style="color: maroon">srcGender</span><span style="color: navy">, </span><span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender'</span><span style="color: navy">, </span><span style="color: blue">'code'</span><span style="color: navy">)</span> <i>&quot;ref&quot;</i><span style="color: navy">;</span>
+      srcGender<span style="color: navy"><b> -&gt; </b></span>tgtReference.type = <span style="color: blue">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept'</span> <i>&quot;type&quot;</i><span style="color: navy">;</span>
+    <span style="color: navy">}</span> <i>&quot;refConcept&quot;</i><span style="color: navy">;</span>
+    srcGender<span style="color: navy"><b> -&gt; </b></span>tgt.gender_source_value = <span style="color: maroon">srcGender</span> <i>&quot;sourceGender&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span><span style="color: navy">;</span>
+  src.birthDate<b> as </b><span style="color: maroon">srcBirthDate</span><b> then</b><span style="color: navy"> {
+</span>    srcBirthDate<span style="color: navy"><b> -&gt; </b></span>tgt.birth_datetime = <span style="color: maroon">srcBirthDate</span> <i>&quot;dateTime&quot;</i><span style="color: navy">;</span>
+    srcBirthDate<span style="color: navy"><b> -&gt; </b></span>tgt.year_of_birth = evaluate<span style="color: navy">(</span>srcBirthDate<span style="color: navy">, </span>substring(0, 4)<span style="color: navy">)</span> <i>&quot;year&quot;</i><span style="color: navy">;</span>
+    srcBirthDate<span style="color: navy"><b> -&gt; </b></span>tgt.month_of_birth = evaluate<span style="color: navy">(</span>srcBirthDate<span style="color: navy">, </span>substring(5, 2)<span style="color: navy">)</span> <i>&quot;month&quot;</i><span style="color: navy">;</span>
+    srcBirthDate<span style="color: navy"><b> -&gt; </b></span>tgt.day_of_birth = evaluate<span style="color: navy">(</span>srcBirthDate<span style="color: navy">, </span>substring(8, 2)<span style="color: navy">)</span> <i>&quot;day&quot;</i><span style="color: navy">;</span>
+  <span style="color: navy">}</span><span style="color: navy">;</span>
 <span style="color: navy">}
 
 </span></pre></div>
@@ -24,7 +35,7 @@
   <name value="Person"/>
   <title value="Mapping Patient resource to Person OMOP Domain"/>
   <status value="draft"/>
-  <date value="2024-07-12T05:56:19+00:00"/>
+  <date value="2024-07-19T13:38:23+00:00"/>
   <publisher value="ANS"/>
   <contact>
     <name value="ANS"/>
@@ -74,54 +85,86 @@
         <context value="tgt"/>
         <contextType value="variable"/>
         <element value="person_source_value"/>
-        <transform value="cast"/>
+        <transform value="copy"/>
         <parameter>
           <valueId value="srcId"/>
-        </parameter>
-        <parameter>
-          <valueId value="String"/>
         </parameter>
       </target>
     </rule>
     <rule>
-      <name value="transformGender"/>
+      <name value="gender"/>
       <source>
         <context value="src"/>
         <element value="gender"/>
         <variable value="srcGender"/>
       </source>
-      <target>
-        <contextType value="variable"/>
-        <variable value="tgtGender"/>
-        <transform value="translate"/>
-        <parameter>
-          <valueId value="srcGender"/>
-        </parameter>
-        <parameter>
-          <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender"/>
-        </parameter>
-        <parameter>
-          <valueString value="Coding"/>
-        </parameter>
-      </target>
-      <target>
-        <context value="tgt"/>
-        <contextType value="variable"/>
-        <element value="gender_concept_id"/>
-        <transform value="copy"/>
-        <parameter>
-          <valueId value="tgtGender.code"/>
-        </parameter>
-      </target>
-      <target>
-        <context value="tgt"/>
-        <contextType value="variable"/>
-        <element value="gender_source_value"/>
-        <transform value="copy"/>
-        <parameter>
-          <valueId value="srcGender.display"/>
-        </parameter>
-      </target>
+      <rule>
+        <name value="refConcept"/>
+        <source>
+          <context value="srcGender"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="gender_concept_id"/>
+          <variable value="tgtReference"/>
+          <transform value="create"/>
+          <parameter>
+            <valueString value="Reference"/>
+          </parameter>
+        </target>
+        <rule>
+          <name value="ref"/>
+          <source>
+            <context value="srcGender"/>
+          </source>
+          <target>
+            <context value="tgtReference"/>
+            <contextType value="variable"/>
+            <element value="reference"/>
+            <transform value="translate"/>
+            <parameter>
+              <valueId value="srcGender"/>
+            </parameter>
+            <parameter>
+              <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender"/>
+            </parameter>
+            <parameter>
+              <valueString value="code"/>
+            </parameter>
+          </target>
+        </rule>
+        <rule>
+          <name value="type"/>
+          <source>
+            <context value="srcGender"/>
+          </source>
+          <target>
+            <context value="tgtReference"/>
+            <contextType value="variable"/>
+            <element value="type"/>
+            <transform value="copy"/>
+            <parameter>
+              <valueString value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept"/>
+            </parameter>
+          </target>
+        </rule>
+      </rule>
+      <rule>
+        <name value="sourceGender"/>
+        <source>
+          <context value="srcGender"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="gender_source_value"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="srcGender"/>
+          </parameter>
+        </target>
+      </rule>
     </rule>
     <rule>
       <name value="birthDate"/>
@@ -130,51 +173,75 @@
         <element value="birthDate"/>
         <variable value="srcBirthDate"/>
       </source>
-      <target>
-        <context value="tgt"/>
-        <contextType value="variable"/>
-        <element value="birth_datetime"/>
-        <transform value="copy"/>
-        <parameter>
-          <valueId value="srcBirthDate"/>
-        </parameter>
-      </target>
-      <target>
-        <context value="tgt"/>
-        <contextType value="variable"/>
-        <element value="year_of_birth"/>
-        <transform value="evaluate"/>
-        <parameter>
-          <valueId value="srcBirthDate"/>
-        </parameter>
-        <parameter>
-          <valueString value="substring(0, 4)"/>
-        </parameter>
-      </target>
-      <target>
-        <context value="tgt"/>
-        <contextType value="variable"/>
-        <element value="month_of_birth"/>
-        <transform value="evaluate"/>
-        <parameter>
-          <valueId value="srcBirthDate"/>
-        </parameter>
-        <parameter>
-          <valueString value="substring(5, 2)"/>
-        </parameter>
-      </target>
-      <target>
-        <context value="tgt"/>
-        <contextType value="variable"/>
-        <element value="day_of_birth"/>
-        <transform value="evaluate"/>
-        <parameter>
-          <valueId value="srcBirthDate"/>
-        </parameter>
-        <parameter>
-          <valueString value="substring(8, 2)"/>
-        </parameter>
-      </target>
+      <rule>
+        <name value="dateTime"/>
+        <source>
+          <context value="srcBirthDate"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="birth_datetime"/>
+          <transform value="copy"/>
+          <parameter>
+            <valueId value="srcBirthDate"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="year"/>
+        <source>
+          <context value="srcBirthDate"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="year_of_birth"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueId value="srcBirthDate"/>
+          </parameter>
+          <parameter>
+            <valueString value="substring(0, 4)"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="month"/>
+        <source>
+          <context value="srcBirthDate"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="month_of_birth"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueId value="srcBirthDate"/>
+          </parameter>
+          <parameter>
+            <valueString value="substring(5, 2)"/>
+          </parameter>
+        </target>
+      </rule>
+      <rule>
+        <name value="day"/>
+        <source>
+          <context value="srcBirthDate"/>
+        </source>
+        <target>
+          <context value="tgt"/>
+          <contextType value="variable"/>
+          <element value="day_of_birth"/>
+          <transform value="evaluate"/>
+          <parameter>
+            <valueId value="srcBirthDate"/>
+          </parameter>
+          <parameter>
+            <valueString value="substring(8, 2)"/>
+          </parameter>
+        </target>
+      </rule>
     </rule>
   </group>
 </StructureMap>

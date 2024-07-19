@@ -3,18 +3,18 @@
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="Location"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Location</b></p><a name="Location"> </a><a name="hcLocation"> </a><a name="hcLocation-fr-FR"> </a><pre class="fml">
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Location</b></p><a name="Location"> </a><a name="hcLocation"> </a><a name="Location-fr-FR"> </a><pre class="fml">
 <b>map</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location<span style="color: navy">&quot; = &quot;</span>Location<span style="color: navy">&quot;
 
 </span><span style="color: navy">// </span><span style="color: green">Mapping Patient resource to Location OMOP Domain</span>
 
-<b>uses</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient<span style="color: navy">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>
+<b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-EDSPatient.html" title="EDS Patient">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style="color: navy">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>
 <b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-Location.html" title="Location OMOP Table">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location</a><span style="color: navy">&quot; </span><b>alias </b>LocationTable <b>as </b><b>target</b>
 
 <b>group </b>Location<span style="color: navy">(</span><b>source</b> <span style="color: maroon">src</span><span style="color: navy"> : </span>Patient, <b>target</b> <span style="color: maroon">tgt</span><span style="color: navy"> : </span>LocationTable<span style="color: navy">)</span><span style="color: navy"> {
 </span>  src.address<b> as </b><span style="color: maroon">srcAddress</span><b> then</b><span style="color: navy"> {
 </span>    srcAddress.line first<b> as </b><span style="color: maroon">srcLine1</span><span style="color: navy"><b> -&gt; </b></span>tgt.address_1 = <span style="color: maroon">srcLine1</span><span style="color: navy">;</span>
-    srcAddress.line last<b> as </b><span style="color: maroon">srcLine2</span><span style="color: navy"><b> -&gt; </b></span>tgt.address_2 = <span style="color: maroon">srcLine2</span><span style="color: navy">;</span>
+    srcAddress.line last<b> as </b><span style="color: maroon">srcLine2</span><b> where </b>srcLine1 != srcLine2<span style="color: navy"><b> -&gt; </b></span>tgt.address_2 = <span style="color: maroon">srcLine2</span><span style="color: navy">;</span>
     srcAddress.city<b> as </b><span style="color: maroon">srcCity</span><span style="color: navy"><b> -&gt; </b></span>tgt.city = <span style="color: maroon">srcCity</span><span style="color: navy">;</span>
     srcAddress.postalCode<b> as </b><span style="color: maroon">srcZip</span><span style="color: navy"><b> -&gt; </b></span>tgt.zip = <span style="color: maroon">srcZip</span><span style="color: navy">;</span>
     srcAddress.text<b> as </b><span style="color: maroon">srcText</span><span style="color: navy"><b> -&gt; </b></span>tgt.location_source_value = <b>truncate</b><span style="color: navy">(</span><span style="color: maroon">srcText</span><span style="color: navy">, </span><span style="color: blue">50</span><span style="color: navy">)</span><span style="color: navy">;</span>
@@ -28,7 +28,7 @@
   <name value="Location"/>
   <title value="Mapping Patient resource to Location OMOP Domain"/>
   <status value="draft"/>
-  <date value="2024-07-12T05:56:19+00:00"/>
+  <date value="2024-07-19T13:38:23+00:00"/>
   <publisher value="ANS"/>
   <contact>
     <name value="ANS"/>
@@ -46,7 +46,7 @@
     </coding>
   </jurisdiction>
   <structure>
-    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient"/>
+    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"/>
     <mode value="source"/>
     <alias value="Patient"/>
   </structure>
@@ -100,6 +100,7 @@
           <element value="line"/>
           <listMode value="last"/>
           <variable value="srcLine2"/>
+          <condition value="srcLine1 != srcLine2"/>
         </source>
         <target>
           <context value="tgt"/>

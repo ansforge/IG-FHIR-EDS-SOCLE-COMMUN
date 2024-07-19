@@ -3,7 +3,7 @@
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="Patient"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Patient</b></p><a name="Patient"> </a><a name="hcPatient"> </a><a name="hcPatient-fr-FR"> </a><pre class="fml">
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Patient</b></p><a name="Patient"> </a><a name="hcPatient"> </a><a name="Patient-fr-FR"> </a><pre class="fml">
 <b>map</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient<span style="color: navy">&quot; = &quot;</span>Patient<span style="color: navy">&quot;
 
 </span><span style="color: navy">// </span><span style="color: green">Mapping Patient resource to Person, Location and Death OMOP Domain</span>
@@ -71,7 +71,7 @@
   <name value="Patient"/>
   <title value="Mapping Patient resource to Person, Location and Death OMOP Domain"/>
   <status value="draft"/>
-  <date value="2024-07-12T05:56:19+00:00"/>
+  <date value="2024-07-19T13:38:23+00:00"/>
   <publisher value="ANS"/>
   <contact>
     <name value="ANS"/>

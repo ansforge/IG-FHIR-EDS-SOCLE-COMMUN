@@ -3,16 +3,16 @@
 <StructureMap xmlns="http://hl7.org/fhir">
   <id value="Death"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Death</b></p><a name="Death"> </a><a name="hcDeath"> </a><a name="hcDeath-fr-FR"> </a><pre class="fml">
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: StructureMap Death</b></p><a name="Death"> </a><a name="hcDeath"> </a><a name="Death-fr-FR"> </a><pre class="fml">
 <b>map</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death<span style="color: navy">&quot; = &quot;</span>Death<span style="color: navy">&quot;
 
 </span><span style="color: navy">// </span><span style="color: green">Mapping Patient resource to Death OMOP Domain</span>
 
-<b>uses</b><span style="color: navy"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient<span style="color: navy">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>
+<b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-EDSPatient.html" title="EDS Patient">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style="color: navy">&quot; </span><b>alias </b>Patient <b>as </b><b>source</b>
 <b>uses</b><span style="color: navy"> &quot;</span><a href="StructureDefinition-Death.html" title="Death OMOP Table">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Death</a><span style="color: navy">&quot; </span><b>alias </b>DeathTable <b>as </b><b>target</b>
 
 <b>group </b>Death<span style="color: navy">(</span><b>source</b> <span style="color: maroon">src</span><span style="color: navy"> : </span>Patient, <b>target</b> <span style="color: maroon">tgt</span><span style="color: navy"> : </span>DeathTable<span style="color: navy">)</span><span style="color: navy"> {
-</span>  src.deceased<b> as </b><span style="color: maroon">srcDeceased</span><b> where </b>deceased.ofType(Datetime)<span style="color: navy"><b> -&gt; </b></span>tgt.death_datetime = <span style="color: maroon">srcDeceased</span><span style="color: navy">;</span>
+</span>  src.deceased<b> as </b><span style="color: maroon">srcDeceased</span><b> where </b>src.deceased.is(System.DateTime)<span style="color: navy"><b> -&gt; </b></span>tgt.death_datetime = <span style="color: maroon">srcDeceased</span><span style="color: navy">;</span>
 <span style="color: navy">}
 
 </span></pre></div>
@@ -22,7 +22,7 @@
   <name value="Death"/>
   <title value="Mapping Patient resource to Death OMOP Domain"/>
   <status value="draft"/>
-  <date value="2024-07-12T05:56:19+00:00"/>
+  <date value="2024-07-19T13:38:23+00:00"/>
   <publisher value="ANS"/>
   <contact>
     <name value="ANS"/>
@@ -40,7 +40,7 @@
     </coding>
   </jurisdiction>
   <structure>
-    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient"/>
+    <url value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"/>
     <mode value="source"/>
     <alias value="Patient"/>
   </structure>
@@ -68,7 +68,7 @@
         <context value="src"/>
         <element value="deceased"/>
         <variable value="srcDeceased"/>
-        <condition value="deceased.ofType(Datetime)"/>
+        <condition value="src.deceased.is(System.DateTime)"/>
       </source>
       <target>
         <context value="tgt"/>

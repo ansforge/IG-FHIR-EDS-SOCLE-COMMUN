@@ -1,7 +1,7 @@
 EDS : Validation Results
 =========================================
 
-err = 12, warn = 684, info = 6
+err = 8, warn = 682, info = 6
 $--
 Generated $--. FHIR version $-- for ans.fhir.fr.eds#$-- (canonical = https://interop.esante.gouv.fr/ig/fhir/eds)
  Build Errors : 0 / 4 / 0
@@ -18,7 +18,7 @@ Generated $--. FHIR version $-- for ans.fhir.fr.eds#$-- (canonical = https://int
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-DoseEra : 0 / 14 / 1
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-DrugEra : 0 / 14 / 1
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-DrugOccurrence : 0 / 40 / 1
- /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-EDSAddress : 0 / 1 / 1
+ /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-EDSAddress : 0 / 0 / 1
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-EDSObservationBodyHeight : 0 / 1 / 1
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-EDSPatient : 0 / 0 / 6
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-Episode : 0 / 26 / 1
@@ -37,10 +37,10 @@ Generated $--. FHIR version $-- for ans.fhir.fr.eds#$-- (canonical = https://int
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-Specimen : 0 / 28 / 1
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-VisitDetail : 0 / 38 / 1
  /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/fsh-generated/resources/StructureDefinition-VisitOccurrence : 0 / 34 / 1
- /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Death : 0 / 1 / 1
- /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Location : 1 / 1 / 1
- /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Patient : 6 / 0 / 1
- /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Person : 5 / 0 / 1
+ /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Death : 0 / 0 / 1
+ /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Location : 1 / 0 / 1
+ /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Patient : 4 / 0 / 1
+ /home/runner/work/IG-FHIR-EDS-SOCLE-COMMUN/IG-FHIR-EDS-SOCLE-COMMUN/igSource/input/fml/StructureMap-Person : 3 / 1 / 1
 </table>
 == n/a ==
 WARNING: Unable to find ImplementationGuide.definition.resource.description for the resource ConceptMap/Gender.  Descriptions are strongly encouraged if they cannot be inferred from the resource to allow proper population of the artifact list.
@@ -308,7 +308,6 @@ WARNING: StructureDefinition/DrugOccurrence: StructureDefinition.differential.el
 WARNING: StructureDefinition/DrugOccurrence: StructureDefinition.differential.element[22]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken' (defined in http://hl7.org/fhir/StructureDefinition/ElementDefinition)
 WARNING: StructureDefinition/DrugOccurrence: StructureDefinition.differential.element[23]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken' (defined in http://hl7.org/fhir/StructureDefinition/ElementDefinition)
 == fsh-generated/resources/StructureDefinition-EDSAddress.json ==
-WARNING: StructureDefinition.where(url = 'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSAddress'): The Implementation Guide contains no examples for this data type profile
 == fsh-generated/resources/StructureDefinition-EDSObservationBodyHeight.json ==
 WARNING: StructureDefinition.where(url = 'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSObservationBodyHeight'): The Implementation Guide contains no examples for this profile
 == fsh-generated/resources/StructureDefinition-EDSPatient.json ==
@@ -764,20 +763,15 @@ WARNING: StructureDefinition/VisitOccurrence: StructureDefinition.differential.e
 WARNING: StructureDefinition/VisitOccurrence: StructureDefinition.differential.element[16]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken' (defined in http://hl7.org/fhir/StructureDefinition/ElementDefinition)
 WARNING: StructureDefinition/VisitOccurrence: StructureDefinition.differential.element[17]: Constraint failed: eld-20: 'Element names should be simple alphanumerics with a max of 64 characters, or code generation tools may be broken' (defined in http://hl7.org/fhir/StructureDefinition/ElementDefinition)
 == input/fml/StructureMap-Death.fml ==
-WARNING: StructureMap/Death: StructureMap.group[0].input[0]: The type Patient which maps to the canonical URL https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient is not known, so the paths cannot be validated
 == input/fml/StructureMap-Location.fml ==
-WARNING: StructureMap/Location: StructureMap.group[0].input[0]: The type Patient which maps to the canonical URL https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Patient is not known, so the paths cannot be validated
 ERROR: StructureMap/Location: StructureMap.group[0].rule[0].rule[4].target[0]: Transform truncate not checked yet
 == input/fml/StructureMap-Patient.fml ==
 ERROR: StructureMap/Patient: StructureMap.group[0].rule[2].rule[0].rule[1].target[1]: Transform append not checked yet
 ERROR: StructureMap/Patient: StructureMap.group[0].rule[2].rule[0].rule[3].rule[0].rule[1].target[0]: Transform append not checked yet
 ERROR: StructureMap/Patient: StructureMap.group[0].rule[2].rule[0].rule[3].rule[0].rule[5].rule[0].rule[1].target[0]: Transform append not checked yet
-ERROR: StructureMap/Patient: StructureMap.group[0].rule[2].rule[0].rule[3].rule[0].rule[5].rule[0].rule[3].dependent[0].variable[0]: The parameter 'src' refers to the variable 'source Patient src' but it's type is 'Patient' which is not compatible with the type required for the group 'Location', which is 'Patient' (from map 'https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location|0.1.0')
 ERROR: StructureMap/Patient: StructureMap.group[0].rule[2].rule[0].rule[3].rule[0].rule[6].rule[0].rule[1].target[0]: Transform append not checked yet
-ERROR: StructureMap/Patient: StructureMap.group[0].rule[2].rule[0].rule[3].rule[0].rule[6].rule[0].rule[2].dependent[0].variable[0]: The parameter 'src' refers to the variable 'source Patient src' but it's type is 'Patient' which is not compatible with the type required for the group 'Death', which is 'Patient' (from map 'https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death|0.1.0')
 == input/fml/StructureMap-Person.fml ==
-ERROR: StructureMap/Person: StructureMap.group[0].rule[0].target[0]: Transform cast not checked yet
-ERROR: StructureMap/Person: StructureMap.group[0].rule[1].target[0]: Transform translate not checked yet
-ERROR: StructureMap/Person: StructureMap.group[0].rule[2].target[1]: Transform evaluate takes 1 parameter(s) but 2 were found
-ERROR: StructureMap/Person: StructureMap.group[0].rule[2].target[2]: Transform evaluate takes 1 parameter(s) but 2 were found
-ERROR: StructureMap/Person: StructureMap.group[0].rule[2].target[3]: Transform evaluate takes 1 parameter(s) but 2 were found
+WARNING: StructureMap/Person: StructureMap.group[0].rule[1].rule[0].rule[0].target[0]: The target variable does not have a required binding, so this concept map can't be checked
+ERROR: StructureMap/Person: StructureMap.group[0].rule[2].rule[1].target[0]: Transform evaluate takes 1 parameter(s) but 2 were found
+ERROR: StructureMap/Person: StructureMap.group[0].rule[2].rule[2].target[0]: Transform evaluate takes 1 parameter(s) but 2 were found
+ERROR: StructureMap/Person: StructureMap.group[0].rule[2].rule[3].target[0]: Transform evaluate takes 1 parameter(s) but 2 were found

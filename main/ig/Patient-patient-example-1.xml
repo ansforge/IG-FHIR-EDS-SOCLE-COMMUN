@@ -6,6 +6,24 @@
     <profile value="https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"/>
   </meta>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Patient patient-example-1</b></p><a name="patient-example-1"> </a><a name="hcpatient-example-1"> </a><a name="hcpatient-example-1-fr-FR"> </a><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Anonymous Patient (no stated gender), DoB Unknown</p><hr/></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Generated Narrative: Patient patient-example-1</b></p><a name="patient-example-1"> </a><a name="hcpatient-example-1"> </a><a name="patient-example-1-fr-FR"> </a><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Anonymous Patient Female, DoB: 1948-07-12</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Known status of Patient">Deceased:</td><td colspan="3">2024-07-12 12:00:00+0100</td></tr><tr><td style="background-color: #f3f5da" title="Ways to contact the Patient">Contact Detail</td><td colspan="3">12 Bd Picpus, 75012 Paris(home)</td></tr></table></div>
   </text>
+  <gender value="female"/>
+  <birthDate value="1948-07-12"/>
+  <deceasedDateTime value="2024-07-12T12:00:00+01:00"/>
+  <address>
+    <extension url="http://hl7.org/fhir/StructureDefinition/geolocation">
+      <extension url="latitude">
+        <valueDecimal value="48.840031428873175"/>
+      </extension>
+      <extension url="longitude">
+        <valueDecimal value="2.4008115174942795"/>
+      </extension>
+    </extension>
+    <use value="home"/>
+    <text value="12 Bd Picpus, 75012 Paris"/>
+    <line value="12 Bd Picpus"/>
+    <city value="Paris"/>
+    <postalCode value="75012"/>
+  </address>
 </Patient>

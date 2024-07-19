@@ -10,14 +10,14 @@
   fhir:id [ fhir:v "Person"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Person</b></p><a name=\"Person\"> </a><a name=\"hcPerson\"> </a><a name=\"hcPerson-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person<span style=\"color: navy\">&quot; = &quot;</span>Person<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Person OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-EDSPatient.html\" title=\"EDS Patient\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style=\"color: navy\">&quot; </span><b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-Person.html\" title=\"Person OMOP Table\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person</a><span style=\"color: navy\">&quot; </span><b>alias </b>PersonTable <b>as </b><b>target</b>\r\n\r\n<b>group </b>Person<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgt</span><span style=\"color: navy\"> : </span>PersonTable<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.id<b> as </b><span style=\"color: maroon\">srcId</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.person_source_value = <b>cast</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcId</span><span style=\"color: navy\">, </span><span style=\"color: maroon\">String</span><span style=\"color: navy\">)</span><span style=\"color: navy\">;</span>\r\n  src.gender<b> as </b><span style=\"color: maroon\">srcGender</span><span style=\"color: navy\"><b> -&gt; </b></span> <b>translate</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcGender</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender'</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'Coding'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">tgtGender</span><span style=\"color: navy\">, </span> tgt.gender_concept_id = <span style=\"color: maroon\">tgtGender.code</span><span style=\"color: navy\">, </span> tgt.gender_source_value = <span style=\"color: maroon\">srcGender.display</span> <i>&quot;transformGender&quot;</i><span style=\"color: navy\">;</span>\r\n  src.birthDate<b> as </b><span style=\"color: maroon\">srcBirthDate</span><span style=\"color: navy\"><b> -&gt; </b></span> tgt.birth_datetime = <span style=\"color: maroon\">srcBirthDate</span><span style=\"color: navy\">, </span> tgt.year_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(0, 4)<span style=\"color: navy\">)</span><span style=\"color: navy\">, </span> tgt.month_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(5, 2)<span style=\"color: navy\">)</span><span style=\"color: navy\">, </span> tgt.day_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(8, 2)<span style=\"color: navy\">)</span><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
+     fhir:div "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Generated Narrative: StructureMap Person</b></p><a name=\"Person\"> </a><a name=\"hcPerson\"> </a><a name=\"Person-fr-FR\"> </a><pre class=\"fml\">\r\n<b>map</b><span style=\"color: navy\"> &quot;</span>https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person<span style=\"color: navy\">&quot; = &quot;</span>Person<span style=\"color: navy\">&quot;\r\n\r\n</span><span style=\"color: navy\">// </span><span style=\"color: green\">Mapping Patient resource to Person OMOP Domain</span>\r\n\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-EDSPatient.html\" title=\"EDS Patient\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient</a><span style=\"color: navy\">&quot; </span><b>as </b><b>source</b>\r\n<b>uses</b><span style=\"color: navy\"> &quot;</span><a href=\"StructureDefinition-Person.html\" title=\"Person OMOP Table\">https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person</a><span style=\"color: navy\">&quot; </span><b>alias </b>PersonTable <b>as </b><b>target</b>\r\n\r\n<b>group </b>Person<span style=\"color: navy\">(</span><b>source</b> <span style=\"color: maroon\">src</span><span style=\"color: navy\"> : </span>Patient, <b>target</b> <span style=\"color: maroon\">tgt</span><span style=\"color: navy\"> : </span>PersonTable<span style=\"color: navy\">)</span><span style=\"color: navy\"> {\r\n</span>  src.id<b> as </b><span style=\"color: maroon\">srcId</span><span style=\"color: navy\"><b> -&gt; </b></span>tgt.person_source_value = <span style=\"color: maroon\">srcId</span><span style=\"color: navy\">;</span>\r\n  src.gender<b> as </b><span style=\"color: maroon\">srcGender</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    srcGender<span style=\"color: navy\"><b> -&gt; </b></span>tgt.gender_concept_id = <b>create</b><span style=\"color: navy\">(</span><span style=\"color: blue\">'Reference'</span><span style=\"color: navy\">)</span><b> as </b><span style=\"color: maroon\">tgtReference</span><b> then</b><span style=\"color: navy\"> {\r\n</span>      srcGender<span style=\"color: navy\"><b> -&gt; </b></span>tgtReference.reference = <b>translate</b><span style=\"color: navy\">(</span><span style=\"color: maroon\">srcGender</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender'</span><span style=\"color: navy\">, </span><span style=\"color: blue\">'code'</span><span style=\"color: navy\">)</span> <i>&quot;ref&quot;</i><span style=\"color: navy\">;</span>\r\n      srcGender<span style=\"color: navy\"><b> -&gt; </b></span>tgtReference.type = <span style=\"color: blue\">'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept'</span> <i>&quot;type&quot;</i><span style=\"color: navy\">;</span>\r\n    <span style=\"color: navy\">}</span> <i>&quot;refConcept&quot;</i><span style=\"color: navy\">;</span>\r\n    srcGender<span style=\"color: navy\"><b> -&gt; </b></span>tgt.gender_source_value = <span style=\"color: maroon\">srcGender</span> <i>&quot;sourceGender&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span><span style=\"color: navy\">;</span>\r\n  src.birthDate<b> as </b><span style=\"color: maroon\">srcBirthDate</span><b> then</b><span style=\"color: navy\"> {\r\n</span>    srcBirthDate<span style=\"color: navy\"><b> -&gt; </b></span>tgt.birth_datetime = <span style=\"color: maroon\">srcBirthDate</span> <i>&quot;dateTime&quot;</i><span style=\"color: navy\">;</span>\r\n    srcBirthDate<span style=\"color: navy\"><b> -&gt; </b></span>tgt.year_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(0, 4)<span style=\"color: navy\">)</span> <i>&quot;year&quot;</i><span style=\"color: navy\">;</span>\r\n    srcBirthDate<span style=\"color: navy\"><b> -&gt; </b></span>tgt.month_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(5, 2)<span style=\"color: navy\">)</span> <i>&quot;month&quot;</i><span style=\"color: navy\">;</span>\r\n    srcBirthDate<span style=\"color: navy\"><b> -&gt; </b></span>tgt.day_of_birth = evaluate<span style=\"color: navy\">(</span>srcBirthDate<span style=\"color: navy\">, </span>substring(8, 2)<span style=\"color: navy\">)</span> <i>&quot;day&quot;</i><span style=\"color: navy\">;</span>\r\n  <span style=\"color: navy\">}</span><span style=\"color: navy\">;</span>\r\n<span style=\"color: navy\">}\r\n\r\n</span></pre></div>"
   ] ; # 
   fhir:url [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person"^^xsd:anyURI] ; # 
   fhir:version [ fhir:v "0.1.0"] ; # 
   fhir:name [ fhir:v "Person"] ; # 
   fhir:title [ fhir:v "Mapping Patient resource to Person OMOP Domain"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2024-07-12T05:56:19+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2024-07-19T13:38:23+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "ANS"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "ANS" ] ;
@@ -71,46 +71,79 @@
          fhir:context [ fhir:v "tgt" ] ;
          fhir:contextType [ fhir:v "variable" ] ;
          fhir:element [ fhir:v "person_source_value" ] ;
-         fhir:transform [ fhir:v "cast" ] ;
+         fhir:transform [ fhir:v "copy" ] ;
          fhir:parameter ( [
            fhir:value [ fhir:v "srcId" ]
-         ] [
-           fhir:value [ fhir:v "String" ]
          ] )
        ] )
      ] [
-       fhir:name [ fhir:v "transformGender" ] ;
+       fhir:name [ fhir:v "gender" ] ;
        fhir:source ( [
          fhir:context [ fhir:v "src" ] ;
          fhir:element [ fhir:v "gender" ] ;
          fhir:variable [ fhir:v "srcGender" ]
        ] ) ;
-       fhir:target ( [
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:variable [ fhir:v "tgtGender" ] ;
-         fhir:transform [ fhir:v "translate" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "srcGender" ]
+       fhir:rule ( [
+         fhir:name [ fhir:v "refConcept" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcGender" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "gender_concept_id" ] ;
+           fhir:variable [ fhir:v "tgtReference" ] ;
+           fhir:transform [ fhir:v "create" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "Reference" ]
+           ] )
+         ] ) ;
+         fhir:rule ( [
+           fhir:name [ fhir:v "ref" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "srcGender" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "tgtReference" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "reference" ] ;
+             fhir:transform [ fhir:v "translate" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "srcGender" ]
+             ] [
+               fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender" ]
+             ] [
+               fhir:value [ fhir:v "code" ]
+             ] )
+           ] )
          ] [
-           fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender" ]
-         ] [
-           fhir:value [ fhir:v "Coding" ]
+           fhir:name [ fhir:v "type" ] ;
+           fhir:source ( [
+             fhir:context [ fhir:v "srcGender" ]
+           ] ) ;
+           fhir:target ( [
+             fhir:context [ fhir:v "tgtReference" ] ;
+             fhir:contextType [ fhir:v "variable" ] ;
+             fhir:element [ fhir:v "type" ] ;
+             fhir:transform [ fhir:v "copy" ] ;
+             fhir:parameter ( [
+               fhir:value [ fhir:v "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept" ]
+             ] )
+           ] )
          ] )
        ] [
-         fhir:context [ fhir:v "tgt" ] ;
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:element [ fhir:v "gender_concept_id" ] ;
-         fhir:transform [ fhir:v "copy" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "tgtGender.code" ]
-         ] )
-       ] [
-         fhir:context [ fhir:v "tgt" ] ;
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:element [ fhir:v "gender_source_value" ] ;
-         fhir:transform [ fhir:v "copy" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "srcGender.display" ]
+         fhir:name [ fhir:v "sourceGender" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcGender" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "gender_source_value" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcGender" ]
+           ] )
          ] )
        ] )
      ] [
@@ -120,43 +153,67 @@
          fhir:element [ fhir:v "birthDate" ] ;
          fhir:variable [ fhir:v "srcBirthDate" ]
        ] ) ;
-       fhir:target ( [
-         fhir:context [ fhir:v "tgt" ] ;
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:element [ fhir:v "birth_datetime" ] ;
-         fhir:transform [ fhir:v "copy" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "srcBirthDate" ]
+       fhir:rule ( [
+         fhir:name [ fhir:v "dateTime" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcBirthDate" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "birth_datetime" ] ;
+           fhir:transform [ fhir:v "copy" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcBirthDate" ]
+           ] )
          ] )
        ] [
-         fhir:context [ fhir:v "tgt" ] ;
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:element [ fhir:v "year_of_birth" ] ;
-         fhir:transform [ fhir:v "evaluate" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "srcBirthDate" ]
-         ] [
-           fhir:value [ fhir:v "substring(0, 4)" ]
+         fhir:name [ fhir:v "year" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcBirthDate" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "year_of_birth" ] ;
+           fhir:transform [ fhir:v "evaluate" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcBirthDate" ]
+           ] [
+             fhir:value [ fhir:v "substring(0, 4)" ]
+           ] )
          ] )
        ] [
-         fhir:context [ fhir:v "tgt" ] ;
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:element [ fhir:v "month_of_birth" ] ;
-         fhir:transform [ fhir:v "evaluate" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "srcBirthDate" ]
-         ] [
-           fhir:value [ fhir:v "substring(5, 2)" ]
+         fhir:name [ fhir:v "month" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcBirthDate" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "month_of_birth" ] ;
+           fhir:transform [ fhir:v "evaluate" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcBirthDate" ]
+           ] [
+             fhir:value [ fhir:v "substring(5, 2)" ]
+           ] )
          ] )
        ] [
-         fhir:context [ fhir:v "tgt" ] ;
-         fhir:contextType [ fhir:v "variable" ] ;
-         fhir:element [ fhir:v "day_of_birth" ] ;
-         fhir:transform [ fhir:v "evaluate" ] ;
-         fhir:parameter ( [
-           fhir:value [ fhir:v "srcBirthDate" ]
-         ] [
-           fhir:value [ fhir:v "substring(8, 2)" ]
+         fhir:name [ fhir:v "day" ] ;
+         fhir:source ( [
+           fhir:context [ fhir:v "srcBirthDate" ]
+         ] ) ;
+         fhir:target ( [
+           fhir:context [ fhir:v "tgt" ] ;
+           fhir:contextType [ fhir:v "variable" ] ;
+           fhir:element [ fhir:v "day_of_birth" ] ;
+           fhir:transform [ fhir:v "evaluate" ] ;
+           fhir:parameter ( [
+             fhir:value [ fhir:v "srcBirthDate" ]
+           ] [
+             fhir:value [ fhir:v "substring(8, 2)" ]
+           ] )
          ] )
        ] )
      ] )
