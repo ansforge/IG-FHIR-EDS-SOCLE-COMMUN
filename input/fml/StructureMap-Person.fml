@@ -1,3 +1,5 @@
+map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person" = "Person"
+
 /// name = 'Person'
 /// title = 'Mapping Patient resource to Person OMOP Domain'
 /// status = 'draft'
@@ -6,12 +8,18 @@ uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient"
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person" alias PersonTable as target
 
 group Person(source src: Patient, target tgt : PersonTable) {
-	src.id as srcId -> tgt.person_source_value = cast(srcId, String);
-	src.gender as srcGender -> translate(srcGender, 'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender', 'Coding') as tgtGender,
-													tgt.gender_concept_id = tgtGender.code,
-		                      tgt.gender_source_value = srcGender.display "transformGender";
-	src.birthDate as srcBirthDate -> tgt.birth_datetime = srcBirthDate, 
-																	 tgt.year_of_birth = evaluate(srcBirthDate, substring(0, 4)), 
-		                               tgt.month_of_birth = evaluate(srcBirthDate, substring(5, 2)), 
-		                               tgt.day_of_birth = evaluate(srcBirthDate, substring(8, 2));
+	src.id as srcId -> tgt.person_source_value = srcId;
+	src.gender as srcGender then {
+	  srcGender -> tgt.gender_concept_id = create('Reference') as tgtReference then {
+      srcGender -> tgtReference.reference = translate(srcGender, 'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender', 'code') "ref";
+      srcGender -> tgtReference.type = 'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept' "type";
+    } "refConcept";
+  	srcGender -> tgt.gender_source_value = srcGender "sourceGender";
+  } "gender";
+  src.birthDate as srcBirthDate then {
+    srcBirthDate -> tgt.birth_datetime = srcBirthDate "dateTime";
+    srcBirthDate -> tgt.year_of_birth = evaluate(srcBirthDate, substring(0, 4)) "year";
+    srcBirthDate -> tgt.month_of_birth = evaluate(srcBirthDate, substring(5, 2)) "month";
+  	srcBirthDate -> tgt.day_of_birth = evaluate(srcBirthDate, substring(8, 2)) "day";
+  } "birthDate";
 }
