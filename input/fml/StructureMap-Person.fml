@@ -11,8 +11,8 @@ group Person(source src: Patient, target tgt : PersonTable) {
 	src.id as srcId -> tgt.person_source_value = srcId;
 	src.gender as srcGender then {
 	  srcGender -> tgt.gender_concept_id = create('Reference') as tgtReference then {
-      srcGender -> tgtReference.reference = translate(srcGender, 'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender', 'code') "ref";
-      srcGender -> tgtReference.type = 'https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Concept' "type";
+      srcGender -> translate(srcGender, 'https://interop.esante.gouv.fr/ig/fhir/eds/ConceptMap/Gender', 'code') as genderCode, 
+        tgtReference.reference = append('Concept/', genderCode) "ref";
     } "refConcept";
   	srcGender -> tgt.gender_source_value = srcGender "sourceGender";
   } "gender";
