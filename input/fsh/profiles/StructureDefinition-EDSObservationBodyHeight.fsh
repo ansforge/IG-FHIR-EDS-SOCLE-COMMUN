@@ -3,4 +3,5 @@ Parent: FRCoreObservationBodyHeightProfile
 Title: "EDS Observation Body Height"
 Description: "Profil de la taille du patient du socle commun des EDS"
 
-// TODO identifiyng properties must supported
+* subject only Reference(EDSPatient)
+* subject ^short = "L'observation concerne la personne que l'on analyse."

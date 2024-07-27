@@ -8,7 +8,7 @@ Description: "Profil Patient du socle commun des EDS"
 
 * identifier[INS-NIR] ^short = "INS-NIR - The patient national health identifier INS obtained by requesting the national patient identification service (CNAM) called the INSi teleservice. Identifiant national de santé (NIR) du patient INS provenant du téléservice INSi (service national d'identification des patients (CNAM))"
 * identifier[INS-NIR].use = #official
-* identifier[INS-NIR].type = $fr-core-v2-0203#INS-NIR
+* identifier[INS-NIR].type = $fr-core-cs-v2-0203#INS-NIR
 * identifier[INS-NIR].system = "urn:oid:1.2.250.1.213.1.4.8"
 * identifier[INS-NIR].system ^short = "Autorité d'affectation des INS-NIR"
 * identifier[INS-NIR].value 1..
