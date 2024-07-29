@@ -10,7 +10,7 @@
   "name" : "Location",
   "title" : "Mapping Patient resource to Location OMOP Domain",
   "status" : "draft",
-  "date" : "2024-07-19T13:38:23+00:00",
+  "date" : "2024-07-29T14:12:26+00:00",
   "publisher" : "ANS",
   "contact" : [{
     "name" : "ANS",

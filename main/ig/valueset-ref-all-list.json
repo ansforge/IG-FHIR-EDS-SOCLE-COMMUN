@@ -68,8 +68,8 @@
       "sources" : ["2.16.840.1.113883.4.642.3.79"],
       "uses" : {
       },
-      "StructureDefinition-EDSObservationBodyHeight.html" : "EDS Observation Body Height",
-      "StructureDefinition-EDSPatient.html" : "EDS Patient"
+      "StructureDefinition-EDSPatient.html" : "EDS Patient",
+      "StructureDefinition-EDSObservationBodyHeight.html" : "EDS Observation Body Height"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/data-absent-reason",
@@ -125,8 +125,8 @@
       "sources" : ["2.16.840.1.113883.4.642.3.20"],
       "uses" : {
       },
-      "StructureDefinition-EDSObservationBodyHeight.html" : "EDS Observation Body Height",
-      "StructureDefinition-EDSPatient.html" : "EDS Patient"
+      "StructureDefinition-EDSPatient.html" : "EDS Patient",
+      "StructureDefinition-EDSObservationBodyHeight.html" : "EDS Observation Body Height"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/link-type",
@@ -293,8 +293,8 @@
       "sources" : ["2.16.840.1.113883.4.642.3.47"],
       "uses" : {
       },
-      "StructureDefinition-EDSObservationBodyHeight.html" : "EDS Observation Body Height",
-      "StructureDefinition-EDSPatient.html" : "EDS Patient"
+      "StructureDefinition-EDSPatient.html" : "EDS Patient",
+      "StructureDefinition-EDSObservationBodyHeight.html" : "EDS Observation Body Height"
     },
     {
       "url" : "http://hl7.org/fhir/ValueSet/ucum-bodylength",
