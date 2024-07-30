@@ -1,5 +1,5 @@
 Profile: EDSObservationBodyWeight
-Parent: MesFrObservationBodyWeight
+Parent: FRCoreObservationBodyWeightProfile
 Title: "EDS Body Weight"
 Description: "Profil du poids du patient du socle commun des EDS"
 

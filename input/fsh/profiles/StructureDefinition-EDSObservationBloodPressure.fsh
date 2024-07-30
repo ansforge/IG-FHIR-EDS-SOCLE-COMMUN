@@ -1,5 +1,5 @@
 Profile: EDSObservationBloodPressure
-Parent: MesFrObservationBp
+Parent: FRCoreObservationBpProfile
 Title: "EDS Blood Pressure"
 Description: "Profil de la pression artérielle du socle commun des EDS"
 

@@ -1,5 +1,5 @@
 Profile: EDSObservationBodyHeight
-Parent: MesFrObservationBodyHeight
+Parent: FRCoreObservationBodyHeightProfile
 Title: "EDS Body Height"
 Description: "Profil de la taille du patient du socle commun des EDS"
 

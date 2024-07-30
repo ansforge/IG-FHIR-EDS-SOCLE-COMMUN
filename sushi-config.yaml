@@ -16,7 +16,6 @@ releaseLabel: ci-build # ci-build: the continuous integration build release (not
 
 dependencies:
   hl7.fhir.fr.core: 2.1.0-ballot
-  ans.fhir.fr.mesures: 3.1.0-ballot
 
 # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 parameters:
