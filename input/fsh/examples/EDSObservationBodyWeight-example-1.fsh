@@ -1,4 +1,4 @@
-Instance: observation-body-weight-example-1
+Instance: body-weight-example-1
 InstanceOf: EDSObservationBodyWeight
 Description: "Exemple de ressource poids"
 Usage: #example

@@ -1,4 +1,4 @@
-Instance: observation-blood-pressure-example-1
+Instance: blood-pressure-example-1
 InstanceOf: EDSObservationBloodPressure
 Description: "Exemple de ressource pression artérielle"
 Usage: #example

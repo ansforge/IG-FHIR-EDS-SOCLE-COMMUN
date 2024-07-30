@@ -1,4 +1,4 @@
-Instance: observation-body-height-example-1
+Instance: body-height-example-1
 InstanceOf: EDSObservationBodyHeight
 Description: "Exemple de ressource taille"
 Usage: #example
