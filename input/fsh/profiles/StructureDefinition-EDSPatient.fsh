@@ -1,7 +1,9 @@
 Profile: EDSPatient
 Parent: FRCorePatientProfile
-Title: "EDS Patient"
+Title: "Patient"
 Description: "Profil Patient du socle commun des EDS"
+
+* identifier[NSS] MS
 
 * identifier contains
     INS-NIR 0..*
@@ -24,4 +26,4 @@ Description: "Profil Patient du socle commun des EDS"
 * address MS 
 * address only EDSAddress
 
-* multipleBirth[x] MS
+* multipleBirthInteger MS

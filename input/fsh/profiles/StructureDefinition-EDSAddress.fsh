@@ -1,6 +1,6 @@
 Profile: EDSAddress
 Parent: FRCoreAddressProfile
-Title: "EDS Address"
+Title: "Address"
 Description: "Profil Address du socle commun des EDS"
 
 * extension contains $geolocation named geolocation 0..1
