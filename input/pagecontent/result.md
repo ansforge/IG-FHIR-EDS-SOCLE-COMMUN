@@ -33,16 +33,16 @@ Le profil [EDSAddress] couvre 50% des items.
 | Item | FHIRPath |
 |------|----------|
 | Age.valeur |  |
-| Age.Date du recueil de l'information |  |
+| Age.Date du recueil de l'information | [EDSClaimRSS.created](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
 | Sexe | [EDSPatient.gender](StructureDefinition-EDSPatient.html#k-Patient.gender) |
 | Code géographique de résidence |  |
-| Tous les diagnostics selon la classification CIM-10 à l’échelle du séjour |  |
-| Actes |  |
-| Actes.Date du recueil de l'information |  |
-| Date de début du séjour |  |
-| Date de fin du séjour |  |
-| Mode d'entrée du séjour |  |
-| Mode de sortie du séjour |  |
+| Tous les diagnostics selon la classification CIM-10 à l’échelle du séjour | [EDSClaimRSS.diagnosis](StructureDefinition-EDSClaimRSS.html#k-Claim.diagnosis) |
+| Actes | [EDSClaimRSS.procedure](StructureDefinition-EDSClaimRSS.html#k-Claim.procedure) |
+| Actes.Date du recueil de l'information | [EDSClaimRSS.created](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
+| Date de début du séjour | [EDSClaimRSS.billablePeriod.start](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
+| Date de fin du séjour | [EDSClaimRSS.billablePeriod.end](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
+| Mode d'entrée du séjour | [EDSClaimRSS.supportingInfo:ModeIn.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.value_x_) |
+| Mode de sortie du séjour | [EDSClaimRSS.supportingInfo:ModeOut.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.value_x_.2) |
 
 Le profil [EDSPatient] couvre 11,1% des items.
 
