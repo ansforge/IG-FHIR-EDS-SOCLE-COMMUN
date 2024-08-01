@@ -63,9 +63,9 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
 * diagnosis ^slicing.rules = #open
 * diagnosis contains
   dp 1..1 and
-  dr 1..1 and
-  da 1..1 and
-  dad 1..1
+  dr 0..1 and
+  da 0..* and
+  dad 0..*
 
 * diagnosis MS
 
