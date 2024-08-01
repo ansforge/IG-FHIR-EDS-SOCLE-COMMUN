@@ -32,10 +32,10 @@ Le profil [EDSAddress] couvre 50% des items.
 
 | Item | FHIRPath |
 |------|----------|
-| Age.valeur |  |
+| Age.valeur | ? |
 | Age.Date du recueil de l'information | [EDSClaimRSS.created](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
 | Sexe | [EDSPatient.gender](StructureDefinition-EDSPatient.html#k-Patient.gender) |
-| Code géographique de résidence |  |
+| Code géographique de résidence | ? |
 | Tous les diagnostics selon la classification CIM-10 à l’échelle du séjour | [EDSClaimRSS.diagnosis](StructureDefinition-EDSClaimRSS.html#k-Claim.diagnosis) |
 | Actes | [EDSClaimRSS.procedure](StructureDefinition-EDSClaimRSS.html#k-Claim.procedure) |
 | Actes.Date du recueil de l'information | [EDSClaimRSS.created](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
@@ -44,7 +44,12 @@ Le profil [EDSAddress] couvre 50% des items.
 | Mode d'entrée du séjour | [EDSClaimRSS.supportingInfo:ModeIn.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.value_x_) |
 | Mode de sortie du séjour | [EDSClaimRSS.supportingInfo:ModeOut.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.value_x_.2) |
 
-Le profil [EDSPatient] couvre 11,1% des items.
+Le profil [EDSPatient] couvre 11,11% des items.
+Le profil [EDSClaimRSS] couvre 72,72% des items.
+La couverture totale est de 83,83% des items.
+
+La variable `Age` n'a pas grand sens dans la mesure où l'on a la date de naissance du patient.
+La variable `Code géographique de résidence` n'a pas grand sens dans le mesure où l'on des informations sur l'adresse du patient.
 
 ### Résultats d'examens biologiques
 
