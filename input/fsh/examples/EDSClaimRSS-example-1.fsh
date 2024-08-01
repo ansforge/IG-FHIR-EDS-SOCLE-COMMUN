@@ -9,7 +9,10 @@ Usage: #example
 * provider = Reference(Provider/provider)
 * supportingInfo[ModeIn]
   * sequence = 1
-* supportingInfo[ModeOut].sequence = 2
+  * valueString = "8 Domicile"
+* supportingInfo[ModeOut]
+  * sequence = 2
+  * valueString = "6 Mutation"
 
 * insurance.sequence = 1
 * insurance.focal = true
