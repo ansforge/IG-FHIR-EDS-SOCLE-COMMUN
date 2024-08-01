@@ -56,10 +56,32 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
   * valueString ^short = "valeur du mode de sortie"
   * valueString MS
 
-* diagnosis
-  * diagnosis[x] only CodeableConcept
-  * diagnosisCodeableConcept from CIM10PMSI
+* diagnosis ^slicing.discriminator[+].type = #value
+* diagnosis ^slicing.discriminator[=].path = "type"
+* diagnosis ^slicing.description = "slicing permettant de préciser le binding terminologique des codes diagnostics en fonction de leur type"
+* diagnosis ^slicing.rules = #open
+* diagnosis contains
+  dp 1..1 and
+  dr 1..1 and
+  da 1..1 and
+  dad 1..1
+
 * diagnosis MS
+
+* diagnosis[dp].diagnosis[x] only CodeableConcept
+* diagnosis[dp].diagnosisCodeableConcept from CIM10PMSIDP
+
+* diagnosis[dr].diagnosis[x] only CodeableConcept
+* diagnosis[dr].diagnosisCodeableConcept from CIM10PMSIDR
+
+* diagnosis[da].diagnosis[x] only CodeableConcept
+* diagnosis[da].diagnosisCodeableConcept from CIM10PMSIDA
+
+* diagnosis[dad].diagnosis[x] only CodeableConcept
+* diagnosis[dad].diagnosisCodeableConcept from CIM10PMSI
+
+
+
 
 * procedure
   * procedure[x] only CodeableConcept
