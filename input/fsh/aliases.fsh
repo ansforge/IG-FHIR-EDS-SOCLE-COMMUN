@@ -1,4 +1,10 @@
 Alias: $ucum                                 = http://unitsofmeasure.org
+Alias: $loinc                                = http://loinc.org
+Alias: $sct                                  = http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20240301
+
+// CodeSystem from HL7 terminology
+Alias: $observation-category                 = http://terminology.hl7.org/CodeSystem/observation-category
+
 // Extension from FHIR Extensions Pack
 Alias: $geolocation                          = http://hl7.org/fhir/StructureDefinition/geolocation
 
