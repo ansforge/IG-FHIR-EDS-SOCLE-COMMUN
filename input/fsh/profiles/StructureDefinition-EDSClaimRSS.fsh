@@ -79,15 +79,19 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
 
 * diagnosis[dp].diagnosis[x] only CodeableConcept
 * diagnosis[dp].diagnosisCodeableConcept from CIM10PMSIDP
+* diagnosis[dp].type = PMSIMCODiagType#DP
 
 * diagnosis[dr].diagnosis[x] only CodeableConcept
 * diagnosis[dr].diagnosisCodeableConcept from CIM10PMSIDR
+* diagnosis[dr].type = PMSIMCODiagType#DR
 
 * diagnosis[da].diagnosis[x] only CodeableConcept
 * diagnosis[da].diagnosisCodeableConcept from CIM10PMSIDA
+* diagnosis[da].type = PMSIMCODiagType#DA
 
 * diagnosis[dad].diagnosis[x] only CodeableConcept
 * diagnosis[dad].diagnosisCodeableConcept from CIM10PMSI
+* diagnosis[dad].type = PMSIMCODiagType#DAD
 
 
 

@@ -7,8 +7,10 @@ Usage: #example
 * created = "2024-10-10"
 * patient = Reference(Patient/patient-example-1)
 * provider = Reference(Provider/provider)
-* supportingInfo[ModeIn].sequence = 1
+* supportingInfo[ModeIn]
+  * sequence = 1
 * supportingInfo[ModeOut].sequence = 2
+
 * insurance.sequence = 1
 * insurance.focal = true
 * insurance.coverage = Reference(Coverage/test)
