@@ -31,12 +31,8 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
         ModeInCode 1..1
 
     * coding[ModeInCode]
-      * system 1..1
-      * system only uri
-      * system = $ClaimMode (exactly)
-      * code 1..1
-      * code only code
       * code = #0 (exactly)
+      * system = $ClaimMode (exactly)
       
   * value[x] only string
   * valueString ^short = "valeur du mode d'entrée"
@@ -54,12 +50,10 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
         ModeOutCode 1..1
 
     * coding[ModeOutCode]
-      * system 1..1
-      * system only uri
-      * system = $ClaimMode (exactly)
-      * code 1..1
-      * code only code
       * code = #1 (exactly)
+      * system = $ClaimMode (exactly)
+
+
 
   * value[x] only string
   * valueString ^short = "valeur du mode de sortie"
