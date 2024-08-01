@@ -7,9 +7,6 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
 * billablePeriod.start ^short = "date d'entrée dans la première unité médicale visitée"
 * billablePeriod.end ^short = "date de sortie de la dernière unité médicale visitée"
 
-// TODO all diag (CIM-10 PMSI)
-// TODO all Actes (CCAM)
-// mode d'entrée et sortie ?
 * supportingInfo ^slicing.discriminator[0].type = #value
 * supportingInfo ^slicing.discriminator[=].path = "code.coding.code"
 * supportingInfo ^slicing.discriminator[+].type = #value
@@ -58,3 +55,13 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
   * value[x] only string
   * valueString ^short = "valeur du mode de sortie"
   * valueString MS
+
+* diagnosis
+  * diagnosis[x] only CodeableConcept
+  * diagnosisCodeableConcept from CIM10PMSI
+* diagnosis MS
+
+* procedure
+  * procedure[x] only CodeableConcept
+  * procedureCodeableConcept from CCAM
+* procedure MS

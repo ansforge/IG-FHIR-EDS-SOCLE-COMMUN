@@ -1,7 +1,6 @@
 ValueSet: FrClaimType
 Title: "ValueSet des type fr des claims"
 
-* ^experimental = true
 * ^immutable = false
 
 * include codes from system FrClaimType
