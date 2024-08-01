@@ -41,8 +41,8 @@ Le profil [EDSAddress] couvre 50% des items.
 | Actes.Date du recueil de l'information | [EDSClaimRSS.created](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
 | Date de début du séjour | [EDSClaimRSS.billablePeriod.start](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
 | Date de fin du séjour | [EDSClaimRSS.billablePeriod.end](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
-| Mode d'entrée du séjour | [EDSClaimRSS.supportingInfo:ModeIn.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.value_x_) |
-| Mode de sortie du séjour | [EDSClaimRSS.supportingInfo:ModeOut.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.value_x_.2) |
+| Mode d'entrée du séjour | [EDSClaimRSS.supportingInfo:ModeIn.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.3) |
+| Mode de sortie du séjour | [EDSClaimRSS.supportingInfo:ModeOut.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.4) |
 
 Le profil [EDSPatient] couvre 11,11% des items.
 Le profil [EDSClaimRSS] couvre 72,72% des items.
