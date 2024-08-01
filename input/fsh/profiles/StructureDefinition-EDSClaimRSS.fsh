@@ -6,6 +6,7 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
 
 * billablePeriod.start ^short = "date d'entrée dans la première unité médicale visitée"
 * billablePeriod.end ^short = "date de sortie de la dernière unité médicale visitée"
+* billablePeriod MS
 
 * supportingInfo ^slicing.discriminator[0].type = #value
 * supportingInfo ^slicing.discriminator[=].path = "code.coding.code"
