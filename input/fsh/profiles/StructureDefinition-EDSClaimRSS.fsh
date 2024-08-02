@@ -16,8 +16,8 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
 * supportingInfo ^slicing.rules = #open
 * supportingInfo ^short = "supportingInfo"
 * supportingInfo contains
-    ModeIn 1..1 and
-    ModeOut 1..1
+    ModeIn 1..1 MS
+    and ModeOut 1..1 MS
 
 * supportingInfo[ModeIn]
   * category = FrClaimSupInfoCategoryPMSIMCO#RUM (exactly)
@@ -28,7 +28,7 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
     * coding ^slicing.discriminator[=].path = "system"
     * coding ^slicing.rules = #open
     * coding contains 
-        ModeInCode 1..1
+        ModeInCode 1..1 MS
 
     * coding[ModeInCode]
       * code = #0 (exactly)
@@ -47,50 +47,48 @@ Description: "Profil pour les Résumés de Sortie Standardisé (RSS) du PMSI MCO
     * coding ^slicing.discriminator[=].path = "system"
     * coding ^slicing.rules = #open
     * coding contains 
-        ModeOutCode 1..1
+        ModeOutCode 1..1 MS
 
     * coding[ModeOutCode]
       * code = #1 (exactly)
       * system = $ClaimMode (exactly)
 
-
-
   * value[x] only string
   * valueString ^short = "valeur du mode de sortie"
   * valueString MS
 
+* diagnosis MS
 * diagnosis ^slicing.discriminator[+].type = #value
 * diagnosis ^slicing.discriminator[=].path = "type"
 * diagnosis ^slicing.description = "slicing permettant de préciser le binding terminologique des codes diagnostics en fonction de leur type"
 * diagnosis ^slicing.rules = #open
 * diagnosis contains
-  dp 1..1 and
-  dr 0..1 and
-  da 0..* and
-  dad 0..*
+  dp 1..1 MS
+  and dr 0..1 MS
+  and da 0..* MS
+  and dad 0..* MS
 
-* diagnosis MS
+* diagnosis[dp]
+  * diagnosis[x] only CodeableConcept
+  * diagnosisCodeableConcept from CIM10PMSIDP
+  * type = PMSIMCODiagType#DP (exactly)
 
-* diagnosis[dp].diagnosis[x] only CodeableConcept
-* diagnosis[dp].diagnosisCodeableConcept from CIM10PMSIDP
-* diagnosis[dp].type = PMSIMCODiagType#DP
+* diagnosis[dr]
+  * diagnosis[x] only CodeableConcept
+  * diagnosisCodeableConcept from CIM10PMSIDR
+  * type = PMSIMCODiagType#DR (exactly)
 
-* diagnosis[dr].diagnosis[x] only CodeableConcept
-* diagnosis[dr].diagnosisCodeableConcept from CIM10PMSIDR
-* diagnosis[dr].type = PMSIMCODiagType#DR
+* diagnosis[da]
+  * diagnosis[x] only CodeableConcept
+  * diagnosisCodeableConcept from CIM10PMSIDA
+  * type = PMSIMCODiagType#DA (exactly)
 
-* diagnosis[da].diagnosis[x] only CodeableConcept
-* diagnosis[da].diagnosisCodeableConcept from CIM10PMSIDA
-* diagnosis[da].type = PMSIMCODiagType#DA
+* diagnosis[dad]
+  * diagnosis[x] only CodeableConcept
+  * diagnosisCodeableConcept from CIM10PMSI
+  * type = PMSIMCODiagType#DAD (exactly)
 
-* diagnosis[dad].diagnosis[x] only CodeableConcept
-* diagnosis[dad].diagnosisCodeableConcept from CIM10PMSI
-* diagnosis[dad].type = PMSIMCODiagType#DAD
-
-
-
-
+* procedure MS
 * procedure
   * procedure[x] only CodeableConcept
   * procedureCodeableConcept from CCAM
-* procedure MS
