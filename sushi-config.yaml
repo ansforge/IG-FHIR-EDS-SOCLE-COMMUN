@@ -39,6 +39,8 @@ pages:
     title: Méthode
   result.md:
     title: Résultats
+  discussion.md:
+    title: Discussion
   glossary.md:
     title: Glossaire
 
@@ -47,6 +49,7 @@ menu:
   Méthodologie:
     Méthode: method.html
     Résulats: result.html
+    Discussion: discussion.html
   Ressources de conformité: artifacts.html
   Autres ressources:
     Téléchargements et usage: downloads.html
