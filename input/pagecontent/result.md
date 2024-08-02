@@ -231,9 +231,9 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 | Taille.Date de la mesure | [EDSObservationBodyHeight.effective](StructureDefinition-EDSObservationBodyHeight.html#k-Observation.effective_x_) |
 | Taille.valeur | [EDSObservationBodyHeight.value[x]:valueQuantity.value](StructureDefinition-EDSObservationBodyHeight.html#k-Observation.value_x_.value) |
 | Taille.Unité de mesure | [EDSObservationBodyHeight.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationBodyHeight.html#k-Observation.value_x_.unit) |
-| Poids.Date de la mesure | [EDSObservationBodyWeight.effective](StructureDefinition-EDSObservationBodyHeight.html#k-Observation.Observation.effective_x_) |
-| Poids.valeur | [EDSObservationBodyWeight.value[x]:valueQuantity.value](StructureDefinition-EDSObservationBodyHeight.html#k-Observation.value_x_.value) |
-| Poids.Unité de mesure | [EDSObservationBodyWeight.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationBodyHeight.html#k-Observation.value_x_.unit) |
+| Poids.Date de la mesure | [EDSObservationBodyWeight.effective](StructureDefinition-EDSObservationBodyWeight.html#k-Observation.effective_x_) |
+| Poids.valeur | [EDSObservationBodyWeight.value[x]:valueQuantity.value](StructureDefinition-EDSObservationBodyWeight.html#k-Observation.value_x_.value) |
+| Poids.Unité de mesure | [EDSObservationBodyWeight.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationBodyWeight.html#k-Observation.value_x_.unit) |
 | Pression artérielle systolique.Date et heure de la mesure | [EDSObservationBloodPressure.effective](StructureDefinition-EDSObservationBloodPressure.html#k-Observation.effective_x_) |
 | Pression artérielle systolique.valeur | [EDSObservationBloodPressure.component:SystolicBP.value[x]:valueQuantity.value](StructureDefinition-EDSObservationBloodPressure.html#k-Observation.component.value_x_.value) |
 | Pression artérielle systolique.Unité de mesure | [EDSObservationBloodPressure.component:SystolicBP.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationBloodPressure.html#k-Observation.component.value_x_.unit) |
