@@ -252,6 +252,6 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 | Item | FHIRPath |
 |------|----------|
 | Consommation de tabac | [EDSObservationSmokingStatus] |
-| Consommation d'alcool | |
-| Consommation d'autres drogues | |
-| Activité physique | |
+| Consommation d'alcool | [EDSObservationAlcoholUseStatus] |
+| Consommation d'autres drogues | [EDSObservationSubstanceUseStatus] |
+| Activité physique | [EDSObservationExerciceStatus] |
