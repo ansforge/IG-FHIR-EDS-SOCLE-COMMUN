@@ -19,7 +19,7 @@ Description: "Profil pour la consommation de tabac."
 * category[SocialHistory] = $observation-category#social-history
 
 * code MS
-* code from SmokingStatusType (extensible)
+* code from EDSSmokingStatusType (extensible)
 * code ^short = "Smoking Status"
 * code ^condition[0] = "eds-0"
 * code ^condition[+] = "eds-1"
@@ -45,7 +45,7 @@ Description: "Profil pour la consommation de tabac."
 
 * valueCodeableConcept 0..1 MS
 * valueCodeableConcept only CodeableConcept
-* valueCodeableConcept from SmokingStatusComprehensive (extensible)
+* valueCodeableConcept from EDSSmokingStatusComprehensive (extensible)
 * valueCodeableConcept ^sliceName = "valueCodeableConcept"
 * valueCodeableConcept ^short = "Coded Response"
 * valueCodeableConcept ^binding.description = "Smoking status comprehensive"

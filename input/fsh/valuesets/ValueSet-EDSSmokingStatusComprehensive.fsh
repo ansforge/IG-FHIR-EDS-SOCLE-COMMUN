@@ -1,4 +1,4 @@
-ValueSet: SmokingStatusComprehensive
+ValueSet: EDSSmokingStatusComprehensive
 Title: "Smoking status comprehensive"
 Description: """
 (Clinical Focus: This set of values contains terms representing tobacco, e.g. nicotine, smoking, vaping, chew and snuff use or exposure.),

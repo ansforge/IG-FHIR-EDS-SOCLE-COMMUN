@@ -1,4 +1,4 @@
-ValueSet: SmokingStatusPackYearsSCT
+ValueSet: EDSSmokingStatusPackYearsSCT
 Title: "Smoking Status Pack Years SCT"
 
 * ^experimental = false

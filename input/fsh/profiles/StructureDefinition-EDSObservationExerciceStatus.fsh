@@ -23,7 +23,7 @@ Description: """
 * category[PhysicalActivity] = $observation-category#activity (exactly)
 
 * code MS
-* code from ExerciceStatusType (extensible)
+* code from EDSExerciceStatusType (extensible)
 * code ^short = "Exercice Status"
 * code ^condition[0] = "eds-exercice-minutes-per-day"
 * code ^condition[+] = "eds-exercice-days-per-week"

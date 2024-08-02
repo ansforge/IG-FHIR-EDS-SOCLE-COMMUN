@@ -1,4 +1,4 @@
-ValueSet: SmokingStatusTypeLOINC
+ValueSet: EDSSmokingStatusTypeLOINC
 Title: "Smoking Status Type from LOINC"
 
 * ^experimental = false

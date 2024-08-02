@@ -1,4 +1,4 @@
-ValueSet: ExerciceStatusType
+ValueSet: EDSExerciceStatusType
 Title: "Exercice Status Type"
 
 * ^experimental = false

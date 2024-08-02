@@ -2,6 +2,7 @@ CodeSystem: FrClaimSupInfoCategoryPMSIMCO
 Title: "Categorie d'information pour les supporting information"
 
 * ^status = #active
+* ^experimental = false
 * ^content = #complete
 * ^hierarchyMeaning = #grouped-by
 * ^caseSensitive = false
