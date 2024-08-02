@@ -222,6 +222,8 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 | Dosage.Date et heure de début de l'adminstration | |
 | Dosage.Date et heure de fin de l'adminstration | |
 
+Il existe un GT piloté par Interop'santé, on trouvera le résultat des travaux ici : https://github.com/Interop-Sante/hl7.fhir.fr.medication
+
 ### Examen clinique
 
 #### Dossier de soins
@@ -255,3 +257,7 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 | Consommation d'alcool | [EDSObservationAlcoholUseStatus] |
 | Consommation d'autres drogues | [EDSObservationSubstanceUseStatus] |
 | Activité physique | [EDSObservationExerciceStatus] |
+
+À partir des éléments trouvés dans le guide d'implémentation US Core, nous avons proposé les `StructureDefinition` adaptées pour chaque item de la rubrique "style de vie".
+
+Il est difficile de réaliser un alignement précis, car les propriétés attendues n'ont pas été définies lors du groupe de travail précédent. Ce travail reste à faire, néanmoins, cette proposition contribue à l'élaboration de ces définitions.

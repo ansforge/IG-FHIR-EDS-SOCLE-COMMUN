@@ -1,6 +1,8 @@
-A partir du fichier socle de données, rechercher dans les guides d'implémentation FHIR de l'écosystème d'abord nationaux puis européens et enfin internationaux pour identifier des profils FHIR (`StructureDefinition`) sur le périmètre.
+À partir du fichier socle de données, nous explorons les guides d'implémentation FHIR (FIG) au niveau national, puis européen, et enfin international, pour identifier des profils FHIR (`StructureDefinition`) correspondant à chaque variable socle.
 
-Puis un alignement est réalisé entre les items du fichier socle de données et les `StructureDefinition` afin de documenter le lien.
+Si un FIG est trouvé, cela signifie qu'un profil répondant précisément au besoin exprimé par cette variable existe et nous l'alignons avec la variable.
+
+Si aucun FIG n'est trouvé, nous devons alors spécifier nous-mêmes le profil afin qu'il réponde aux besoins exprimés par cette variable.
 
 <!-- If the image below is not wrapped in a div tag, the publisher tries to wrap text around the image, which is not desired. -->
 <div id="eds-method-overview">
@@ -9,4 +11,6 @@ Puis un alignement est réalisé entre les items du fichier socle de données et
     </div>
 </div>
 
-Et enfin, une proposition d'alignement à l'aide du FHIR Mapping Language (FML) permettant la transformation d'instances FHIR vers les tables OMOP (TODO ajouter doc matchbox).
+Pour chaque profil présent dans ce guide, nous devons produire un exemple d'utilisation (d'instanciation). L'utilisation du contrôle qualité à chaque étape de la création du guide permet d'évaluer la conformité du contenu.
+
+Enfin, une proposition d'alignement à l'aide du FHIR Mapping Language (FML) permet la transformation des instances FHIR vers les tables OMOP (TODO : ajouter documentation de Matchbox).
