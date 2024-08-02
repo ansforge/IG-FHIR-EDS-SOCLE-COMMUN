@@ -1,6 +1,7 @@
 ValueSet: SmokingStatusPackYearsSCT
 Title: "Smoking Status Pack Years SCT"
 
+* ^experimental = false
 * ^immutable = false
 
 * include codes from system $sct

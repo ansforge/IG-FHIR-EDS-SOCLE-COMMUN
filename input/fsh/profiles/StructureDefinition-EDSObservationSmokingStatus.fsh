@@ -1,9 +1,7 @@
 Profile: EDSObservationSmokingStatus
-Parent: http://hl7.org/fhir/StructureDefinition/Observation
+Parent: Observation
 Title: "Consommation de tabac"
 Description: "Profil pour la consommation de tabac."
-
-* ^experimental = false
 
 * obeys eds-0 and eds-1
 * . ^alias = "Obs"
