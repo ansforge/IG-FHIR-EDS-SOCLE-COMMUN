@@ -14,10 +14,10 @@ It's possible to use a bundle for other purposes (e.g. a document can be accepte
 * type from http://hl7.org/fhir/ValueSet/bundle-type (required)
 * entry 0..* BackboneElement "An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only)."
 // TODO add all necessary types
-  * person 0..1 Person "The Person for the entry. The purpose/meaning of the person is determined by the Bundle.type."
+  * person 0..1 OMOPPerson "The Person for the entry. The purpose/meaning of the person is determined by the Bundle.type."
   * person ^short = "A person in the bundle"
-  * location 0..1 Location "The Location for the entry. The purpose/meaning of the location is determined by the Bundle.type."
+  * location 0..1 OMOPLocation "The Location for the entry. The purpose/meaning of the location is determined by the Bundle.type."
   * location ^short = "A location in the bundle"
-  * death 0..1 Death "The Death for the entry. The purpose/meaning of the death is determined by the Bundle.type."
+  * death 0..1 OMOPDeath "The Death for the entry. The purpose/meaning of the death is determined by the Bundle.type."
   * death ^short = "A death in the bundle"
   

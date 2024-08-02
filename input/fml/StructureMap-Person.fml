@@ -5,7 +5,7 @@ map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Person" = "Person"
 /// status = 'draft'
 
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" as source
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Person" alias PersonTable as target
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/OMOPPerson" alias PersonTable as target
 
 group Person(source src: Patient, target tgt : PersonTable) {
 	src.id as srcId -> tgt.person_source_value = srcId;

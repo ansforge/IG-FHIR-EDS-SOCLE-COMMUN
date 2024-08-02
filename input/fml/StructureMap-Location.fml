@@ -5,7 +5,7 @@ map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location" = "Locati
 /// status = 'draft'
 
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias Patient as source
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location" alias LocationTable as target
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/OMOPLocation" alias LocationTable as target
 
 group Location(source src: Patient, target tgt : LocationTable) {
 	src.address as srcAddress then {
