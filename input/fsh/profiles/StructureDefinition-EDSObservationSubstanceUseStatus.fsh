@@ -17,19 +17,7 @@ Description: """
 * category[SocialHistory] = $observation-category#social-history
 
 * code MS
-* code
-  * coding ^slicing.discriminator[0].type = #value
-  * coding ^slicing.discriminator[=].path = "code"
-  * coding ^slicing.discriminator[+].type = #value
-  * coding ^slicing.discriminator[=].path = "system"
-  * coding ^slicing.rules = #open
-  * coding contains 
-    Loinc 1..1 MS 
-    and SmomedCT 1..1 MS
-
-  * coding[Loinc] = $loinc#11343-1 "History of Other nonmedical drug use" (exactly)
-  * coding[SmomedCT] = $sct#228366006 "Finding relating to drug misuse behavior (finding)" (exactly)
-  
+* code = $loinc#11343-1 "History of Other nonmedical drug use" (exactly)
   * text = "Substance use status" (exactly)
 
 * subject 1..1 MS
