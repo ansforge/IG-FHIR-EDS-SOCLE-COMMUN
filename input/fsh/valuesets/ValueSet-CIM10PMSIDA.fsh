@@ -1,5 +1,5 @@
 ValueSet: CIM10PMSIDA
-Title: "Liste des diagnostiques CIM-10 acceptable en DR pour les PMSI MCO et HAD"
+Title: "Liste des diagnostiques CIM-10 acceptable en DA pour les PMSI MCO et HAD"
 
 * ^experimental = false
 * ^immutable = false

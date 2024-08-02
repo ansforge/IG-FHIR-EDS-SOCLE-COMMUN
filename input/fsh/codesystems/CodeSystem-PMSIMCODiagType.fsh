@@ -1,6 +1,7 @@
 CodeSystem: PMSIMCODiagType
 Title: "type de diagnostic du PMSI MCO"
 
+* ^status = #active
 * ^content = #complete
 * ^hierarchyMeaning = #grouped-by
 * ^caseSensitive = false

@@ -18,7 +18,6 @@ Description: """
     where concept is-a #699009004
 * include codes from system $sct
     where concept is-a #16090371000119103
-* include codes from system $sct
-    where concept = #16090771000119104
+* include $sct#16090771000119104
 * include codes from system $sct
     where concept is-a #275105001
