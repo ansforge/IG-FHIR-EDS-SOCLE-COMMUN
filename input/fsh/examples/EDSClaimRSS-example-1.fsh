@@ -22,7 +22,6 @@ Usage: #example
   * focal = true
   * coverage = Reference(Coverage/coverage-example-1)
 
-
 * diagnosis[dp]
   * diagnosisCodeableConcept = CIM10#S09
   * sequence = 1
