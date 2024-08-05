@@ -14,5 +14,9 @@ group Location(source src: Patient, target tgt : LocationTable) {
 		srcAddress.city as srcCity -> tgt.city = srcCity;
 		srcAddress.postalCode as srcZip -> tgt.zip = srcZip;
 		srcAddress.text as srcText -> tgt.location_source_value = truncate(srcText, 50);
+		srcAddress.extension as geolocation where (url = 'http://hl7.org/fhir/StructureDefinition/geolocation') then {
+			geolocation.extension as latitude where (url = 'latitude') -> tgt.latitude = (%latitude.value) "setLatitude";
+			geolocation.extension as longitude where (url = 'longitude') -> tgt.longitude = (%longitude.value) "setLongitude";
+		} "setGeolocation";
 	};
 }
