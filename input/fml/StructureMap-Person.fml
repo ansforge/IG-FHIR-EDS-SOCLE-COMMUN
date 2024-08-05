@@ -18,8 +18,8 @@ group Person(source src: Patient, target tgt : PersonTable) {
   } "gender";
   src.birthDate as srcBirthDate then {
     srcBirthDate -> tgt.birth_datetime = srcBirthDate "dateTime";
-    srcBirthDate -> tgt.year_of_birth = (srcBirthDate.toString().substring(0, 4).toInteger()) "year";
-    srcBirthDate -> tgt.month_of_birth = (srcBirthDate.toString().substring(5, 2).toInteger()) "month";
-  	srcBirthDate -> tgt.day_of_birth = (srcBirthDate.toString().substring(8, 2).toInteger()) "day";
+    srcBirthDate -> tgt.year_of_birth = evaluate(src, srcBirthDate.toString().substring(0, 4).toInteger()) "year";
+    srcBirthDate -> tgt.month_of_birth = evaluate(src, srcBirthDate.toString().substring(5, 2).toInteger()) "month";
+  	srcBirthDate -> tgt.day_of_birth = evaluate(src, srcBirthDate.toString().substring(8, 2).toInteger()) "day";
   } "birthDate";
 }
