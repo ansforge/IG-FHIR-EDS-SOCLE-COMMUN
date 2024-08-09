@@ -198,31 +198,29 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 
 | Item | FHIRPath |
 |------|----------|
-| Médicament prescrit |  |
-| Médicament prescrit.Libellé UCD |  |
-| Médicament prescrit.Libellé DCI |  |
-| Médicament prescrit.Libellé commercial |  |
-| Médicament prescrit.Code UCD |  |
-| Médicament prescrit.Code ATC |  |
-| Médicament prescrit.Code CIP 13 |  |
-| Médicament prescrit.Voie d'administration |  |
-| Posologie.Valeur | |
-| Posologie.Date de début de la prescription | |
-| Posologie.Date de fin de la prescription | |
-| Médicament administré | |
-| Médicament administré.Libellé UCD |  |
-| Médicament administré.Libellé DCI |  |
-| Médicament administré.Libellé commercial |  |
-| Médicament administré.Code UCD |  |
-| Médicament administré.Code ATC |  |
-| Médicament administré.Code CIP 13 |  |
-| Médicament administré.Voie d'administration |  |
-| Dosage.Valeur | |
-| Dosage.Unité | |
-| Dosage.Date et heure de début de l'adminstration | |
-| Dosage.Date et heure de fin de l'adminstration | |
+| Médicament prescrit.Libellé UCD | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Libellé DCI | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Libellé commercial | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Code UCD | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Code ATC | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Code CIP 13 | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Voie d'administration | [MedicationRequest.dosageInstruction.route](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.route) |
+| Posologie.Valeur | [MedicationRequest.dosageInstruction.doseAndRate](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.doseAndRate) |
+| Posologie.Date de début de la prescription | [MedicationRequest.dosageInstruction.timing](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.timing) |
+| Posologie.Date de fin de la prescription | [MedicationRequest.dosageInstruction.timing](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.timing) |
+| Médicament administré.Libellé UCD | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Libellé DCI | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Libellé commercial | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Code UCD | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Code ATC | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Code CIP 13 | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Voie d'administration | [MedicationAdministration.dosage.route](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.dosage.route) |
+| Dosage.Valeur | [MedicationAdministration.dosage.dose.value](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.dosage.dose) |
+| Dosage.Unité | [MedicationAdministration.dosage.dose.unit](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.dosage.dose) |
+| Dosage.Date et heure de début de l'adminstration | [MedicationAdministration.effective\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.effective_x_) |
+| Dosage.Date et heure de fin de l'adminstration | [MedicationAdministration.effective\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.effective_x_) |
 
-Il existe un GT piloté par Interop'santé, on trouvera le résultat des travaux ici : https://github.com/Interop-Sante/hl7.fhir.fr.medication
+Cet alignement s'appuie sur les travaux du GT Medication piloté par Interop'santé, on trouvera le résultat des travaux [ici](https://github.com/Interop-Sante/hl7.fhir.fr.medication).
 
 ### Examen clinique
 

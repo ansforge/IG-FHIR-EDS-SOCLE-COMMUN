@@ -19,3 +19,6 @@ Alias: $fr-core-cs-TRE-R32-StatutHospitalier = https://mos.esante.gouv.fr/NOS/TR
 
 // ValueSet from FrCore
 Alias: $fr-core-vs-patient-gender-INS        = https://hl7.fr/ig/fhir/core/ValueSet/fr-core-vs-patient-gender-INS
+
+// Valueset from FrMedication
+Alias: $SIPh-CIO_UCD                         = http://phast.fr/fhir/ValueSet/Pharmacy/CIOdc/SIPh-CIO_UCD
