@@ -20,7 +20,7 @@ import java.nio.file.Files
 plugins {
     id("java")
     id("com.github.node-gradle.node") version "7.0.2"
-    id("de.undercouch.download") version "5.5.0"
+    id("de.undercouch.download") version "5.6.0"
 }
 
 group = "fr.health-data-hub"

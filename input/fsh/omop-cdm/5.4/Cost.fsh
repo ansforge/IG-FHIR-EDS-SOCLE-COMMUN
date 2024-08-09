@@ -1,6 +1,5 @@
-Logical: Cost
+Logical: OMOPCost
 Parent: Base
-Id: Cost
 Characteristics: #can-be-target
 Title: "Cost OMOP Table"
 Description: "The COST table captures records containing the cost of any medical event recorded in one of the OMOP clinical event tables such as DRUG_EXPOSURE, PROCEDURE_OCCURRENCE, VISIT_OCCURRENCE, VISIT_DETAIL, DEVICE_OCCURRENCE, OBSERVATION or MEASUREMENT.
@@ -12,8 +11,8 @@ Each record in the cost table account for the amount of money transacted for the
 * cost_event_id 1..1 integer "Cost Event Identifier" ""
 //* cost_domain_id 1..1 Reference(CostDomain)
 * cost_domain_id 1..1 string "Cost Domain Identifier" ""
-* cost_type_concept_id 1..1 Reference(Concept) "Cost Type" ""
-* currency_concept_id 0..1 Reference(Concept) "Currency" ""
+* cost_type_concept_id 1..1 Reference(OMOPConcept) "Cost Type" ""
+* currency_concept_id 0..1 Reference(OMOPConcept) "Currency" ""
 * total_charge 0..1 integer "Total Charge" ""
 * total_cost 0..1 integer "Total Cost" ""
 * total_paid 0..1 integer "Total Paid" ""
@@ -25,9 +24,9 @@ Each record in the cost table account for the amount of money transacted for the
 * paid_by_primary 0..1 integer "Paid by Primary" ""
 * paid_ingredient_cost 0..1 integer "Paid Ingredent Cost" ""
 * paid_dispensing_fee 0..1 integer "Paid Dispensing Fee" ""
-* payer_plan_period_id 0..1 Reference(PayerPlanPeriod) "Payer Plan Period" ""
+* payer_plan_period_id 0..1 Reference(OMOPPayerPlanPeriod) "Payer Plan Period" ""
 * amount_allowed 0..1 integer "Amount Allowed" ""
-* revenue_code_concept_id 0..1 Reference(Concept) "Revenue Code" ""
+* revenue_code_concept_id 0..1 Reference(OMOPConcept) "Revenue Code" ""
 * revenue_code_source_value 0..1 string "Revenue Code Source Value" "Revenue codes are a method to charge for a class of procedures and conditions in the U.S. hospital system."
 * drg_concept_id 0..1 integer "Diagnosis Related Groups" ""
 * drg_source_value 0..1 string "Diagnosis Related Groups Source Value" "Diagnosis Related Groups are US codes used to classify hospital cases into one of approximately 500 groups."

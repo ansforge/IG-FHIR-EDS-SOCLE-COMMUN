@@ -1,0 +1,22 @@
+@host = http://localhost:8080/matchboxv3/fhir
+
+### returns metadata configuration for server, verify that you have in implementation description "Development Mode"
+GET {{host}}/metadata HTTP/1.1
+Accept: application/fhir+json;fhirVersion=4.0
+Origin: http://localhost
+
+### Creation/Mise à jour de la map : create the resource on the server
+POST {{host}}/StructureMap HTTP/1.1
+Accept: application/fhir+json
+Content-Type: text/fhir-mapping
+
+< ../input/fml/StructureMap-Person.fml
+
+### Exécution de la map : transform the provided questionnaire response to patient resource with using mapUrl structuremap
+@mapID = Person
+POST {{host}}/StructureMap/$transform?source=https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/{{mapID}}
+Accept: application/fhir+json
+Content-Type: application/fhir+json
+
+< ../fsh-generated/resources/Patient-patient-example-1.json
+

@@ -20,6 +20,7 @@ dependencies:
 # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 parameters:
   shownav: 'true'
+  path-binary: input/attachments
   path-resource:
     - input/fml
 #  logging:
@@ -34,12 +35,25 @@ pages:
     title: Accueil
   downloads.md:
     title: Téléchargements et usages
+  method.md:
+    title: Méthode
+  result.md:
+    title: Résultats
+  discussion.md:
+    title: Discussion
+  glossary.md:
+    title: Glossaire
 
 menu:
   Accueil: index.html
+  Méthodologie:
+    Méthode: method.html
+    Résulats: result.html
+    Discussion: discussion.html
   Ressources de conformité: artifacts.html
   Autres ressources:
     Téléchargements et usage: downloads.html
+    Glossaire: glossary.html
     "Spécifications FHIR ": new-tab {{site.data.fhir.path}}index.html
     "Site de l'ANS ": new-tab https://esante.gouv.fr/
     "Site d'InteropSanté ": new-tab https://www.interopsante.org/

@@ -5,7 +5,7 @@ map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location" = "Locati
 /// status = 'draft'
 
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias Patient as source
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/Location" alias LocationTable as target
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/OMOPLocation" alias LocationTable as target
 
 group Location(source src: Patient, target tgt : LocationTable) {
 	src.address as srcAddress then {
@@ -14,5 +14,9 @@ group Location(source src: Patient, target tgt : LocationTable) {
 		srcAddress.city as srcCity -> tgt.city = srcCity;
 		srcAddress.postalCode as srcZip -> tgt.zip = srcZip;
 		srcAddress.text as srcText -> tgt.location_source_value = truncate(srcText, 50);
+		srcAddress.extension as geolocation where (url = 'http://hl7.org/fhir/StructureDefinition/geolocation') then {
+			geolocation.extension as latitude where (url = 'latitude') -> tgt.latitude = (%latitude.value) "setLatitude";
+			geolocation.extension as longitude where (url = 'longitude') -> tgt.longitude = (%longitude.value) "setLongitude";
+		} "setGeolocation";
 	};
 }

@@ -1,6 +1,5 @@
-Logical: Location
+Logical: OMOPLocation
 Parent: Base
-Id: Location
 Characteristics: #can-be-target
 Title: "Location OMOP Table"
 Description: "The LOCATION table represents a generic way to capture physical location or address information of Persons and Care Sites."
@@ -13,7 +12,7 @@ Description: "The LOCATION table represents a generic way to capture physical lo
 * zip	0..1	string	"Zip Code" ""
 * county	0..1	string	"County" ""
 * location_source_value	0..1	string	"Location Identifier Source Value" ""
-* country_concept_id	0..1	Reference(Concept)	"Country" "The Concept Id representing the country. Values should conform to the [Geography](https://athena.ohdsi.org/search-terms/terms?domain=Geography&standardConcept=Standard&page=1&pageSize=15&query=&boosts) domain."
+* country_concept_id	0..1	Reference(OMOPConcept)	"Country" "The Concept Id representing the country. Values should conform to the [Geography](https://athena.ohdsi.org/search-terms/terms?domain=Geography&standardConcept=Standard&page=1&pageSize=15&query=&boosts) domain."
 * country_source_value	0..1	string	"Country Source Value" "The name of the country."
 * latitude	0..1	decimal	"Latitude" ""
 * longitude	0..1	decimal	"Longitude" ""
