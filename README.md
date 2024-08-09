@@ -1,6 +1,6 @@
 # Guide d'implémentation FHIR du GT Standards et Interopérabilité
 
-Ce guide peut être visible à l'adresse suivante : https://ansforge.github.io/IG-FHIR-EDS-SOCLE-COMMUN/ig/main/.
+Ce guide peut être visible à l'adresse suivante : https://ansforge.github.io/IG-FHIR-EDS-SOCLE-COMMUN.
 
 ## Contexte
 
