@@ -34,6 +34,14 @@ Dans le script gradle se trouve de nombreuses tâches dont les plus importantes 
 * reBuildIG : supprime les répertoires créés lors d'une construction puis lance la construction. Il n'est pas nécessaire de faire appel à cette tâche systèmatiquement (cf. la description de la tâche buildIG). Cette tâche très utile lors d'un changement de version de l'IG Publisher.
 * sushiBuild : lance seuelement l'outil sushi (partique dans un contexte de cycle court de définition de fichiers FSH).
 
+### Validation des structureMap
+
+Suivre la documentation dans le dosier input\resources\structuremap-validation. 
+
+#### Prérequis 
+- instance matchbox correctement parametrer
+- module client REST dans votre IDE
+
 ## Acronymes
 
 * IG : Implementation Guide

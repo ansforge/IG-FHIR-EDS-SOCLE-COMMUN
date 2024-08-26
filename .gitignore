@@ -16,3 +16,4 @@ Thumbs.db
 /build
 /node_modules
 package-lock.json
+/input/resources/structuremap-validation/local
