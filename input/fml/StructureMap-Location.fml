@@ -20,3 +20,16 @@ group Location(source src: Patient, target tgt : LocationTable) {
 		} "setGeolocation";
 	};
 }
+
+group MultiLocation(source src, target tgt : LocationTable) {
+	src.line first as srcLine1 -> tgt.address_1 = srcLine1 "setLineOne";
+	src.line not_first as srcLine2 -> tgt.address_2 = srcLine2 "setLineTwo";
+	src.city as srcCity -> tgt.city = srcCity "setCity";
+	src.postalCode as srcZip -> tgt.zip = srcZip "setZip";
+	src.country as srcCountry -> tgt.country_source_value = srcCountry "setCountry";
+	src.text as srcText -> tgt.location_source_value = truncate(srcText, 50) "setVerbatim";
+	src.extension as geolocation where (url = 'http://hl7.org/fhir/StructureDefinition/geolocation') then {
+		geolocation.extension as latitude where (url = 'latitude') -> tgt.latitude = (%latitude.value) "setLatitude";
+		geolocation.extension as longitude where (url = 'longitude') -> tgt.longitude = (%longitude.value) "setLongitude";
+	} "setGeolocation";
+}
