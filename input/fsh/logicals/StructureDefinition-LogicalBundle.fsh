@@ -20,4 +20,5 @@ It's possible to use a bundle for other purposes (e.g. a document can be accepte
   * location ^short = "A location in the bundle"
   * death 0..1 OMOPDeath "The Death for the entry. The purpose/meaning of the death is determined by the Bundle.type."
   * death ^short = "A death in the bundle"
-  
+  * measurement 0..* OMOPMeasurement "Measuremente for the entry. The purpose/meaning of the measurements is determined by the Bundle.type."
+  * measurement ^short = "Masurement(s) in the bundle"
