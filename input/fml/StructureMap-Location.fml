@@ -4,11 +4,12 @@ map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location" = "Locati
 /// title = 'Mapping Patient resource to Location OMOP Domain'
 /// status = 'draft'
 
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias Patient as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias EDSPatient as source
+uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSAddress" alias EDSAddress as source
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/OMOPLocation" alias LocationTable as target
 
-group Location(source src: Patient, target tgt : LocationTable) {
-	src.address as srcAddress then {
+group Location(source src: EDSPatient, target tgt: LocationTable) {
+	src.address as srcAddress where use = 'home' and period.end.empty() then {
 		srcAddress.line first as srcLine1 -> tgt.address_1 = srcLine1;
 		srcAddress.line last as srcLine2 where srcLine1 != srcLine2  -> tgt.address_2 = srcLine2;
 		srcAddress.city as srcCity -> tgt.city = srcCity;
@@ -21,7 +22,7 @@ group Location(source src: Patient, target tgt : LocationTable) {
 	};
 }
 
-group MultiLocation(source src, target tgt : LocationTable) {
+/*group MultiLocation(source src: EDSAddress, target tgt: LocationTable) {
 	src.line first as srcLine1 -> tgt.address_1 = srcLine1 "setLineOne";
 	src.line not_first as srcLine2 -> tgt.address_2 = srcLine2 "setLineTwo";
 	src.city as srcCity -> tgt.city = srcCity "setCity";
@@ -32,4 +33,4 @@ group MultiLocation(source src, target tgt : LocationTable) {
 		geolocation.extension as latitude where (url = 'latitude') -> tgt.latitude = (%latitude.value) "setLatitude";
 		geolocation.extension as longitude where (url = 'longitude') -> tgt.longitude = (%longitude.value) "setLongitude";
 	} "setGeolocation";
-}
+}*/
