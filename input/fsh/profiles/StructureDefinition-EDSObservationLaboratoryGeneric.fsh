@@ -27,10 +27,10 @@ Profil générique des résultats de laboratoire du socle commun des EDS.
 
 * obeys eds-lab-2
 
-* component.code MS
-* component.code from EDSLaboratory (required) // créer le VS et le CS
-
-* component.value[x] MS
-* component.value[x] obeys eds-lab-1
-
+* component MS
 * component obeys eds-lab-2
+  * code MS
+  * code from EDSLaboratory (required) // créer le VS et le CS
+
+  * value[x] MS
+  * value[x] obeys eds-lab-1
