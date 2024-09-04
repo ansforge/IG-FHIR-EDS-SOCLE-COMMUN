@@ -23,7 +23,7 @@ plugins {
     id("de.undercouch.download") version "5.6.0"
 }
 
-group = "fr.health-data-hub"
+group = "fr.gouv.esante"
 version = File(projectDir.absolutePath,"sushi-config.yaml")
     .readLines()
     .find {
