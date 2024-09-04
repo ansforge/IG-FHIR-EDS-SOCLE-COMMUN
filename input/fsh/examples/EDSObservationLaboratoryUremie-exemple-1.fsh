@@ -3,9 +3,6 @@ InstanceOf: EDSObservationLaboratoryUremie
 Usage: #example
 
 * status = #final
-* category = $observation-category#laboratory
-* code = $loinc#22664-7 "Urée [Moles/Volume] Sérum/Plasma ; Numérique"
-* code.text = "Urémie"
 * subject = Reference(Patient/patient-example-1)
 * performer = Reference(PractitionerRole/practitioner-role-example-1)
 * effectiveDateTime = "2024-08-27T09:00:00+01:00"

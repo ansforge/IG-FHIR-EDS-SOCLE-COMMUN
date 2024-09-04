@@ -9,9 +9,9 @@ Profil des estimation de DFG du socle commun des EDS
 
 * value[x] only Quantity
 * valueQuantity.value ^short = "Valeur mesurée"
-* valueQuantity.system 1..
-* valueQuantity.system = "http://unitsofmeasure.org" 
+* valueQuantity.system = "http://unitsofmeasure.org" (exactly) 
 * valueQuantity.code 1..
 * valueQuantity.code from EDSLaboratoryEstimatedDFGUnit (extensible)
 
 * referenceRange 1..
+* referenceRange MS

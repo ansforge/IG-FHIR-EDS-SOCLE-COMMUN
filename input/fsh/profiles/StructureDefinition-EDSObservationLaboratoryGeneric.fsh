@@ -11,7 +11,7 @@ Profil générique des résultats de laboratoire du socle commun des EDS.
 
 * category MS
 * category 1..1
-* category = $observation-category#laboratory
+* category = $observation-category#laboratory (exactly)
 
 * code MS
 * code from EDSLaboratory (required)
@@ -34,14 +34,3 @@ Profil générique des résultats de laboratoire du socle commun des EDS.
 * component.value[x] obeys eds-lab-1
 
 * component obeys eds-lab-2
-
-
-Invariant: eds-lab-1
-Description: "SHALL use UCUM for coded quantity units"
-Severity: #error
-Expression: "ofType(Quantity).system.empty() or ofType(Quantity).system = 'http://unitsofmeasure.org'"
-
-Invariant: eds-lab-2
-Description: "Value and referenceRange SHALL have the same unit"
-Severity: #error
-Expression: "((referenceRange.low.code in (value.ofType(Quantity).code)) or referenceRange.low.code.empty()) and ((referenceRange.high.code in (value.ofType(Quantity).code)) or referenceRange.high.code.empty())"

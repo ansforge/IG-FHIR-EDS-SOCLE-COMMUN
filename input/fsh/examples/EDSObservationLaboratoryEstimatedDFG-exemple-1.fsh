@@ -3,7 +3,6 @@ InstanceOf: EDSObservationLaboratoryEstimatedDFG
 Usage: #example
 
 * status = #final
-* category = $observation-category#laboratory
 * code = $loinc#77147-7 "Filtration glomérulaire corrigée/1,73m2 calculée [Volume arbitraire/Temps] Sérum/Plasma/Sang ; Numérique ; Formule MDRD"
 * code.text = "DFG (MDRD)"
 * subject = Reference(Patient/patient-example-1)

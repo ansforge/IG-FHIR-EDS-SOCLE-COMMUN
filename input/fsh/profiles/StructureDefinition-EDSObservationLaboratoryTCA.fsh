@@ -5,7 +5,7 @@ Description: """
 Profil des résultats de TCA - socle commun des EDS
 """
 
-* code = $loinc#50197-3 "Temps de céphaline activée panel [-] Plasma pauvre en plaquettes ; Numérique"
+* code = $loinc#50197-3 "Temps de céphaline activée panel [-] Plasma pauvre en plaquettes ; Numérique" (exactly)
 
 * component ^slicing.discriminator[0].type = #value
 * component ^slicing.discriminator[=].path = "code"
@@ -17,18 +17,18 @@ Profil des résultats de TCA - socle commun des EDS
     TCARatioPonC 1..1 MS
 
 * component[PatientTCA] ^short = "pour rapporter le TCA patient."
-* component[PatientTCA].code = $loinc#14979-9 
+* component[PatientTCA].code = $loinc#14979-9 (exactly)
 * component[PatientTCA].value[x] only Quantity
 * component[PatientTCA].valueQuantity ^short = "Valeur mesurée"
-* component[PatientTCA].valueQuantity = $ucum#s
+* component[PatientTCA].valueQuantity = $ucum#s (exactly)
 
 * component[ControlTCA] ^short = "pour rapporter le TCA témoin."
-* component[ControlTCA].code = $loinc#13488-2 
+* component[ControlTCA].code = $loinc#13488-2 (exactly)
 * component[ControlTCA].value[x] only Quantity
 * component[ControlTCA].valueQuantity ^short = "Valeur mesurée"
-* component[ControlTCA].valueQuantity = $ucum#s
+* component[ControlTCA].valueQuantity = $ucum#s (exactly)
 
 * component[TCARatioPonC] ^short = "pour rapporter le ratio des TCA P/T."
-* component[TCARatioPonC].code = $loinc#63561-5 
+* component[TCARatioPonC].code = $loinc#63561-5 (exactly)
 * component[TCARatioPonC].value[x] only Quantity
 * component[TCARatioPonC].valueQuantity ^short = "Valeur mesurée"
