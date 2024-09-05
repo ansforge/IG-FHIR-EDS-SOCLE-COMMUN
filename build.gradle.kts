@@ -40,6 +40,9 @@ defaultTasks(
     "buildIG"
 )
 
+/*
+ * Installation de sushi dans la version spécifiée dans le fichier gradle.properties.
+ */
 val sushiInstall = tasks.register<NpmTask>("sushiInstall") {
     args.set(
         listOf(
@@ -54,6 +57,9 @@ val sushiInstall = tasks.register<NpmTask>("sushiInstall") {
     )
 }
 
+/*
+ * Execution de sushi
+ */
 val sushiBuild = tasks.register<NpxTask>("sushiBuild") {
     command.set("sushi")
     args.set(
@@ -67,6 +73,9 @@ val sushiBuild = tasks.register<NpxTask>("sushiBuild") {
     )
 }
 
+/*
+ * Installation de l'IG Publisher dans la version spécifiée dans le fichier gradle.properties.
+ */
 val igPublisherPath = "input-cache/publisher.jar"
 val igPublisherInstall = tasks.register<Task>("igPublisherInstall") {
     group = "build setup"
@@ -94,6 +103,9 @@ val igPublisherInstall = tasks.register<Task>("igPublisherInstall") {
     }
 }
 
+/*
+ * Execution de l'IG Publisher (sans sushi)
+ */
 val igPublisherBuild = tasks.register<JavaExec>("igPublisherBuild") {
     group = "build"
 
@@ -110,6 +122,9 @@ val igPublisherBuild = tasks.register<JavaExec>("igPublisherBuild") {
     )
 }
 
+/*
+ * Execution de sushi suivi de l'IG Publisher
+ */
 val buildIG = tasks.register<GradleBuild>("buildIG") {
     group = "build"
 
@@ -119,6 +134,9 @@ val buildIG = tasks.register<GradleBuild>("buildIG") {
     )
 }
 
+/*
+ * Suppression des fichiers de cache puis execution de sushi suivi de l'IG Publisher
+ */
 val reBuildIG = tasks.register<GradleBuild>("reBuildIG") {
     group = "build"
 
@@ -129,6 +147,9 @@ val reBuildIG = tasks.register<GradleBuild>("reBuildIG") {
     )
 }
 
+/*
+ * Suppression des fichiers de cache
+ */
 val cleanIG = tasks.register<Delete>("cleanIG") {
     group = "build"
 
