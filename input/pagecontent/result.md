@@ -41,8 +41,8 @@ Le profil [EDSAddress] couvre 50% des items.
 | Actes.Date du recueil de l'information | [EDSClaimRSS.created](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
 | Date de début du séjour | [EDSClaimRSS.billablePeriod.start](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
 | Date de fin du séjour | [EDSClaimRSS.billablePeriod.end](StructureDefinition-EDSClaimRSS.html#k-Claim.created) |
-| Mode d'entrée du séjour | [EDSClaimRSS.supportingInfo:ModeIn.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.3) |
-| Mode de sortie du séjour | [EDSClaimRSS.supportingInfo:ModeOut.value[x].valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.4) |
+| Mode d'entrée du séjour | [EDSClaimRSS.supportingInfo:ModeIn.value[x]:valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.3) |
+| Mode de sortie du séjour | [EDSClaimRSS.supportingInfo:ModeOut.value[x]:valueString](StructureDefinition-EDSClaimRSS.html#k-Claim.supportingInfo.4) |
 
 Le profil [EDSPatient] couvre 11,11% des items.
 Le profil [EDSClaimRSS] couvre 72,72% des items.
@@ -198,22 +198,22 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 
 | Item | FHIRPath |
 |------|----------|
-| Médicament prescrit.Libellé UCD | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
-| Médicament prescrit.Libellé DCI | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
-| Médicament prescrit.Libellé commercial | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
-| Médicament prescrit.Code UCD | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
-| Médicament prescrit.Code ATC | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
-| Médicament prescrit.Code CIP 13 | [MedicationRequest.medication\[x\]](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Libellé UCD | [MedicationRequest.medication\[x\]:FrMedicationUcd.code.text](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Libellé DCI | [MedicationRequest.medication\[x\]:FrMedicationNonproprietaryName.code.text](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Libellé commercial | [MedicationRequest.medication\[x\].code.text](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Code UCD | [MedicationRequest.medication\[x\]:FrMedicationUcd.code.coding\[0\].code](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Code ATC | [MedicationRequest.medication\[x\].code.coding\[0\].code](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
+| Médicament prescrit.Code CIP 13 | [MedicationRequest.medication\[x\].code.coding\[0\].code](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.medication_x_) |
 | Médicament prescrit.Voie d'administration | [MedicationRequest.dosageInstruction.route](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.route) |
 | Posologie.Valeur | [MedicationRequest.dosageInstruction.doseAndRate](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.doseAndRate) |
 | Posologie.Date de début de la prescription | [MedicationRequest.dosageInstruction.timing](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.timing) |
 | Posologie.Date de fin de la prescription | [MedicationRequest.dosageInstruction.timing](StructureDefinition-EDSMedicationRequest.html#k-MedicationRequest.dosageInstruction.timing) |
-| Médicament administré.Libellé UCD | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
-| Médicament administré.Libellé DCI | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
-| Médicament administré.Libellé commercial | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
-| Médicament administré.Code UCD | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
-| Médicament administré.Code ATC | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
-| Médicament administré.Code CIP 13 | [MedicationAdministration.medication\[x\]](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Libellé UCD | [MedicationAdministration.medication\[x\]:FrMedicationUcd.code.text](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Libellé DCI | [MedicationAdministration.medication\[x\]:FrMedicationNonproprietaryName.code.text](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Libellé commercial | [MedicationAdministration.medication\[x\].code.text](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Code UCD | [MedicationAdministration.medication\[x\]:FrMedicationUcd.code.coding\[0\].code](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Code ATC | [MedicationAdministration.medication\[x\].code.coding\[0\].code](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
+| Médicament administré.Code CIP 13 | [MedicationAdministration.medication\[x\].code.coding\[0\].code](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.medication_x_) |
 | Médicament administré.Voie d'administration | [MedicationAdministration.dosage.route](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.dosage.route) |
 | Dosage.Valeur | [MedicationAdministration.dosage.dose.value](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.dosage.dose) |
 | Dosage.Unité | [MedicationAdministration.dosage.dose.unit](StructureDefinition-EDSMedicationAdministration.html#k-MedicationAdministration.dosage.dose) |
