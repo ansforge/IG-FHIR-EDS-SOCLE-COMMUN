@@ -1,5 +1,5 @@
 Instance: practitioner-role-example-1
-InstanceOf: FRCorePractitionerRoleExercice
+InstanceOf: FrCorePractitionerRole
 Description: "Exemple de ressource practitioner"
 Usage: #example
 
