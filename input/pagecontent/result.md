@@ -2,7 +2,7 @@
 
 Les résultats sont présentés par groupe d'items tel que définit dans le fichier socle de données.
 
-### Données soci-démographiques
+### Données socio-démographiques
 
 #### Identité patient
 

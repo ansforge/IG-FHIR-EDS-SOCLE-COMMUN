@@ -58,7 +58,7 @@ Les ressources StructureMap écrit à l'aide du FML peuvent être executés afin
 
 Il existe de nombreuses solutions permettant l'execution d'un fichier FML. Nous nous proposons de décrire l'installation et l'utilisation de la solution [Matchbox](https://github.com/ahdis/matchbox).
 
-Par la suite, nous considerons que les notions relatives à l'utilisation de l'outil `git` sont connues du lecteur. La première étape que nous recommandons est de créer un fork du projet [Matchbox](https://github.com/ahdis/matchbox) et de ce positionner sur le commit de la dernière release. La gestion des dépendances de ce projet est réalisée par maven, nous précisons cela car ce projet est multimodule et va nécéssiter de modifier deux sous-modules. Comme précisé précédement ce projet est composé de trois sous-module :
+Par la suite, nous considerons que les notions relatives à l'utilisation de l'outil `git` sont connues du lecteur. La première étape que nous recommandons est de créer un fork du projet [Matchbox](https://github.com/ahdis/matchbox) et de se positionner sur le commit de la dernière release. La gestion des dépendances de ce projet est réalisée par maven, nous précisons cela car ce projet est multimodule et va nécéssiter de modifier deux sous-modules. Comme précisé précédement ce projet est composé de trois sous-module :
 
 1. matchbox-engine
 2. matchbox-frontend

@@ -15,7 +15,7 @@ copyrightYear: 2024+
 releaseLabel: ci-build # ci-build: the continuous integration build release (not stable), draft: draft version, qa-preview: frozen snapshot for non-ballot feedback, ballot: frozen snapshot for ballot, trial-use: official release with ‘trial use’ status, release: official release for use, update: official release with ‘trial use’ status - posted as an un-balloted STU update, normative+trial-use: official release with mixture of trial use and normative content
 
 dependencies:
-  hl7.fhir.fr.core: 2.1.0
+  hl7.fhir.fr.core: 2.1.0-ballot
 
 # see https://confluence.hl7.org/display/FHIR/Implementation+Guide+Parameters
 parameters:
