@@ -1,7 +1,8 @@
 map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Patient" = "Patient"
 
 /// name = 'Patient'
-/// title = 'Mapping Patient resource to Person, Location and Death OMOP Domain'
+/// title = 'FHIR EDS Patient to Tables CDM OMOP'
+/// description = 'Cette ressource présente les spécifications de l\'alignement entre la ressource `EDSPatient` vers les tables correspodantes du CDM OMOP.'
 /// status = 'draft'
 
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias EDSPatient as source
