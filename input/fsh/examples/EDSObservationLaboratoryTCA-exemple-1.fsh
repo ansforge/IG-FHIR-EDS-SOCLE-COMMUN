@@ -14,3 +14,5 @@ Usage: #example
 
 //* component[TCARatioPonC].code = $loinc#63561-5
 * component[TCARatioPonC].valueQuantity.value = 1.06
+* component[TCARatioPonC].referenceRange.low.value = 0.8
+* component[TCARatioPonC].referenceRange.high.value = 1.2

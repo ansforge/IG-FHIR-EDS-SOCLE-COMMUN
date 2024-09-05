@@ -34,3 +34,5 @@ Profil générique des résultats de laboratoire du socle commun des EDS.
 
   * value[x] MS
   * value[x] obeys eds-lab-1
+
+  * referenceRange MS
