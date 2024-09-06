@@ -40,4 +40,6 @@ Liste des analyses LOINC correspondant aux besoins du socle EDS et extrait du je
 * include $loinc#4548-4
 * include $loinc#59261-8
 
-* include $loinc#50197-3 // code utile pour aggréger les résultats de TCA
+* include $loinc#50197-3 // code demande TCA
+* include $loinc#45066-8 // code demande fonction rénale
+
