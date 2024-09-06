@@ -64,9 +64,9 @@ Par la suite, nous considerons que les notions relatives à l'utilisation de l'o
 2. matchbox-frontend
 3. matchbox-server
 
-Dans le sous-module matchbox-engine, nous devons ajouter dans le répoertoire `src/main/resources` toutes les dépendances du guide d'implémentation y compris le packages du standard FHIR.
+Dans le sous-module matchbox-engine, nous devons ajouter dans le répertoire `src/main/resources` les packages de ce guide d'implémentation et de toutes ses dépendances, y compris le packages du standard FHIR.
 
-Puis dans le sous-module matchbox-server, nous devons ajouter ces dépendances dans le fichier `src/main/resources/application.yml` à la section `hapi.fhir.implementationguides`. Aussi dans la section `matchbox.fhir.context.onlyOneEngine` fixer à `true`.
+Puis dans le sous-module matchbox-server, nous devons ajouter ces packages dans le fichier `src/main/resources/application.yml` à la section `hapi.fhir.implementationguides`. Aussi dans la section `matchbox.fhir.context.onlyOneEngine` fixer à `true`.
 
 Une fois ces deux étapes de spécialisation au contexte du contenu de ce guide d'implémentation, nous devons constuire le projet, puis l'image Docker et enfin créer le conteneur. Comme pour l'utilisation de l'outil git, nous considérons que le lecteur est au fait de l'installation et de l'utilisation de `maven` et de `docker`.
 
@@ -80,7 +80,7 @@ Nous vous recommandons l'installation de l'extension [humao.rest-client](https:/
 
 Dans le répertoire test du projet, se trouve des fichiers avec l'extension *.http. Ce sont des fichiers permettant de créer une ressource StructureMap à partir d'un fichier FML et de lancer son execution.
 
-Un fichier *.http se décompose en trois parties : 
+Ces fichiers *.http se décompose en trois parties : 
 
 1. Permet de vérfier que l'instance de matchbox est bien en "Development Mode" ;
 2. Permet de créer/mettre à jour la ressource StructureMap à partir d'un fichier FML ; 
