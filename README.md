@@ -14,7 +14,7 @@ Cette proposition s’appuie dans un premier temps sur la réponse qu’apporte 
 
 Dans un second temps, la ressource OMOP s’érige également comme étant le modèle le mieux connu et maîtrisé par les membres du GT, qui représentent également un large panel de professionnels de santé (médecins, médecins DIM, data ingénieurs, etc.). Ainsi, il a semblé judicieux de proposer des spécifications applicables à un grand nombre d'établissements de santé, ayant les ressources en interne pour mettre en place et maintenir cette standardisation.
 
-Néanmoins, ce standard présente une structure figée et spécifique et est peu évolutif, ce qui dresse ses limites face aux possibilités qu’offre le standard FHIR. Aussi, un sous-groupe dédié à des spécifications en FHIR a-t-il été lancé en parallèle des travaux en OMOP.
+Néanmoins, ce standard présente une structure figée et spécifique et est peu évolutif, ce qui dresse ses limites face aux possibilités qu’offre le standard FHIR. Aussi, un sous-groupe dédié à des spécifications en FHIR a été lancé en parallèle des travaux en OMOP.
 
 L’objectif de ce sous-groupe est la création d'un guide d'implémentation FHIR pour quelques variables du socle, afin de proposer une méthode et une démarche à suivre.
 
