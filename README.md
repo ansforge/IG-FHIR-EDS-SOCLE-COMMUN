@@ -50,7 +50,7 @@ Dans le script gradle se trouve de nombreuses tâches dont les plus importantes 
 
 ## Execution des ressources StructureMap
 
-Les ressources StructureMap écrit à l'aide du FML peuvent être executés afin de vérifier que les attendus du processus de transformation soient conforme aux spécifications.
+Les ressources StructureMap écrites à l'aide du FML peuvent être exécutées afin de vérifier que les attendus du processus de transformation soient conforme aux spécifications.
 
 ### Mise en oeuvre de l'environnement d'execution des fichiers FML
 
