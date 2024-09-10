@@ -1,14 +1,14 @@
 <p style="padding: 5px; border-radius: 5px; border: 2px solid maroon; background: #ffffe6; width: 65%">
-<b>Brief description of this Implementation Guide</b><br>
-[Add a brief description of this IG in English]
+  <b>Brief description of this Implementation Guide</b><br>
+  [Add a brief description of this IG in English]
 </p>
 
 <div style="width: 65%">
-    <blockquote class="stu-note">
-        <p>
-            <b>Attention !</b> Ce guide d'implémentation a été publié pour récolter les commentaires de l'écosystème et gagner en maturité à partir des travaux menés par le HDH. Si ces travaux vous intéressent et que vous souhaitez contribuer, faites en part en issue GitHub ou en faisant directement une Pull Request.
-        </p>
-    </blockquote>
+  <blockquote class="stu-note">
+    <p>
+      <b>Attention !</b> Ce guide d'implémentation a été publié pour récolter les commentaires de l'écosystème et gagner en maturité à partir des travaux menés par le HDH. Si ces travaux vous intéressent et que vous souhaitez contribuer, faites en part en issue GitHub ou en faisant directement une Pull Request.
+    </p>
+  </blockquote>
 </div>
 
 ### Introduction
@@ -32,6 +32,8 @@ L’objectif de ce sous-groupe est la création d'un guide d'implémentation FHI
 | Role               | Nom          | Organisation | Contact              |
 |--------------------|--------------|--------------|----------------------|
 | **Primary Editor** | David Ouagne | APHP         | david.ouagne@aphp.fr |
+| **Primary Editor** | Nicolas Griffon | APHP         | nicolas.griffon@aphp.fr |
+| **Contributor** | Christophe André | APHP         | christophe.andre@aphp.fr |
 
 ### Dépendances
 

@@ -1,1 +1,7 @@
-// TODO put here discussion topics
+
+* FHIR peut être considéré comme un DSL (Domain-Specific Language) dédié à la modélisation des données dans le domaine de la santé. Il prend en compte les exigences d'interopérabilité, notamment en définissant des structures formelles pour assurer une interopérabilité syntaxique, ainsi qu'une stratégie pour associer ces structures à des terminologies (interopérabilité sémantique). De plus, FHIR est accompagné de guides de mise en œuvre (FHIR Implementation Guides ou FIG) qui détaillent les cas d'usage et la gouvernance, renforçant ainsi l'interopérabilité organisationnelle. Les FIG sont des outils beaucoup plus interessant que des outils bureautiques (ex. MS Excel) pour la production de spécification de variables en santé.
+* **PMSI** s'appuie sur les travaux menés à l'APHP visant à proposer des profils FHIR pour le PMSI.
+* **Exposition médicamenteuse** s'appuie sur les travaux d'Interop'santé visant à proposer les profils FHIR pour le circuit du médicament en France.
+* **Style de vie** doit être amélioré dans la définition des variables, les variables proposés s'appuies sur [le guide d'implémentation FHIR US Core](https://www.hl7.org/fhir/us/core/).
+* **Biologie** Le regroupement des résultats d'analyses biologique au sein de ressource observation repose notament sur les regroupement existant dans le [jeu de valeur "circuit de la biologie"](https://bioloinc.fr/bioloinc/KB/index#Group:uri=http://aphp.fr/Bioloinc/JDV_LOINC_Biologie;) construit sous l'égide de l'agence du numérique en santé (ANS). Tous les résultats d'analyse n'ont pour le moment pas été traité. 
+* La ressource `ValueSet` permet d'adresser les besoins en matière de liste de codes pour une propriété d'un profil (ex. PMSI).
