@@ -4,25 +4,10 @@ map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Location" = "Locati
 /// title = 'Mapping Patient resource to Location OMOP Domain'
 /// status = 'draft'
 
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias EDSPatient as source
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSAddress" alias EDSAddress as source
+uses "http://hl7.org/fhir/StructureDefinition/Address" alias Address as source
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/OMOPLocation" alias LocationTable as target
 
-group Location(source src: EDSPatient, target tgt: LocationTable) {
-	src.address as srcAddress where use = 'home' and period.end.empty() then {
-		srcAddress.line first as srcLine1 -> tgt.address_1 = srcLine1;
-		srcAddress.line last as srcLine2 where srcLine1 != srcLine2  -> tgt.address_2 = srcLine2;
-		srcAddress.city as srcCity -> tgt.city = srcCity;
-		srcAddress.postalCode as srcZip -> tgt.zip = srcZip;
-		srcAddress.text as srcText -> tgt.location_source_value = truncate(srcText, 50);
-		srcAddress.extension as geolocation where (url = 'http://hl7.org/fhir/StructureDefinition/geolocation') then {
-			geolocation.extension as latitude where (url = 'latitude') -> tgt.latitude = (%latitude.value) "setLatitude";
-			geolocation.extension as longitude where (url = 'longitude') -> tgt.longitude = (%longitude.value) "setLongitude";
-		} "setGeolocation";
-	};
-}
-
-/*group MultiLocation(source src: EDSAddress, target tgt: LocationTable) {
+group Location(source src: Address, target tgt: LocationTable) {
 	src.line first as srcLine1 -> tgt.address_1 = srcLine1 "setLineOne";
 	src.line not_first as srcLine2 -> tgt.address_2 = srcLine2 "setLineTwo";
 	src.city as srcCity -> tgt.city = srcCity "setCity";
@@ -33,4 +18,4 @@ group Location(source src: EDSPatient, target tgt: LocationTable) {
 		geolocation.extension as latitude where (url = 'latitude') -> tgt.latitude = (%latitude.value) "setLatitude";
 		geolocation.extension as longitude where (url = 'longitude') -> tgt.longitude = (%longitude.value) "setLongitude";
 	} "setGeolocation";
-}*/
+}
