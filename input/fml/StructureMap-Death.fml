@@ -4,10 +4,10 @@ map "https://interop.esante.gouv.fr/ig/fhir/eds/StructureMap/Death" = "Death"
 /// title = 'Mapping Patient resource to Death OMOP Domain'
 /// status = 'draft'
 
-uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/EDSPatient" alias EDSPatient as source
+uses "http://hl7.org/fhir/StructureDefinition/Patient" alias Patient as source
 uses "https://interop.esante.gouv.fr/ig/fhir/eds/StructureDefinition/OMOPDeath" alias DeathTable as target
 
-group Death(source src: EDSPatient, target tgt: DeathTable) {
+group Death(source src: Patient, target tgt: DeathTable) {
   src.deceased : dateTime as srcDeceased then {
     srcDeceased -> tgt.death_datetime = srcDeceased "setDeathDT";
     srcDeceased -> tgt.death_date = 
