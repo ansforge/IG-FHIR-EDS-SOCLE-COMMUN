@@ -23,16 +23,18 @@ Profil générique des résultats de laboratoire du socle commun des EDS.
 * effective[x] MS
 
 * value[x] MS
-* value[x] obeys eds-lab-1
 
+* obeys eds-lab-1
 * obeys eds-lab-2
+* obeys eds-lab-3
+* obeys eds-lab-4
+* obeys eds-lab-5
+* obeys eds-lab-6
 
 * component MS
-* component obeys eds-lab-2
   * code MS
   * code from EDSLaboratory (required) // créer le VS et le CS
 
   * value[x] MS
-  * value[x] obeys eds-lab-1
 
   * referenceRange MS
