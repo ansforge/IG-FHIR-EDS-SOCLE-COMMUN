@@ -55,196 +55,149 @@ La variable `Code géographique de résidence` n'a pas grand sens dans le mesure
 
 | Item | FHIRPath |
 |------|----------|
-| Dosage de l'urée dans le sang.Date et heure du prélèvement | [EDSObservationLaboratoryUremie.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.effective[x]) |
-| Dosage de l'urée dans le sang.Statut de validation | [EDSObservationLaboratoryUremie.status](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.status) |
-| Dosage de l'urée dans le sang.Valeur | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.value[x].value) |
-| Dosage de l'urée dans le sang.Code de l'unité de mesure | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.value[x].code) |
-| Dosage de l'urée dans le sang.CodeSystem de l'unité de mesure | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.value[x].system) |
-| Dosage de l'urée dans le sang.Label de l'unité de mesure | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.value[x].unit) |
-| Dosage de l'urée dans le sang.Borne inférieure de normalité du résultat | [EDSObservationLaboratoryUremie.referenceRange.low](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.referenceRange.low) |
-| Dosage de l'urée dans le sang.Borne supérieure de normalité du résultat | [EDSObservationLaboratoryUremie.referenceRange.high](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#Observation.referenceRange.high) |
-| Créatininémie.Date et heure du prélèvement | [EDSObservationLaboratoryFonctionRenale.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.effective[x]) |
-| Créatininémie.Statut de validation | [EDSObservationLaboratoryFonctionRenale.status](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.status) |
-| Créatininémie.Valeur | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].value) |
-| Créatininémie.Code de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].code) |
-| Créatininémie.CodeSystem de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].system) |
-| Créatininémie.Label de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].unit) |
-| Créatininémie.Borne inférieure de normalité du résultat | [EDSObservationLaboratoryCreatininemie.component:Creat.referenceRange.low](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.referenceRange.low) |
-| Créatininémie.Borne supérieure de normalité du résultat | [EDSObservationLaboratoryCreatininemie.component:Creat.referenceRange.high](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.referenceRange.high) |
-| Débit de filtration glomérulaire (DFG).Date et heure du prélèvement | [EDSObservationLaboratoryFonctionRenale.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.effective[x]) |
-| Débit de filtration glomérulaire (DFG).Statut de validation | [EDSObservationLaboratoryFonctionRenale.status](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.status) |
-| Débit de filtration glomérulaire (DFG).Valeur | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].value) |
-| Débit de filtration glomérulaire (DFG).Code de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].code) |
-| Débit de filtration glomérulaire (DFG).CodeSystem de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].system) |
-| Débit de filtration glomérulaire (DFG).Label de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.value[x].unit) |
-| Débit de filtration glomérulaire (DFG).Borne inférieure de normalité du résultat | [EDSObservationLaboratoryFonctionRenale.component:DFG.referenceRange.low](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#Observation.component:Creat.referenceRange.low) |
-| Débit de filtration glomérulaire (DFG).Borne supérieure de normalité du résultat | NA |
+| Dosage de l'urée dans le sang.Date et heure du prélèvement | [EDSObservationLaboratoryUremie.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#key_Observation.effective[x]) |
+| Dosage de l'urée dans le sang.Statut de validation | [EDSObservationLaboratoryUremie.status](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#key_Observation.status) |
+| Dosage de l'urée dans le sang.Valeur | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#key_Observation.value[x]) |
+| Dosage de l'urée dans le sang.Code de l'unité de mesure | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#key_Observation.value[x].code) |
+| Dosage de l'urée dans le sang.CodeSystem de l'unité de mesure | [EDSObservationLaboratoryUremie.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#key_Observation.value[x].system) |
+| Dosage de l'urée dans le sang.Bornes de normalité du résultat | [EDSObservationLaboratoryUremie.referenceRange](StructureDefinition-EDSObservationLaboratoryUremie-definitions.html#key_Observation.referenceRange) |
+| Créatininémie.Date et heure du prélèvement | [EDSObservationLaboratoryFonctionRenale.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.effective[x]) |
+| Créatininémie.Statut de validation | [EDSObservationLaboratoryFonctionRenale.status](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.status) |
+| Créatininémie.Valeur | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Creat.value[x]) |
+| Créatininémie.Code de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Creat.value[x].code) |
+| Créatininémie.CodeSystem de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:Creat.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Creat.value[x].system) |
+| Créatininémie.Bornes de normalité du résultat | [EDSObservationLaboratoryCreatininemie.component:Creat.referenceRange](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Creat.referenceRange) |
+| Débit de filtration glomérulaire (DFG).Date et heure du prélèvement | [EDSObservationLaboratoryFonctionRenale.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.effective[x]) |
+| Débit de filtration glomérulaire (DFG).Statut de validation | [EDSObservationLaboratoryFonctionRenale.status](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.status) |
+| Débit de filtration glomérulaire (DFG).Valeur | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Dfg.value[x]) |
+| Débit de filtration glomérulaire (DFG).Code de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Dfg.value[x].code) |
+| Débit de filtration glomérulaire (DFG).CodeSystem de l'unité de mesure | [EDSObservationLaboratoryFonctionRenale.component:DFG.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Dfg.value[x].system) |
+| Débit de filtration glomérulaire (DFG).Bornes de normalité du résultat | [EDSObservationLaboratoryFonctionRenale.component:DFG.referenceRange](StructureDefinition-EDSObservationLaboratoryFonctionRenale-definitions.html#key_Observation.component:Dfg.referenceRange) |
 | Leucocytes.Date et heure du prélèvement | |
 | Leucocytes.Statut de validation | |
 | Leucocytes.Valeur |  |
 | Leucocytes.Code de l'unité de mesure | |
 | Leucocytes.CodeSystem de l'unité de mesure | |
-| Leucocytes.Label de l'unité de mesure | |
-| Leucocytes.Borne inférieure de normalité du résultat | |
-| Leucocytes.Borne supérieure de normalité du résultat | |
+| Leucocytes.Bornes de normalité du résultat | |
 | Hémoglobine.Date et heure du prélèvement | |
 | Hémoglobine.Statut de validation | |
 | Hémoglobine.Valeur | |
 | Hémoglobine.Code de l'unité de mesure | |
 | Hémoglobine.CodeSystem de l'unité de mesure | |
-| Hémoglobine.Label de l'unité de mesure | |
-| Hémoglobine.Borne inférieure de normalité du résultat | |
-| Hémoglobine.Borne supérieure de normalité du résultat | |
+| Hémoglobine.Bornes de normalité du résultat | |
 | Hématocrite.Date et heure du prélèvement | |
 | Hématocrite.Statut de validation | |
 | Hématocrite.Valeur |
 | Hématocrite.Code de l'unité de mesure | |
 | Hématocrite.CodeSystem de l'unité de mesure | |
-| Hématocrite.Label de l'unité de mesure | |
-| Hématocrite.Borne inférieure de normalité du résultat | |
-| Hématocrite.Borne supérieure de normalité du résultat | |
+| Hématocrite.Bornes de normalité du résultat | |
 | Globules rouges.Date et heure du prélèvement | |
 | Globules rouges.Statut de validation | |
 | Globules rouges.Valeur | |
 | Globules rouges.Code de l'unité de mesure | |
 | Globules rouges.CodeSystem de l'unité de mesure | |
-| Globules rouges.Label de l'unité de mesure | |
-| Globules rouges.Borne inférieure de normalité du résultat | |
-| Globules rouges.Borne supérieure de normalité du résultat | |
+| Globules rouges.Bornes de normalité du résultat | |
 | Volume Globulaire Moyen (VGM).Date et heure du prélèvement | |
 | Volume Globulaire Moyen (VGM).Statut de validation | |
 | Volume Globulaire Moyen (VGM).Valeur | |
 | Volume Globulaire Moyen (VGM).Code de l'unité de mesure | |
 | Volume Globulaire Moyen (VGM).CodeSystem de l'unité de mesure | |
-| Volume Globulaire Moyen (VGM).Label de l'unité de mesure | |
-| Volume Globulaire Moyen (VGM).Borne inférieure de normalité du résultat | |
-| Volume Globulaire Moyen (VGM).Borne supérieure de normalité du résultat | |
+| Volume Globulaire Moyen (VGM).Bornes de normalité du résultat | |
 | Plaquettes.Date et heure du prélèvement | |
 | Plaquettes.Statut de validation | |
 | Plaquettes.Valeur | |
 | Plaquettes.Code de l'unité de mesure | |
 | Plaquettes.CodeSystem de l'unité de mesure | |
-| Plaquettes.Label de l'unité de mesure | |
-| Plaquettes.Borne inférieure de normalité du résultat | |
-| Plaquettes.Borne supérieure de normalité du résultat | |
+| Plaquettes.Bornes de normalité du résultat | |
 | Neutrophiles.Date et heure du prélèvement | |
 | Neutrophiles.Statut de validation | |
 | Neutrophiles.Valeur | |
 | Neutrophiles.Code de l'unité de mesure | |
 | Neutrophiles.CodeSystem de l'unité de mesure | |
-| Neutrophiles.Label de l'unité de mesure | |
-| Neutrophiles.Borne inférieure de normalité du résultat | |
-| Neutrophiles.Borne supérieure de normalité du résultat | |
+| Neutrophiles.Bornes de normalité du résultat | |
 | Lymphocytes.Date et heure du prélèvement | |
 | Lymphocytes.Statut de validation | |
 | Lymphocytes.Valeur | |
 | Lymphocytes.Code de l'unité de mesure | |
 | Lymphocytes.CodeSystem de l'unité de mesure | |
-| Lymphocytes.Label de l'unité de mesure | |
-| Lymphocytes.Borne inférieure de normalité du résultat | |
-| Lymphocytes.Borne supérieure de normalité du résultat | |
+| Lymphocytes.Bornes de normalité du résultat | |
 | Eosinophiles.Date et heure du prélèvement | |
 | Eosinophiles.Statut de validation | |
 | Eosinophiles.Valeur | |
 | Eosinophiles.Code de l'unité de mesure | |
 | Eosinophiles.CodeSystem de l'unité de mesure | |
-| Eosinophiles.Label de l'unité de mesure | |
-| Eosinophiles.Borne inférieure de normalité du résultat | |
-| Eosinophiles.Borne supérieure de normalité du résultat | |
+| Eosinophiles.Bornes de normalité du résultat | |
 | Monocytes.Date et heure du prélèvement | |
 | Monocytes.Statut de validation | |
 | Monocytes.Valeur | | 
 | Monocytes.Code de l'unité de mesure | |
 | Monocytes.CodeSystem de l'unité de mesure | |
-| Monocytes.Label de l'unité de mesure | |
-| Monocytes.Borne inférieure de normalité du résultat | |
-| Monocytes.Borne supérieure de normalité du résultat | |
+| Monocytes.Bornes de normalité du résultat | |
 | Taux de prothrombine (TP).Date et heure du prélèvement | |
 | Taux de prothrombine (TP).Statut de validation | |
 | Taux de prothrombine (TP).Valeur | |
 | Taux de prothrombine (TP).Code de l'unité de mesure | |
 | Taux de prothrombine (TP).CodeSystem de l'unité de mesure | |
-| Taux de prothrombine (TP).Label de l'unité de mesure | |
-| Taux de prothrombine (TP).Borne inférieure de normalité du résultat | |
-| Taux de prothrombine (TP).Borne supérieure de normalité du résultat | |
-| Temps de céphaline activée (TCA).Date et heure du prélèvement | [EDSObservationLaboratoryTCA.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.effective[x]) |
+| Taux de prothrombine (TP).Bornes de normalité du résultat | |
+| Temps de céphaline activée (TCA).Date et heure du prélèvement | [EDSObservationLaboratoryTCA.effective[x]:effectiveDateTime](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.effective[x]) |
 | Temps de céphaline activée (TCA).Statut de validation | [EDSObservationLaboratoryTCA.status](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.status) |
-| Temps de céphaline activée (TCA).Valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:ControlTCA.value[x].value) |
-| Temps de céphaline activée (TCA).Code de l'unité de la valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:ControlTCA.value[x].code) |
-| Temps de céphaline activée (TCA).CodeSystem de l'unité de la valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:ControlTCA.value[x].system) |
-| Temps de céphaline activée (TCA).Label de l'unité de la valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:ControlTCA.value[x].unit) |
-| Temps de céphaline activée (TCA).Valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:PatientTCA.value[x].value) |
-| Temps de céphaline activée (TCA).Code de l'unité de la valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:PatientTCA.value[x].code) |
-| Temps de céphaline activée (TCA).CodeSystem de l'unité de la valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:PatientTCA.value[x].system) |
-| Temps de céphaline activée (TCA).Label de l'unité de la valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.unit](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:PatientTCA.value[x].unit) |
-| Temps de céphaline activée (TCA).ratio | [EDSObservationLaboratoryTCA.component:TCARatioPonC.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:TCARatioPonC.value[x]) |
-| Temps de céphaline activée (TCA).Borne inférieure de normalité du ratio | [EDSObservationLaboratoryTCA.component:TCARatioPonC.referenceRange.low](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:TCARatioPonC.referenceRange.low) |
-| Temps de céphaline activée (TCA).Borne supérieure de normalité du ratio | [EDSObservationLaboratoryTCA.component:TCARatioPonC.referenceRange.high](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:TCARatioPonC.referenceRange.high) |
-| Temps de céphaline activée (TCA).indice de Rosner | [EDSObservationLaboratoryTCA.component:RosnerIndex.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#Observation.component:RosnerIndex.value[x]) |
+| Temps de céphaline activée (TCA).Valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:ControlTCA.value[x]) |
+| Temps de céphaline activée (TCA).Code de l'unité de la valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:ControlTCA.value[x].code) |
+| Temps de céphaline activée (TCA).CodeSystem de l'unité de la valeur témoin | [EDSObservationLaboratoryTCA.component:ControlTCA.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:ControlTCA.value[x].system) |
+| Temps de céphaline activée (TCA).Valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:PatientTCA.value[x]) |
+| Temps de céphaline activée (TCA).Code de l'unité de la valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.code](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:PatientTCA.value[x].code) |
+| Temps de céphaline activée (TCA).CodeSystem de l'unité de la valeur patient | [EDSObservationLaboratoryTCA.component:PatientTCA.value[x]:valueQuantity.system](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:PatientTCA.value[x].system) |
+| Temps de céphaline activée (TCA).ratio | [EDSObservationLaboratoryTCA.component:TCARatioPonC.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:TCARatioPonC) |
+| Temps de céphaline activée (TCA).Bornes de normalité du ratio | [EDSObservationLaboratoryTCA.component:TCARatioPonC.referenceRange](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:TCARatioPonC.referenceRange) |
+| Temps de céphaline activée (TCA).indice de Rosner | [EDSObservationLaboratoryTCA.component:TCARatioPonC.value[x]:valueQuantity.value](StructureDefinition-EDSObservationLaboratoryTCA-definitions.html#key_Observation.component:TCARatioPonC.value[x]) |
 | Aspartate aminotransférase (AST).Date et heure du prélèvement | |
 | Aspartate aminotransférase (AST).Statut de validation | |
 | Aspartate aminotransférase (AST).Valeur | | 
 | Aspartate aminotransférase (AST).Code de l'unité de mesure | |
 | Aspartate aminotransférase (AST).CodeSystem de l'unité de mesure | |
-| Aspartate aminotransférase (AST).Label de l'unité de mesure | |
-| Aspartate aminotransférase (AST).Borne inférieure de normalité du résultat | |
-| Aspartate aminotransférase (AST).Borne supérieure de normalité du résultat | |
+| Aspartate aminotransférase (AST).Bornes de normalité du résultat | |
 | Alanine aminotransférase (ALT).Date et heure du prélèvement | |
 | Alanine aminotransférase (ALT).Statut de validation | |
 | Alanine aminotransférase (ALT).Valeur | | 
 | Alanine aminotransférase (ALT).Code de l'unité de mesure | |
 | Alanine aminotransférase (ALT).CodeSystem de l'unité de mesure | |
-| Alanine aminotransférase (ALT).Label de l'unité de mesure | |
-| Alanine aminotransférase (ALT).Borne inférieure de normalité du résultat | |
-| Alanine aminotransférase (ALT).Borne supérieure de normalité du résultat | |
+| Alanine aminotransférase (ALT).Bornes de normalité du résultat | |
 | Gamma-glutamyl transférase (GGT).Date et heure du prélèvement | |
 | Gamma-glutamyl transférase (GGT).Statut de validation | |
 | Gamma-glutamyl transférase (GGT).Valeur | | 
 | Gamma-glutamyl transférase (GGT).Code de l'unité de mesure | |
 | Gamma-glutamyl transférase (GGT).CodeSystem de l'unité de mesure | |
-| Gamma-glutamyl transférase (GGT).Label de l'unité de mesure | |
-| Gamma-glutamyl transférase (GGT).Borne inférieure de normalité du résultat | |
-| Gamma-glutamyl transférase (GGT).Borne supérieure de normalité du résultat | |
+| Gamma-glutamyl transférase (GGT).Bornes de normalité du résultat | |
 | Phosphatases alcalines (PAL).Date et heure du prélèvement | |
 | Phosphatases alcalines (PAL).Statut de validation | |
 | Phosphatases alcalines (PAL).Valeur | | 
 | Phosphatases alcalines (PAL).Code de l'unité de mesure | |
 | Phosphatases alcalines (PAL).CodeSystem de l'unité de mesure | |
-| Phosphatases alcalines (PAL).Label de l'unité de mesure | |
-| Phosphatases alcalines (PAL).Borne inférieure de normalité du résultat | |
-| Phosphatases alcalines (PAL).Borne supérieure de normalité du résultat | |
+| Phosphatases alcalines (PAL).Bornes de normalité du résultat | |
 | Bilirubine totale.Date et heure du prélèvement | |
 | Bilirubine totale.Statut de validation | |
 | Bilirubine totale.Valeur | | 
 | Bilirubine totale.Code de l'unité de mesure | |
 | Bilirubine totale.CodeSystem de l'unité de mesure | |
-| Bilirubine totale.Label de l'unité de mesure | |
-| Bilirubine totale.Borne inférieure de normalité du résultat | |
-| Bilirubine totale.Borne supérieure de normalité du résultat | |
+| Bilirubine totale.Bornes de normalité du résultat | |
 | Bilirubine conjuguée.Date et heure du prélèvement | |
 | Bilirubine conjuguée.Statut de validation | |
 | Bilirubine conjuguée.Valeur | | 
 | Bilirubine conjuguée.Code de l'unité de mesure | |
 | Bilirubine conjuguée.CodeSystem de l'unité de mesure | |
-| Bilirubine conjuguée.Label de l'unité de mesure | |
-| Bilirubine conjuguée.Borne inférieure de normalité du résultat | |
-| Bilirubine conjuguée.Borne supérieure de normalité du résultat | |
+| Bilirubine conjuguée.Bornes de normalité du résultat | |
 | Glycémie à jeun.Date et heure du prélèvement | |
 | Glycémie à jeun.Statut de validation | |
 | Glycémie à jeun.Valeur | | 
 | Glycémie à jeun.Code de l'unité de mesure | |
 | Glycémie à jeun.CodeSystem de l'unité de mesure | |
-| Glycémie à jeun.Label de l'unité de mesure | |
-| Glycémie à jeun.Borne inférieure de normalité du résultat | |
-| Glycémie à jeun.Borne supérieure de normalité du résultat | |
+| Glycémie à jeun.Bornes de normalité du résultat | |
 | Hémoglobine glyquée.Date et heure du prélèvement | |
 | Hémoglobine glyquée.Statut de validation | |
 | Hémoglobine glyquée.Valeur | | 
 | Hémoglobine glyquée.Code de l'unité de mesure | |
 | Hémoglobine glyquée.CodeSystem de l'unité de mesure | |
-| Hémoglobine glyquée.Label de l'unité de mesure | |
-| Hémoglobine glyquée.Borne inférieure de normalité du résultat | |
-| Hémoglobine glyquée.Borne supérieure de normalité du résultat | |
+| Hémoglobine glyquée.Bornes de normalité du résultat | |
 
 Seul quatre analyses ont été traitées : urémie, créatininémie, estimation du DFG et TCA. L'approche est a priori simple à généraliser pour les données du socle commun. 
 
