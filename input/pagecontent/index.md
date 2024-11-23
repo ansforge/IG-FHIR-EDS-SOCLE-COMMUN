@@ -34,7 +34,3 @@ L’objectif de ce sous-groupe est la création d'un guide d'implémentation FHI
 | **Primary Editor** | David Ouagne | APHP         | david.ouagne@aphp.fr |
 | **Primary Editor** | Nicolas Griffon | APHP         | nicolas.griffon@aphp.fr |
 | **Contributor** | Christophe André | APHP         | christophe.andre@aphp.fr |
-
-### Dépendances
-
-{% include dependency-table.xhtml %}

@@ -33,6 +33,8 @@ parameters:
 pages:
   index.md:
     title: Accueil
+  automatical.md:
+    title: Analyse automatique
   downloads.md:
     title: Téléchargements et usages
   method.md:
@@ -54,6 +56,7 @@ menu:
   Autres ressources:
     Téléchargements et usage: downloads.html
     Glossaire: glossary.html
+    Analyse automatique: automatical.html
     "Spécifications FHIR ": new-tab {{site.data.fhir.path}}index.html
     "Site de l'ANS ": new-tab https://esante.gouv.fr/
     "Site d'InteropSanté ": new-tab https://www.interopsante.org/
