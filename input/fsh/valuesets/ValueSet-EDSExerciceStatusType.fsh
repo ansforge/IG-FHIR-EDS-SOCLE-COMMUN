@@ -1,5 +1,6 @@
 ValueSet: EDSExerciceStatusType
 Title: "Exercice Status Type"
+Description: "Type d'activité physique"
 
 * ^experimental = false
 * ^immutable = false

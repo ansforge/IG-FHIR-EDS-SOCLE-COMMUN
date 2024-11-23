@@ -1,5 +1,6 @@
 ValueSet: EDSSmokingStatusPackYearsSCT
 Title: "Smoking Status Pack Years SCT"
+Description: "Type de statut tabagique en provenance de SNOMED CT"
 
 * ^experimental = false
 * ^immutable = false

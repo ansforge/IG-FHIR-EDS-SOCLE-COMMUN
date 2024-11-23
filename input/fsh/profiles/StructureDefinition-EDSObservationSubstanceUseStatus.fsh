@@ -8,12 +8,11 @@ Description: """
 * status MS
 
 * category MS
-* category ^slicing.discriminator.type = #pattern
+* category ^slicing.discriminator.type = #value
 * category ^slicing.discriminator.path = "$this"
 * category ^slicing.rules = #open
 * category contains 
   SocialHistory 1..1 MS
-
 * category[SocialHistory] = $observation-category#social-history
 
 * code MS
