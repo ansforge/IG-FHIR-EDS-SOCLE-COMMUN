@@ -1,5 +1,6 @@
 ValueSet: EDSSmokingStatusTypeLOINC
 Title: "Smoking Status Type from LOINC"
+Description: "Type de statut tabagique en provenance de LOINC"
 
 * ^experimental = false
 * ^immutable = false

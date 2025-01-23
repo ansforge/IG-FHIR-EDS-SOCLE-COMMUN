@@ -1,5 +1,8 @@
 Instance: substance-use-status-example-1
 InstanceOf: EDSObservationSubstanceUseStatus
+Description: """Cet exemple illustre l'usage du profil EDSObservationSubstanceUseStatus.<br />
+Le 03/08/2023, la patiente déclare avoir consommé d'amphetamine 3 fois dans l'année (sans ordonnance).
+"""
 Usage: #example
 
 * status = #final

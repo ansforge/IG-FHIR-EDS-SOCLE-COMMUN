@@ -1,5 +1,8 @@
 Instance: alcohol-use-status-example-1
 InstanceOf: EDSObservationAlcoholUseStatus
+Description: """Cet exemple illustre l'usage du profil EDSObservationAlcoholUseStatus.<br />
+A la date du 03/08/2023, le patient a déclaré être un consommateur d'alcohol occasionel.
+"""
 Usage: #example
 
 * status = #final

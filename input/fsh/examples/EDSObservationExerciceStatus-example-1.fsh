@@ -1,5 +1,8 @@
 Instance: exercise-status-example-1
 InstanceOf: EDSObservationExerciceStatus
+Description: """Cet exemple illustre l'usage du profil EDSObservationExerciceStatus.<br />
+Le 03/08/2023, un Praticien hospitalier temps plein déclare que la patiente fait de l'exercice 3 fois par semaine.
+"""
 Usage: #example
 
 * status = #final

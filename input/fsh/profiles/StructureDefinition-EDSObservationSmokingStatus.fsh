@@ -12,7 +12,7 @@ Description: "Profil pour la consommation de tabac."
 * status ^short = "final | entered-in-error"
 
 * category MS
-* category ^slicing.discriminator.type = #pattern
+* category ^slicing.discriminator.type = #value
 * category ^slicing.discriminator.path = "$this"
 * category ^slicing.rules = #open
 * category contains SocialHistory 1..1 MS
